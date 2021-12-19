@@ -18,12 +18,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Install deps
       - run: yarn install
-
-      - name: Lint
-        run: yarn lint
-
-      - name: Test
-        run: yarn test
+      - run: yarn lint
+      - run: yarn test

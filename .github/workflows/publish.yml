@@ -22,13 +22,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Install deps and build (with cache)
         - run: yarn install
         - run: yarn build
-
-      - name: Publish to NPM
-      - run: yarn semantic-release
+        - run: yarn semantic-release
 
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
