@@ -1,6 +1,6 @@
 {
   "name": "dorai-ui",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Dorai-ui offers a bunch of accessible, styleless, dry react components.",
   "author": "watife",
   "license": "MIT",
@@ -17,11 +17,13 @@
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
+    "commit": "cz",
     "test:lint": "eslint",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "semantic-release": "semantic-release --branches main"
   },
   "peerDependencies": {
     "react": "^16.0.0"
@@ -38,6 +40,7 @@
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
@@ -58,9 +61,15 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
+    "semantic-release": "^18.0.1",
     "typescript": "^3.8"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

@@ -1,10 +1,14 @@
-name: CI
-on: [push]
+name: Publish
+on:
+  release:
+    types: [published]
 jobs:
   publish:
-    name: Check lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
+    name: Publish dorai-ui to NPM
 
     runs-on: ${{ matrix.os }}
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [quality]
     strategy:
       matrix:
         node: ['10.x', '12.x', '14.x', '15.x']
@@ -20,16 +24,12 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
+        - run: yarn install
+        - run: yarn build
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
-
-      - name: Deploy
+      - name: Publish to NPM
+      - run: yarn semantic-release
 
         env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
