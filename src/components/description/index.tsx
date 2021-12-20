@@ -80,7 +80,7 @@ const Description: DescriptionType = React.forwardRef(
 
     const generatedId = GetId()
 
-    const id = generatedId ? `jedi-ui-description-${generatedId}` : undefined
+    const id = generatedId ? `dorai-ui-description-${generatedId}` : undefined
 
     React.useLayoutEffect(() => {
       if (!id) return

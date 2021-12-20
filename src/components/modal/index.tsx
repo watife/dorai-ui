@@ -147,7 +147,7 @@ const Group: ModalGroupType = React.forwardRef(
           aria-modal
           role='dialog'
           tabIndex={-1}
-          aria-labelledby='jedi-ui-modal-title'
+          aria-labelledby='dorai-ui-modal-title'
           aria-describedby={descriptionContext?.ids}
           ref={mergedRef}
           onKeyDown={handleEvent}
@@ -232,7 +232,7 @@ const Title: TitleType = React.forwardRef(
 
     const TagName = as || __DEFAULT_TITLE_TAG__
     return (
-      <TagName {...props} id='jedi-ui-modal-title' ref={ref}>
+      <TagName {...props} id='dorai-ui-modal-title' ref={ref}>
         {children}
       </TagName>
     )
