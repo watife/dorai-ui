@@ -78,7 +78,7 @@ const Label: LabelType = React.forwardRef(
 
     const generatedId = GetId()
 
-    const id = generatedId ? `jedi-ui-label-${generatedId}` : undefined
+    const id = generatedId ? `dorai-ui-label-${generatedId}` : undefined
 
     React.useLayoutEffect(() => {
       if (!id) return
