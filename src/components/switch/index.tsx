@@ -2,7 +2,7 @@ import React from 'react'
 import { callAll } from '../../utils/call-all'
 // eslint-disable-next-line no-unused-vars
 import type * as Polymorphic from '../../utils/polymophic'
-import { LabelContextProvider, useLabelValue } from '../label'
+import { LabelContextProvider, useLabelValue, Label } from '../label'
 
 const SwitchContext = React.createContext<{
   isChecked: boolean
@@ -85,15 +85,11 @@ const Button: ButtonType = React.forwardRef(
 
     const labelContext = useLabelValue()
 
-    if (!context) {
-      throw new Error(
-        '<Switch.Button /> component is not called within expected parent component'
-      )
-    }
-
     const TagName = as || __DEFAULT_BUTTON_TAG__
 
-    const handleClicks = callAll(props.onClick, () => context.toggle())
+    const handleClicks = context.disabled
+      ? undefined
+      : callAll(props.onClick, () => context.toggle())
 
     const propsHandled = {
       ...props,
@@ -116,4 +112,4 @@ const Button: ButtonType = React.forwardRef(
   }
 )
 
-export const Toggle = Object.assign(SwitchRoot, { Button })
+export const Switch = Object.assign(SwitchRoot, { Button, Label })

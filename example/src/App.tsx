@@ -1,10 +1,8 @@
 import React from 'react'
-
-import { ExampleComponent } from 'dorai-ui'
-import 'dorai-ui/dist/index.css'
+import { SwitchComponent } from './component/switch'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <SwitchComponent />
 }
 
 export default App
