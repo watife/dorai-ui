@@ -6,7 +6,7 @@ const generateId = () => {
 }
 
 const GetId = () => {
-  const [id, setId] = React.useState<number>()
+  const [id, setId] = React.useState<number | null>(generateId)
   React.useEffect(() => {
     const generated = generateId()
 

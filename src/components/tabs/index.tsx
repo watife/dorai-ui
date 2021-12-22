@@ -152,7 +152,9 @@ const TabTrigger: TabType = React.forwardRef(
     { as, children, disabled, ...props }: TabProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
-    const id = `dorai-ui-tab-${GetId()}`
+    const generatedId = GetId()
+
+    const id = generatedId ? `dorai-ui-tab-${generatedId}` : undefined
 
     const internalRef = React.useRef<HTMLElement>(null)
 
@@ -162,6 +164,7 @@ const TabTrigger: TabType = React.forwardRef(
       handleRegisterTab,
       activeTabIndex,
       tabs,
+      panels,
       orientation,
       handleSetActiveTabIndex
     } = useTabsValue('Tab')
@@ -175,7 +178,7 @@ const TabTrigger: TabType = React.forwardRef(
     }, [])
 
     // credit to react-tabs for this simple approach
-    const nextFocusable = () => {
+    const nextFocusable = React.useCallback(() => {
       const nextIndex = activeTabIndex + 1
       for (let index = nextIndex; index < tabs.length; index++) {
         if (!tabs[index].current?.hasAttribute('disabled')) {
@@ -188,9 +191,9 @@ const TabTrigger: TabType = React.forwardRef(
           return handleSetActiveTabIndex(index)
         }
       }
-    }
+    }, [activeTabIndex, handleSetActiveTabIndex, tabs])
 
-    const previousFocusable = () => {
+    const previousFocusable = React.useCallback(() => {
       let prevIndex = activeTabIndex
 
       while (prevIndex--) {
@@ -206,7 +209,7 @@ const TabTrigger: TabType = React.forwardRef(
           return handleSetActiveTabIndex(tabCount)
         }
       }
-    }
+    }, [activeTabIndex, handleSetActiveTabIndex, tabs])
 
     const handleChange = React.useCallback(
       (event: KeyboardEvent) => {
@@ -240,7 +243,7 @@ const TabTrigger: TabType = React.forwardRef(
           return previousFocusable()
         }
       },
-      [activeTabIndex, handleSetActiveTabIndex, tabs]
+      [nextFocusable, previousFocusable]
     )
 
     const handleDirection = React.useCallback(
@@ -292,7 +295,7 @@ const TabTrigger: TabType = React.forwardRef(
         id={id}
         onFocus={handleFocus}
         disabled={disabled}
-        // aria-controls={idsArray[tabIndex]}
+        aria-controls={panels[tabIndex]?.current?.id}
         aria-selected={active}
         aria-readonly={disabled}
         tabIndex={active ? 0 : -1}
@@ -341,4 +344,68 @@ const List: TabListType = React.forwardRef(
   }
 )
 
-export const Tab = Object.assign(TabTrigger, { Group: TabsRoot, List })
+/**
+ *
+ * Tab Panel component
+ * https://www.w3.org/TR/wai-aria-practices-1.2/#tabpanel
+ *
+ */
+type TabPanelOwnProps = {
+  children: React.ReactNode
+}
+
+type TabPanelProps<C extends React.ElementType> =
+  Polymorphic.ComponentPropsWithRef<C, TabPanelOwnProps>
+
+const __DEFAULT_TABPANEL_TAG__ = 'div'
+
+type TabPanelType = <
+  C extends React.ElementType = typeof __DEFAULT_TABPANEL_TAG__
+>(
+  props: TabPanelProps<C>
+) => React.ReactElement | null
+
+const Panel: TabPanelType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_TABPANEL_TAG__>(
+    { as, children, ...props }: TabPanelProps<C>,
+    ref: Polymorphic.Ref<C>
+  ) => {
+    const TagName = as || __DEFAULT_TABPANEL_TAG__
+
+    const id = `dorai-ui-tab-panel-${GetId()}`
+
+    const internalRef = React.useRef<HTMLElement>(null)
+
+    const mergedPanelRef = mergeRefs([internalRef, ref])
+
+    const { handleRegisterPanel, tabs, panels, activeTabIndex } =
+      useTabsValue('Panel')
+
+    React.useEffect(() => {
+      handleRegisterPanel(internalRef)
+    }, [handleRegisterPanel])
+
+    const panelIndex = panels.indexOf(internalRef)
+    const active = panelIndex === activeTabIndex
+
+    return (
+      <TagName
+        role='tabpanel'
+        id={id}
+        {...props}
+        ref={mergedPanelRef}
+        aria-labelledby={tabs[panelIndex]?.current?.id}
+        aria-selected={active}
+        tabIndex={active ? 0 : -1}
+      >
+        {active ? children : null}
+      </TagName>
+    )
+  }
+)
+
+export const Tabs = Object.assign(TabsRoot, {
+  Trigger: TabTrigger,
+  List,
+  Panel
+})
