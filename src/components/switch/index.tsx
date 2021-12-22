@@ -102,7 +102,7 @@ const Button: ButtonType = React.forwardRef(
         aria-checked={context.isChecked}
         aria-readonly={context.disabled}
         aria-labelledby={labelContext?.ids}
-        tabindex='0'
+        tabIndex={0}
         {...propsHandled}
         ref={ref}
       >
