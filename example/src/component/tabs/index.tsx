@@ -4,7 +4,7 @@ import { Tabs } from 'dorai-ui'
 
 function TabsComponent() {
   return (
-    <Tabs manual>
+    <Tabs>
       <Tabs.List>
         <Tabs.Trigger>
           {({ active }) => (

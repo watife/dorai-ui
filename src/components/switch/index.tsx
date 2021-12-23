@@ -91,6 +91,16 @@ const Button: ButtonType = React.forwardRef(
       ? undefined
       : callAll(props.onClick, () => context.toggle())
 
+    const handleKeyEvent = React.useCallback(
+      (event: React.KeyboardEvent<HTMLElement>) => {
+        if (event.key !== 'Tab') event.preventDefault()
+        if (event.key !== ' ' && event.key !== 'Enter') return
+
+        return handleClicks?.()
+      },
+      [handleClicks]
+    )
+
     const propsHandled = {
       ...props,
       onClick: handleClicks
@@ -103,6 +113,7 @@ const Button: ButtonType = React.forwardRef(
         aria-readonly={context.disabled}
         aria-labelledby={labelContext?.ids}
         tabIndex={0}
+        onKeyDown={handleKeyEvent}
         {...propsHandled}
         ref={ref}
       >
