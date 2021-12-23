@@ -190,7 +190,7 @@ const TabTrigger: TabType = React.forwardRef(
       orientation,
       handleSetActiveTabIndex,
       manual
-    } = useTabsValue('Tab')
+    } = useTabsValue('Trigger')
 
     const tabIndex = tabs.indexOf(internalRef)
     const active = activeTabIndex === tabIndex
@@ -380,7 +380,12 @@ const List: TabListType = React.forwardRef(
     const { orientation } = useTabsValue('List')
     const TagName = as || __DEFAULT_TABLIST_TAG__
     return (
-      <TagName {...props} aria-orientation={orientation} ref={ref}>
+      <TagName
+        {...props}
+        role='tablist'
+        aria-orientation={orientation}
+        ref={ref}
+      >
         {children}
       </TagName>
     )
