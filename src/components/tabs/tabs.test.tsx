@@ -81,7 +81,7 @@ describe('Component Render', () => {
     expect(screen.queryByText(/tab panel 2/i)).toBeInTheDocument()
   })
 
-  it('puts skips over disabled tab', () => {
+  it('skips over disabled tab', () => {
     render(
       <Tabs>
         <Tabs.List>
@@ -120,5 +120,46 @@ describe('Component Render', () => {
     expect(tab2).toHaveFocus()
 
     expect(screen.queryByText(/tab panel 2/i)).toBeInTheDocument()
+  })
+
+  it('allows keyboard keys based on orientation set', () => {
+    render(
+      <Tabs vertical>
+        <Tabs.List>
+          <Tabs.Trigger>tab 1</Tabs.Trigger>
+          <Tabs.Trigger>tab 2</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Panel>tab panel 1</Tabs.Panel>
+        <Tabs.Panel>tab panel 2</Tabs.Panel>
+      </Tabs>
+    )
+
+    userEvent.tab()
+
+    userEvent.keyboard('{arrowright}')
+
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
+
+    userEvent.keyboard('{arrowdown}')
+
+    expect(screen.queryByText(/tab panel 2/i)).toBeInTheDocument()
+  })
+
+  it('last element goes to first element on further click and vice versa', () => {
+    render(<TabComp />)
+
+    userEvent.tab()
+
+    // click on right arrow twice
+    userEvent.keyboard('{arrowright}{arrowright}')
+
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 1/i)).toBeInTheDocument()
+
+    // click on left arrow twice
+    userEvent.keyboard('{arrowleft}{arrowleft}')
+
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 1/i)).toBeInTheDocument()
   })
 })
