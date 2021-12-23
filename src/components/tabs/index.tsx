@@ -168,7 +168,7 @@ const TAB_DIRECTION = {
   ARROW_RIGHT: 'ArrowRight'
 }
 
-const TabTrigger: TabType = React.forwardRef(
+const Trigger: TabType = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_TAB_TAG__>(
     { as, children, disabled, ...props }: TabProps<C>,
     ref: Polymorphic.Ref<C>
@@ -441,7 +441,7 @@ const Panel: TabPanelType = React.forwardRef(
 )
 
 export const Tabs = Object.assign(TabsRoot, {
-  Trigger: TabTrigger,
+  Trigger,
   List,
   Panel
 })
