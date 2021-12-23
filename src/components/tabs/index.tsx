@@ -61,10 +61,6 @@ const TabsRoot = ({
 
   const orientation: OrientationType = vertical ? 'vertical' : 'horizontal'
 
-  React.useEffect(() => {
-    return tabs[focusedTabIndex]?.current?.focus()
-  }, [focusedTabIndex, tabs])
-
   const handleRegisterTab = React.useCallback(
     (element: React.MutableRefObject<HTMLElement | null>) => {
       if (!element) return
@@ -91,9 +87,13 @@ const TabsRoot = ({
     []
   )
 
-  const handleSetFocusedTabIndex = (index: number) => {
-    setFocusedTabIndex(index)
-  }
+  const handleSetFocusedTabIndex = React.useCallback(
+    (index: number) => {
+      setFocusedTabIndex(index)
+      return tabs[index]?.current?.focus()
+    },
+    [tabs]
+  )
 
   const handleSetActiveTabIndex = (index: number) => {
     setActiveTabIndex(index)
@@ -119,6 +119,7 @@ const TabsRoot = ({
       handleRegisterPanel,
       activeTabIndex,
       focusedTabIndex,
+      handleSetFocusedTabIndex,
       orientation,
       manual
     ]
@@ -172,9 +173,7 @@ const TabTrigger: TabType = React.forwardRef(
     { as, children, disabled, ...props }: TabProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
-    const generatedId = GetId()
-
-    const id = generatedId ? `dorai-ui-tab-${generatedId}` : undefined
+    const id = `dorai-ui-tab-${GetId()}`
 
     const internalRef = React.useRef<HTMLElement>(null)
 
@@ -204,6 +203,10 @@ const TabTrigger: TabType = React.forwardRef(
       handleSetFocusedTabIndex(tabIndex)
       handleSetActiveTabIndex(tabIndex)
     }, [handleSetFocusedTabIndex, tabIndex, handleSetActiveTabIndex])
+
+    const handleTabSelect = React.useCallback(() => {
+      handleSetActiveTabIndex(tabIndex)
+    }, [handleSetActiveTabIndex, tabIndex])
 
     // credit to react-tabs for this simple approach
     const nextFocusable = React.useCallback(() => {
@@ -240,8 +243,8 @@ const TabTrigger: TabType = React.forwardRef(
     }, [focusedTabIndex, handleSetFocusedTabIndex, tabs])
 
     const handleChange = React.useCallback(
-      (event: KeyboardEvent) => {
-        event.preventDefault()
+      (event: React.KeyboardEvent<HTMLElement>) => {
+        if (event.key !== 'Tab') event.preventDefault()
 
         if (event.key === ' ' || event.key === 'Enter') {
           handleSetActiveTabIndex(focusedTabIndex)
@@ -284,8 +287,8 @@ const TabTrigger: TabType = React.forwardRef(
     )
 
     const handleDirection = React.useCallback(
-      (event: KeyboardEvent) => {
-        event.preventDefault()
+      (event: React.KeyboardEvent<HTMLElement>) => {
+        if (event.key !== 'Tab') event.preventDefault()
         if (
           orientation !== 'vertical' &&
           (event.key === TAB_DIRECTION.ARROW_UP ||
@@ -305,22 +308,6 @@ const TabTrigger: TabType = React.forwardRef(
       [handleChange, orientation]
     )
 
-    React.useEffect(() => {
-      window.addEventListener('keydown', handleDirection)
-
-      return () => {
-        window.removeEventListener('keydown', handleDirection)
-      }
-    })
-
-    React.useEffect(() => {
-      window.addEventListener('keydown', handleDirection)
-
-      return () => {
-        window.removeEventListener('keydown', handleDirection)
-      }
-    })
-
     const TagName = as || __DEFAULT_TAB_TAG__
 
     const render = () => {
@@ -335,7 +322,8 @@ const TabTrigger: TabType = React.forwardRef(
       <TagName
         role='tab'
         id={id}
-        onFocus={!manual ? () => handleSetActiveTabIndex(tabIndex) : undefined}
+        onFocus={!manual ? handleTabSelect : undefined}
+        onKeyDown={handleDirection}
         onClick={handleClickEvent}
         disabled={disabled}
         aria-controls={panels[tabIndex]?.current?.id}

@@ -39,8 +39,6 @@ describe('Component Render', () => {
   it('renders tab component without crashing', () => {
     render(<TabComp />)
 
-    screen.debug()
-
     expect(screen.getByText(/tab panel 1/i)).toBeInTheDocument()
     expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
     expect(screen.queryByRole(/tablist/i)).toBeInTheDocument()
@@ -50,6 +48,8 @@ describe('Component Render', () => {
     render(<TabComp />)
 
     const tab1 = screen.getByText(/tab 1/i)
+
+    userEvent.tab()
 
     expect(tab1).toHaveFocus()
 
@@ -65,6 +65,8 @@ describe('Component Render', () => {
     render(<TabComp manual />)
 
     const tab1 = screen.getByText(/tab 1/i)
+
+    userEvent.tab()
 
     expect(tab1).toHaveFocus()
 
@@ -94,6 +96,8 @@ describe('Component Render', () => {
     )
 
     const tab1 = screen.getByText(/tab 1/i)
+
+    userEvent.tab()
 
     expect(tab1).toHaveFocus()
 
