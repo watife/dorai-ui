@@ -34,7 +34,9 @@ const TabsContext = React.createContext<{
   panels: React.MutableRefObject<HTMLElement | null>[]
   handleRegisterPanel: (ref: React.MutableRefObject<HTMLElement | null>) => void
   activeTabIndex: number
+  focusedTabIndex: number
   handleSetActiveTabIndex: (index: number) => void
+  handleSetFocusedTabIndex: (index: number) => void
   orientation: OrientationType
   manual: boolean
 } | null>(null)
@@ -47,6 +49,9 @@ const TabsRoot = ({
 }: TabsType) => {
   const [activeTabIndex, setActiveTabIndex] =
     React.useState<number>(defaultIndex)
+  const [focusedTabIndex, setFocusedTabIndex] =
+    React.useState<number>(defaultIndex)
+  React.useState<number>(defaultIndex)
   const [tabs, setTabs] = React.useState<
     React.MutableRefObject<HTMLElement | null>[]
   >([])
@@ -57,8 +62,8 @@ const TabsRoot = ({
   const orientation: OrientationType = vertical ? 'vertical' : 'horizontal'
 
   React.useEffect(() => {
-    return tabs[activeTabIndex]?.current?.focus()
-  }, [activeTabIndex, tabs])
+    return tabs[focusedTabIndex]?.current?.focus()
+  }, [focusedTabIndex, tabs])
 
   const handleRegisterTab = React.useCallback(
     (element: React.MutableRefObject<HTMLElement | null>) => {
@@ -86,6 +91,10 @@ const TabsRoot = ({
     []
   )
 
+  const handleSetFocusedTabIndex = (index: number) => {
+    setFocusedTabIndex(index)
+  }
+
   const handleSetActiveTabIndex = (index: number) => {
     setActiveTabIndex(index)
   }
@@ -97,11 +106,22 @@ const TabsRoot = ({
       panels,
       handleRegisterPanel,
       activeTabIndex,
+      focusedTabIndex,
       handleSetActiveTabIndex,
+      handleSetFocusedTabIndex,
       orientation,
       manual
     }),
-    [tabs, panels, activeTabIndex, orientation]
+    [
+      tabs,
+      handleRegisterTab,
+      panels,
+      handleRegisterPanel,
+      activeTabIndex,
+      focusedTabIndex,
+      orientation,
+      manual
+    ]
   )
 
   return <TabsContext.Provider value={context}>{children}</TabsContext.Provider>
@@ -163,42 +183,50 @@ const TabTrigger: TabType = React.forwardRef(
     const {
       handleRegisterTab,
       activeTabIndex,
+      focusedTabIndex,
+      handleSetFocusedTabIndex,
       tabs,
       panels,
       orientation,
-      handleSetActiveTabIndex
+      handleSetActiveTabIndex,
+      manual
     } = useTabsValue('Tab')
+
+    const tabIndex = tabs.indexOf(internalRef)
+    const active = activeTabIndex === tabIndex
 
     React.useEffect(() => {
       handleRegisterTab(internalRef)
     }, [handleRegisterTab])
 
-    const handleFocus = React.useCallback(() => {
-      return internalRef?.current?.focus()
-    }, [])
+    const handleClickEvent = React.useCallback(() => {
+      // update both the focus and active state
+      handleSetFocusedTabIndex(tabIndex)
+      handleSetActiveTabIndex(tabIndex)
+    }, [handleSetFocusedTabIndex, tabIndex, handleSetActiveTabIndex])
 
     // credit to react-tabs for this simple approach
     const nextFocusable = React.useCallback(() => {
-      const nextIndex = activeTabIndex + 1
+      const nextIndex = focusedTabIndex + 1
       for (let index = nextIndex; index < tabs.length; index++) {
         if (!tabs[index].current?.hasAttribute('disabled')) {
-          return handleSetActiveTabIndex(index)
+          return handleSetFocusedTabIndex(index)
         }
       }
 
       for (let index = 0; index < tabs.length; index++) {
         if (!tabs[index].current?.hasAttribute('disabled')) {
-          return handleSetActiveTabIndex(index)
+          return handleSetFocusedTabIndex(index)
         }
       }
-    }, [activeTabIndex, handleSetActiveTabIndex, tabs])
+    }, [focusedTabIndex, handleSetFocusedTabIndex, tabs])
 
     const previousFocusable = React.useCallback(() => {
-      let prevIndex = activeTabIndex
+      let prevIndex = focusedTabIndex
 
       while (prevIndex--) {
         if (!tabs[prevIndex]?.current?.hasAttribute('disabled')) {
-          return handleSetActiveTabIndex(prevIndex)
+          return handleSetFocusedTabIndex(prevIndex)
         }
       }
 
@@ -206,14 +234,18 @@ const TabTrigger: TabType = React.forwardRef(
 
       while (tabCount--) {
         if (!tabs[tabCount]?.current?.hasAttribute('disabled')) {
-          return handleSetActiveTabIndex(tabCount)
+          return handleSetFocusedTabIndex(tabCount)
         }
       }
-    }, [activeTabIndex, handleSetActiveTabIndex, tabs])
+    }, [focusedTabIndex, handleSetFocusedTabIndex, tabs])
 
     const handleChange = React.useCallback(
       (event: KeyboardEvent) => {
         event.preventDefault()
+
+        if (event.key === ' ' || event.key === 'Enter') {
+          handleSetActiveTabIndex(focusedTabIndex)
+        }
 
         const direction =
           event.key === TAB_DIRECTION.ARROW_RIGHT ||
@@ -243,7 +275,12 @@ const TabTrigger: TabType = React.forwardRef(
           return previousFocusable()
         }
       },
-      [nextFocusable, previousFocusable]
+      [
+        focusedTabIndex,
+        handleSetActiveTabIndex,
+        nextFocusable,
+        previousFocusable
+      ]
     )
 
     const handleDirection = React.useCallback(
@@ -276,10 +313,15 @@ const TabTrigger: TabType = React.forwardRef(
       }
     })
 
-    const TagName = as || __DEFAULT_TAB_TAG__
+    React.useEffect(() => {
+      window.addEventListener('keydown', handleDirection)
 
-    const tabIndex = tabs.indexOf(internalRef)
-    const active = activeTabIndex === tabIndex
+      return () => {
+        window.removeEventListener('keydown', handleDirection)
+      }
+    })
+
+    const TagName = as || __DEFAULT_TAB_TAG__
 
     const render = () => {
       if (typeof children === 'function') {
@@ -293,7 +335,8 @@ const TabTrigger: TabType = React.forwardRef(
       <TagName
         role='tab'
         id={id}
-        onFocus={handleFocus}
+        onFocus={!manual ? () => handleSetActiveTabIndex(tabIndex) : undefined}
+        onClick={handleClickEvent}
         disabled={disabled}
         aria-controls={panels[tabIndex]?.current?.id}
         aria-selected={active}
