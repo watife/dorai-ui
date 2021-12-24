@@ -93,12 +93,13 @@ const Button: ButtonType = React.forwardRef(
 
     const handleKeyEvent = React.useCallback(
       (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key !== KeyBoardKeys.Tab) event.preventDefault()
         if (
           event.key !== KeyBoardKeys.Space &&
           event.key !== KeyBoardKeys.Enter
         )
           return
+
+        event.preventDefault()
 
         return handleClicks?.()
       },
