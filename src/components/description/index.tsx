@@ -78,12 +78,9 @@ const Description: DescriptionType = React.forwardRef(
 
     const { registerId } = context
 
-    const generatedId = GetId()
-
-    const id = generatedId ? `dorai-ui-description-${generatedId}` : undefined
+    const id = `dorai-ui-description-${GetId()}`
 
     React.useLayoutEffect(() => {
-      if (!id) return
       return registerId(id)
     }, [id, registerId])
 
