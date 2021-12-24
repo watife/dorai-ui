@@ -237,9 +237,10 @@ const Trigger: TabType = React.forwardRef(
 
     const handleChange = React.useCallback(
       (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key !== KeyBoardKeys.Tab) event.preventDefault()
-
-        if (event.key === ' ' || event.key === KeyBoardKeys.Enter) {
+        if (
+          event.key === KeyBoardKeys.Space ||
+          event.key === KeyBoardKeys.Enter
+        ) {
           handleSetActiveTabIndex(focusedTabIndex)
         }
 
@@ -267,7 +268,6 @@ const Trigger: TabType = React.forwardRef(
 
     const handleDirection = React.useCallback(
       (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key !== 'Tab') event.preventDefault()
         if (
           orientation !== 'vertical' &&
           (event.key === KeyBoardKeys.ArrowUp ||
