@@ -76,12 +76,9 @@ const Label: LabelType = React.forwardRef(
 
     const { registerId } = context
 
-    const generatedId = GetId()
-
-    const id = generatedId ? `dorai-ui-label-${generatedId}` : undefined
+    const id = `dorai-ui-label-${GetId()}`
 
     React.useLayoutEffect(() => {
-      if (!id) return
       return registerId(id)
     }, [id, registerId])
 
