@@ -1,7 +1,7 @@
 import React from 'react'
+import { KeyBoardKeys } from '../../enums/keyboard'
 import { GetId } from '../../utils/get-id'
 import { mergeRefs } from '../../utils/merge-ref'
-// eslint-disable-next-line no-unused-vars
 import type * as Polymorphic from '../../utils/polymophic'
 
 /**
@@ -161,13 +161,6 @@ type TabType = <C extends React.ElementType = typeof __DEFAULT_TAB_TAG__>(
   props: TabProps<C>
 ) => React.ReactElement | null
 
-const TAB_DIRECTION = {
-  ARROW_UP: 'ArrowUp',
-  ARROW_DOWN: 'ArrowDown',
-  ARROW_LEFT: 'ArrowLeft',
-  ARROW_RIGHT: 'ArrowRight'
-}
-
 const Trigger: TabType = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_TAB_TAG__>(
     { as, children, disabled, ...props }: TabProps<C>,
@@ -244,38 +237,24 @@ const Trigger: TabType = React.forwardRef(
 
     const handleChange = React.useCallback(
       (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key !== 'Tab') event.preventDefault()
+        if (event.key !== KeyBoardKeys.Tab) event.preventDefault()
 
-        if (event.key === ' ' || event.key === 'Enter') {
+        if (event.key === ' ' || event.key === KeyBoardKeys.Enter) {
           handleSetActiveTabIndex(focusedTabIndex)
         }
 
-        const direction =
-          event.key === TAB_DIRECTION.ARROW_RIGHT ||
-          event.key === TAB_DIRECTION.ARROW_DOWN
-            ? 'right'
-            : 'left'
-
         if (
-          event.key === TAB_DIRECTION.ARROW_LEFT ||
-          event.key === TAB_DIRECTION.ARROW_UP
+          event.key === KeyBoardKeys.ArrowLeft ||
+          event.key === KeyBoardKeys.ArrowUp
         ) {
-          if (direction === 'left') {
-            return previousFocusable()
-          }
-
-          return nextFocusable()
+          return previousFocusable()
         }
 
         if (
-          event.key === TAB_DIRECTION.ARROW_RIGHT ||
-          event.key === TAB_DIRECTION.ARROW_DOWN
+          event.key === KeyBoardKeys.ArrowRight ||
+          event.key === KeyBoardKeys.ArrowDown
         ) {
-          if (direction === 'right') {
-            return nextFocusable()
-          }
-
-          return previousFocusable()
+          return nextFocusable()
         }
       },
       [
@@ -291,15 +270,15 @@ const Trigger: TabType = React.forwardRef(
         if (event.key !== 'Tab') event.preventDefault()
         if (
           orientation !== 'vertical' &&
-          (event.key === TAB_DIRECTION.ARROW_UP ||
-            event.key === TAB_DIRECTION.ARROW_DOWN)
+          (event.key === KeyBoardKeys.ArrowUp ||
+            event.key === KeyBoardKeys.ArrowDown)
         )
           return
 
         if (
           orientation !== 'horizontal' &&
-          (event.key === TAB_DIRECTION.ARROW_LEFT ||
-            event.key === TAB_DIRECTION.ARROW_RIGHT)
+          (event.key === KeyBoardKeys.ArrowLeft ||
+            event.key === KeyBoardKeys.ArrowRight)
         )
           return
 
@@ -328,7 +307,6 @@ const Trigger: TabType = React.forwardRef(
         disabled={disabled}
         aria-controls={panels[tabIndex]?.current?.id}
         aria-selected={active}
-        aria-readonly={disabled}
         tabIndex={active ? 0 : -1}
         {...props}
         ref={mergedTabRef}
@@ -428,11 +406,10 @@ const Panel: TabPanelType = React.forwardRef(
       <TagName
         role='tabpanel'
         id={id}
-        {...props}
         ref={mergedPanelRef}
         aria-labelledby={tabs[panelIndex]?.current?.id}
-        aria-selected={active}
         tabIndex={active ? 0 : -1}
+        {...props}
       >
         {active ? children : null}
       </TagName>

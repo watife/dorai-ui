@@ -1,6 +1,6 @@
 import React from 'react'
 import { callAll } from '../../utils/call-all'
-// eslint-disable-next-line no-unused-vars
+import { KeyBoardKeys } from '../../enums/keyboard'
 import type * as Polymorphic from '../../utils/polymophic'
 import { LabelContextProvider, useLabelValue, Label } from '../label'
 
@@ -93,8 +93,12 @@ const Button: ButtonType = React.forwardRef(
 
     const handleKeyEvent = React.useCallback(
       (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key !== 'Tab') event.preventDefault()
-        if (event.key !== ' ' && event.key !== 'Enter') return
+        if (event.key !== KeyBoardKeys.Tab) event.preventDefault()
+        if (
+          event.key !== KeyBoardKeys.Space &&
+          event.key !== KeyBoardKeys.Enter
+        )
+          return
 
         return handleClicks?.()
       },
