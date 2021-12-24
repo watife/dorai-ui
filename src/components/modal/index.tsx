@@ -1,9 +1,8 @@
 import React from 'react'
 import { useFocusLock } from '../../hooks/use-focus-lock'
 import { callAll } from '../../utils/call-all'
+import { KeyBoardKeys } from '../../enums/keyboard'
 import { mergeRefs } from '../../utils/merge-ref'
-
-// eslint-disable-next-line no-unused-vars
 import type * as Polymorphic from '../../utils/polymophic'
 
 import {
@@ -114,7 +113,7 @@ const Group: ModalGroupType = React.forwardRef(
     const descriptionContext = useDescriptionValue()
 
     const handleEvent = (event: React.KeyboardEvent<HTMLElement>): void => {
-      if (event.key === 'Escape') {
+      if (event.key === KeyBoardKeys.Escape) {
         event.stopPropagation()
         closeModal()
       }
@@ -258,7 +257,7 @@ const __DEFAULT_OVERLAY_TAG__ = 'div'
 
 const Overlay: OverlayType = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_OVERLAY_TAG__>(
-    { as, children, ...props }: OverlayProps<C>,
+    { as, ...props }: OverlayProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
     const context = useModalContext('Overlay')
@@ -277,7 +276,7 @@ const Overlay: OverlayType = React.forwardRef(
     }
 
     const handleEvent = (event: React.KeyboardEvent<HTMLElement>): void => {
-      if (event.key === 'Escape') {
+      if (event.key === KeyBoardKeys.Escape) {
         event.stopPropagation()
         closeModal()
       }
