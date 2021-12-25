@@ -287,6 +287,7 @@ const Trigger: TriggerType = React.forwardRef(
 
     return (
       <TagName
+        id={id}
         aria-expanded={open}
         aria-controls={contentIds?.panelId || undefined}
         onClick={handleClickEvent}
@@ -373,6 +374,7 @@ const Panel: PanelType = React.forwardRef(
 
     return (
       <TagName
+        id={id}
         aria-labelledby={contentIds?.triggerId || undefined}
         {...props}
         ref={ref}
