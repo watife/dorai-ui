@@ -14,7 +14,7 @@ esbuild
   .build({
     ...defaultConfig,
     format: 'esm',
-    outfile: path.join(path.resolve('./'), `dist/index.mjs.js`)
+    outfile: path.join(path.resolve('./'), `dist/index.esm.js`)
   })
   .catch(() => process.exit(1))
 

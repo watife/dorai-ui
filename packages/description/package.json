@@ -5,7 +5,9 @@
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
-  "main": "lib/index.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -24,7 +26,7 @@
     "@dorai-ui/utils": "^0.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"
