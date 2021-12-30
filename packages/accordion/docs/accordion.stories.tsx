@@ -7,7 +7,7 @@ import { Accordion } from '../lib'
 export const Default: ComponentStory<typeof Accordion> =
   function AccordionComponent() {
     return (
-      <Accordion>
+      <Accordion defaultIndex={0}>
         <Accordion.Group>
           <Accordion.Header>
             <Accordion.Trigger>open accordion</Accordion.Trigger>

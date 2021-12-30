@@ -35,7 +35,8 @@ const Root = ({ children, type = 'multiple', defaultIndex }: AccordionType) => {
 
   // handle defaultIndex
   React.useEffect(() => {
-    if (!defaultIndex) return
+    if (typeof defaultIndex !== 'number') return
+
     const accordionToBeDefault = accordions[defaultIndex]
     setGlobalActiveAccordion(accordionToBeDefault)
   }, [accordions, defaultIndex])
@@ -269,7 +270,7 @@ const Trigger: TriggerType = React.forwardRef(
     const handleClickEvent = callAll(
       props.onClick,
       () => handleSetGlobalActiveAccordion(groupRef),
-      () => handleSetGroupState()
+      handleSetGroupState
     )
 
     const handleKeyEvent = React.useCallback(
