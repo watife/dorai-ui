@@ -6,12 +6,12 @@ import {
   mergeRefs,
   Polymorphic
 } from '@dorai-ui/utils'
+import { DoraiPortal } from '@dorai-ui/portal'
 import {
   Description,
   DescriptionContextProvider,
   useDescriptionValue
 } from '@dorai-ui/description'
-import { Portal } from '@dorai-ui/portal'
 
 /**
  *
@@ -141,7 +141,7 @@ const Group: ModalGroupType = React.forwardRef(
     if (!context.isOpen) return null
 
     return (
-      <Portal id='modal-portal'>
+      <DoraiPortal id='modal-portal'>
         <TagName
           {...props}
           aria-modal
@@ -154,7 +154,7 @@ const Group: ModalGroupType = React.forwardRef(
         >
           {children}
         </TagName>
-      </Portal>
+      </DoraiPortal>
     )
   }
 )

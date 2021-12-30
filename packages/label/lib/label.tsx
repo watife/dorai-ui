@@ -61,11 +61,11 @@ type LabelProps<C extends React.ElementType> =
 
 const __DEFAULT_LABEL_TAG__ = 'label'
 
-type LabelType = <C extends React.ElementType = typeof __DEFAULT_LABEL_TAG__>(
-  props: LabelProps<C>
-) => React.ReactElement | null
+// type LabelType = <C extends React.ElementType = typeof __DEFAULT_LABEL_TAG__>(
+//   props: LabelProps<C>
+// ) => React.ReactElement | null
 
-const Label: LabelType = React.forwardRef(
+const Label = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_LABEL_TAG__>(
     { as, children, ...props }: LabelProps<C>,
     ref?: Polymorphic.Ref<C>

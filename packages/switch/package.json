@@ -2,33 +2,32 @@
   "name": "@dorai-ui/switch",
   "version": "0.0.0",
   "description": "switch component for dorai-ui",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
+  "src": "lib/index.ts",
+  "main": "dist/switch.cjs.js",
+  "module": "dist/switch.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "README.md"
+  ],
   "scripts": {
     "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^0.0.0",
-    "@dorai-ui/label": "^0.0.0"
+    "@dorai-ui/label": "^0.0.0",
+    "@dorai-ui/utils": "^0.0.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"

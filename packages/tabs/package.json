@@ -5,15 +5,13 @@
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "src": "lib/index.ts",
+  "main": "dist/tabs.cjs.js",
+  "module": "dist/tabs.esm.js",
   "types": "dist/index.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
     "dist",
+    "lib",
     "README.md"
   ],
   "scripts": {
@@ -28,6 +26,10 @@
   },
   "dependencies": {
     "@dorai-ui/utils": "^0.0.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"

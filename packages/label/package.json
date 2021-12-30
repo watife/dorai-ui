@@ -4,21 +4,16 @@
   "description": "Internal Label component for dorai-ui",
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "license": "MIT",
+  "src": "lib/index.ts",
+  "main": "dist/label.cjs.js",
+  "module": "dist/label.esm.js",
   "types": "dist/index.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
     "dist",
+    "lib",
     "README.md"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
@@ -26,14 +21,15 @@
   "dependencies": {
     "@dorai-ui/utils": "^0.0.0"
   },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
   "scripts": {
     "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"
   },
-  "homepage": "https://github.com/watife/dorai-ui#readme",
-  "devDependencies": {
-    "marked": "^4.0.8"
-  }
+  "homepage": "https://github.com/watife/dorai-ui#readme"
 }

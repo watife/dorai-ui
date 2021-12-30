@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Modal } from '../lib'
+import { Modal } from '../lib/modal'
 
 type ModalCompType = {
   open?: boolean
@@ -25,8 +25,7 @@ describe('Safe rules of component', () => {
     ['Modal.Overlay', Modal.Overlay],
     ['Modal.Title', Modal.Title],
     ['Modal.Button', Modal.Button],
-    ['Modal.Group', Modal.Group],
-    ['Description', Modal.Description]
+    ['Modal.Group', Modal.Group]
   ])(
     'should error if component is rendered without a parent <Modal />',
     (name, Component) => {

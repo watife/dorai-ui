@@ -22,9 +22,9 @@ const banner = {
  * @name ${name}
  * @fileoverview ${pkg.description}
  * @version ${pkg.version}
- * @author Roy Revelt, Codsen Ltd
+ * @author Boluwatife Fakorede
  * @license MIT
- * {@link https://codsen.com/os/${name}/}
+
  */
 `
 }
@@ -35,8 +35,8 @@ if (pkg.main) {
     entryPoints: [path.join(path.resolve('./'), 'lib/index.ts')],
     format: 'cjs',
     bundle: true,
-    // minify: !mode,
-    minify: true,
+    //
+
     sourcemap: false,
     target: ['node10.4'],
     outfile: path.join(path.resolve('./'), `dist/${name}.cjs.js`),
@@ -52,7 +52,7 @@ if (pkg.module) {
     entryPoints: [path.join(path.resolve('./'), 'lib/index.ts')],
     format: 'esm',
     bundle: true,
-    minify: !mode,
+
     sourcemap: false,
     target: ['esnext'],
     outfile: path.join(path.resolve('./'), `dist/${name}.esm.js`),
@@ -69,7 +69,7 @@ if (pkg.browser) {
     format: 'iife',
     globalName: camelCase(name),
     bundle: true,
-    minify: !mode,
+
     sourcemap: false,
     target: ['chrome58'],
     outfile: path.join(path.resolve('./'), `dist/${name}.dev.umd.js`),

@@ -5,22 +5,24 @@
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/accordion.cjs.js",
+  "module": "dist/accordion.esm.js",
   "types": "dist/index.d.ts",
+  "src": "lib/index.ts",
   "files": [
     "dist",
-    "README.md"
+    "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
     "@dorai-ui/utils": "^0.0.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "scripts": {
     "build": "node ./esbuild.js && tsc --emitDeclarationOnly"

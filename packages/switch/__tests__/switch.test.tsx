@@ -1,13 +1,10 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Switch } from '../lib'
+import { Switch } from '../lib/switch'
 
 describe('Safe rules of component', () => {
-  it.each([
-    ['Label', Switch.Label],
-    ['Switch.Button', Switch.Button]
-  ])(
+  it.each([['Switch.Button', Switch.Button]])(
     'should error if component is rendered without a parent <Switch />',
     (name, Component) => {
       expect(() => render(<Component>children</Component>)).toThrowError(
