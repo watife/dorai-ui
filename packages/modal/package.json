@@ -5,27 +5,27 @@
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "src": "lib/index.ts",
+  "main": "dist/modal.cjs.js",
+  "module": "dist/modal.esm.js",
   "types": "dist/index.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
-    "lib"
+    "dist",
+    "lib",
+    "README.md"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^0.0.0",
     "@dorai-ui/description": "^0.0.0",
-    "@dorai-ui/portal": "^0.0.0"
+    "@dorai-ui/portal": "^0.0.0",
+    "@dorai-ui/utils": "^0.0.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "scripts": {
     "build": "node ./esbuild.js && tsc --emitDeclarationOnly"

@@ -10,10 +10,10 @@ type PortalType = {
   id?: string
   children: React.ReactNode
 }
-const Portal = ({ id, children }: PortalType) => {
+const DoraiPortal = ({ id, children }: PortalType) => {
   const target = usePortal(id)
 
   return ReactDOM.createPortal(children, target)
 }
 
-export { Portal }
+export { DoraiPortal }
