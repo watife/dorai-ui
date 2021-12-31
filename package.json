@@ -13,6 +13,7 @@
   "repository": "watife/dorai-ui",
   "scripts": {
     "build": "lerna run build",
+    "lint": "eslint .",
     "test": "jest",
     "commit": "cz",
     "storybook": "start-storybook -p 6006",
