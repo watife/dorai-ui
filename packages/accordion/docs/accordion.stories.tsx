@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Accordion } from '../lib'
+import { Accordion } from '@dorai-ui/accordion'
 
 export const Default: ComponentStory<typeof Accordion> =
   function AccordionComponent() {
