@@ -328,6 +328,8 @@ const Header: HeaderType = React.forwardRef(
     { as, children, ...props }: GroupProps<C>,
     ref?: Polymorphic.Ref<C>
   ) => {
+    useGroupValue('Header')
+
     const TagName = as || __DEFAULT_HEADER_TAG__
 
     return (
@@ -367,7 +369,7 @@ const Panel: PanelType = React.forwardRef(
 
     const id = `dorai-ui-accordion-panel-${GetId()}`
 
-    const { open, handleSetContentIds, contentIds } = useGroupValue('Trigger')
+    const { open, handleSetContentIds, contentIds } = useGroupValue('Panel')
 
     React.useEffect(() => {
       handleSetContentIds(id, 'panelId')
