@@ -1,6 +1,10 @@
+/**
+ *  credit to Roy Revelt
+ * https://gist.github.com/revelt/2be5920c7b483be605b91a5b9e1f3cad
+ * */
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
-const camelCase = require('lodash.camelcase')
 const mode = process.env.MODE
 const name = path.basename(path.resolve('./'))
 const pkg = require(path.join(path.resolve('./'), `package.json`))
@@ -22,9 +26,8 @@ const banner = {
  * @name ${name}
  * @fileoverview ${pkg.description}
  * @version ${pkg.version}
- * @author Boluwatife Fakorede
+ * @author ${pkg.author}
  * @license MIT
-
  */
 `
 }
@@ -35,8 +38,6 @@ if (pkg.main) {
     entryPoints: [path.join(path.resolve('./'), 'lib/index.ts')],
     format: 'cjs',
     bundle: true,
-    //
-
     sourcemap: false,
     target: ['node10.4'],
     outfile: path.join(path.resolve('./'), `dist/${name}.cjs.js`),
@@ -52,29 +53,11 @@ if (pkg.module) {
     entryPoints: [path.join(path.resolve('./'), 'lib/index.ts')],
     format: 'esm',
     bundle: true,
-
     sourcemap: false,
     target: ['esnext'],
     outfile: path.join(path.resolve('./'), `dist/${name}.esm.js`),
     pure,
     banner,
     external
-  })
-}
-
-// dev IIFE
-if (pkg.browser) {
-  require('esbuild').buildSync({
-    entryPoints: [path.join(path.resolve('./'), 'src/main.ts')],
-    format: 'iife',
-    globalName: camelCase(name),
-    bundle: true,
-
-    sourcemap: false,
-    target: ['chrome58'],
-    outfile: path.join(path.resolve('./'), `dist/${name}.dev.umd.js`),
-    pure,
-    banner
-    // no "external" - bundle everything
   })
 }
