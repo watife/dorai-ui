@@ -8,10 +8,11 @@ const generateId = () => {
 const GetId = () => {
   const [id, setId] = React.useState<number | null>(generateId)
   React.useEffect(() => {
+    if (id) return
     const generated = generateId()
 
     setId(generated)
-  }, [])
+  }, [id])
 
   return id
 }
