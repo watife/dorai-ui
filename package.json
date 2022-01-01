@@ -1,7 +1,7 @@
 {
   "name": "dorai-ui",
   "version": "0.0.0",
-  "description": "Dorai-ui offers a bunch of accessible, styleless, dry react components.",
+  "description": "Accessible, unstyled, and fully functional react component library for building better design systems",
   "author": "watife",
   "private": true,
   "workspaces": {

@@ -1,4 +1,4 @@
-# DORAI UI
+# DORAI UI (**COMING SOON**)
 
 Accessible, unstyled, open-sourced and fully functional react component library for building design systems
 
@@ -12,7 +12,7 @@ Accessible, unstyled, open-sourced and fully functional react component library 
 
 * ⚓️ &nbsp; Controlled and UnControlled --> Dorai components are controlled and some components also offer external controlled ability as deemed fit. Efforts are being made to offer external control abiliity to all components.
 
-* 💧 &nbsp; Independent component --> Dorai offers comoponent that are independent. This grants thwe ability to install a single component or multiple as needed.
+* 💧 &nbsp; Independent & All-in-One Component --> Dorai components are independently shipped. This grants the ability to install a single component or multiple as needed. Future effort includes a single, all-in-one package option.
 
 ## Example usage
 
@@ -21,8 +21,11 @@ You can make use of a component of your choice by simply installing it;
 ```
 npm install @dorai-ui/Tabs
 
+```
+
 or
 
+```
 yarn add @dorai-ui/tabs
 
 ```
