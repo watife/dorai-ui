@@ -7,6 +7,13 @@ import {
   KeyBoardKeys
 } from '@dorai-ui/utils'
 
+enum TypeEnum {
+  Single = 'single',
+  Multiple = 'multiple'
+}
+
+type AccordionUsageType = 'single' | 'multiple'
+
 const AccordionContext = React.createContext<{
   accordions: React.MutableRefObject<HTMLElement | null>[]
   activeAccordion: React.MutableRefObject<HTMLElement | null> | undefined
@@ -17,16 +24,20 @@ const AccordionContext = React.createContext<{
     element: React.MutableRefObject<HTMLElement | null>
   ) => void
   defaultIndex?: number
-  type?: 'single' | 'multiple'
+  type?: AccordionUsageType
 } | null>(null)
 
 type AccordionType = {
   children: React.ReactNode
-  type?: 'single' | 'multiple'
+  type?: AccordionUsageType
   defaultIndex?: number
 }
 
-const Root = ({ children, type = 'multiple', defaultIndex }: AccordionType) => {
+const Root = ({
+  children,
+  type = TypeEnum.Multiple,
+  defaultIndex
+}: AccordionType) => {
   const [accordions, registerAccordions] = React.useState<
     React.MutableRefObject<HTMLElement | null>[]
   >([])
@@ -48,9 +59,14 @@ const Root = ({ children, type = 'multiple', defaultIndex }: AccordionType) => {
     []
   )
 
+  /**
+   *
+   * When type is multiple, the global active accordion state is not needed hence we return early
+   *
+   */
   const handleSetGlobalActiveAccordion = React.useCallback(
     (element: React.MutableRefObject<HTMLElement | null>) => {
-      if (type === 'multiple') return
+      if (type === TypeEnum.Multiple) return
       setGlobalActiveAccordion(element)
     },
     [type]
@@ -148,34 +164,22 @@ const Group: GroupType = React.forwardRef(
       triggerId: string | null
     }>({ panelId: null, triggerId: null })
 
-    const {
-      handleRegisterAccordion,
-      accordions,
-      defaultIndex,
-      type,
-      activeAccordion
-    } = useRootValue('Group')
+    const { handleRegisterAccordion, type, activeAccordion } =
+      useRootValue('Group')
 
     React.useEffect(() => {
       handleRegisterAccordion(internalRef)
     }, [handleRegisterAccordion])
 
-    // handle default value and if it is type single, the next useEffect handles it
-    React.useEffect(() => {
-      if (type === 'single') return
+    const handleDefaultOpen = React.useCallback(() => {
       const currentState = internalRef === activeAccordion
 
       setOpen(currentState)
-    }, [activeAccordion, type])
+    }, [activeAccordion])
 
-    // handle type of accordion and also defaultIndex if type is single
     React.useEffect(() => {
-      if (type === 'multiple') return
-
-      const currentState = internalRef === activeAccordion
-
-      setOpen(currentState)
-    }, [accordions, activeAccordion, defaultIndex, type])
+      handleDefaultOpen()
+    }, [activeAccordion, handleDefaultOpen, type])
 
     const mergedRef = mergeRefs([internalRef, ref])
 
@@ -261,17 +265,20 @@ const Trigger: TriggerType = React.forwardRef(
       groupRef
     } = useGroupValue('Trigger')
 
-    const { handleSetGlobalActiveAccordion } = useRootValue('Group')
+    const { handleSetGlobalActiveAccordion, type } = useRootValue('Group')
 
     React.useEffect(() => {
       handleSetContentIds(id, 'triggerId')
     }, [handleSetContentIds, id])
 
-    const handleClickEvent = callAll(
-      props.onClick,
-      () => handleSetGlobalActiveAccordion(groupRef),
-      handleSetGroupState
-    )
+    const handleClickEvent =
+      type === TypeEnum.Single
+        ? callAll(
+            props.onClick,
+            () => handleSetGlobalActiveAccordion(groupRef),
+            handleSetGroupState
+          )
+        : callAll(props.onClick, handleSetGroupState)
 
     const handleKeyEvent = React.useCallback(
       (event: React.KeyboardEvent<HTMLElement>) => {
