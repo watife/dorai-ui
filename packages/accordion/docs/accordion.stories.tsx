@@ -4,10 +4,30 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Accordion } from '@dorai-ui/accordion'
 
-export const Default: ComponentStory<typeof Accordion> =
+export const Multiple: ComponentStory<typeof Accordion> =
   function AccordionComponent() {
     return (
       <Accordion defaultIndex={0}>
+        <Accordion.Group>
+          <Accordion.Header>
+            <Accordion.Trigger>open accordion</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Panel>This is the panel text</Accordion.Panel>
+        </Accordion.Group>
+        <Accordion.Group>
+          <Accordion.Header>
+            <Accordion.Trigger>open accordion 2</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Panel>This is the panel text 2</Accordion.Panel>
+        </Accordion.Group>
+      </Accordion>
+    )
+  }
+
+export const Single: ComponentStory<typeof Accordion> =
+  function AccordionComponent() {
+    return (
+      <Accordion defaultIndex={0} type='single'>
         <Accordion.Group>
           <Accordion.Header>
             <Accordion.Trigger>open accordion</Accordion.Trigger>
