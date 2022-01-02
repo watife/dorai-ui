@@ -1,11 +1,15 @@
-# `@doraiui/tabs`
+# `@dorai-ui/tabs`
 
-> TODO: description
+The accessible, unstyled fully functional tab component from @dorai-ui
 
-## Usage
+## Installation
 
+```sh
+npm i @dorai-ui/tabs
 ```
-const tabs = require('@doraiui/tabs');
 
-// TODO: DEMONSTRATE API
+or
+
+```sh
+yarn add @dorai-ui/tabs
 ```

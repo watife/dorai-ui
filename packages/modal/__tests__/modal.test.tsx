@@ -14,7 +14,7 @@ const ModalComp = ({ open }: ModalCompType) => {
         <Modal.Overlay />
         <Modal.Title>Title</Modal.Title>
         <Modal.Description>Modal description</Modal.Description>
-        <Modal.Button>Close Modal</Modal.Button>
+        <Modal.Trigger>Close Modal</Modal.Trigger>
       </Modal.Group>
     </Modal>
   )
@@ -24,7 +24,7 @@ describe('Safe rules of component', () => {
   it.each([
     ['Modal.Overlay', Modal.Overlay],
     ['Modal.Title', Modal.Title],
-    ['Modal.Button', Modal.Button],
+    ['Modal.Trigger', Modal.Trigger],
     ['Modal.Group', Modal.Group]
   ])(
     'should error if component is rendered without a parent <Modal />',
@@ -53,10 +53,10 @@ describe('Modal render', () => {
     expect(screen.getByText(/Modal description/i)).toBeInTheDocument()
   })
 
-  it('renders modal when modal button is clicked', () => {
+  it('renders modal when modal Trigger is clicked', () => {
     render(
       <Modal>
-        <Modal.Button>Open modal</Modal.Button>
+        <Modal.Trigger>Open modal</Modal.Trigger>
         <Modal.Group>
           <Modal.Overlay />
           <Modal.Title>Title</Modal.Title>
@@ -74,15 +74,15 @@ describe('Modal render', () => {
     expect(screen.getByText(/Modal description/i)).toBeInTheDocument()
   })
 
-  it('closes modal when close button is clicked', () => {
+  it('closes modal when close Trigger is clicked', () => {
     render(
       <Modal>
-        <Modal.Button>Open modal</Modal.Button>
+        <Modal.Trigger>Open modal</Modal.Trigger>
         <Modal.Group>
           <Modal.Overlay />
           <Modal.Title>Title</Modal.Title>
           <Modal.Description>Modal description</Modal.Description>
-          <Modal.Button>Close modal</Modal.Button>
+          <Modal.Trigger>Close modal</Modal.Trigger>
         </Modal.Group>
       </Modal>
     )

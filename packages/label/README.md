@@ -1,11 +1,15 @@
-# `@doraiui/label`
+# `@dorai-ui/label`
 
-> TODO: description
+The accessible, unstyled fully functional label component from @dorai-ui
 
-## Usage
+## Installation
 
+```sh
+npm i @dorai-ui/label
 ```
-const label = require('@doraiui/label');
 
-// TODO: DEMONSTRATE API
+or
+
+```sh
+yarn add @dorai-ui/label
 ```

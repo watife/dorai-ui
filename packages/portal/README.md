@@ -1,11 +1,15 @@
-# `@doraiui/portal`
+# `@dorai-ui/portal`
 
-> TODO: description
+The accessible, unstyled fully functional portal component from @dorai-ui
 
-## Usage
+## Installation
 
+```sh
+npm i @dorai-ui/portal
 ```
-const portal = require('@doraiui/portal');
 
-// TODO: DEMONSTRATE API
+or
+
+```sh
+yarn add @dorai-ui/portal
 ```

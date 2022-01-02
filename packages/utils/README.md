@@ -1,11 +1,15 @@
-# `@doraiui/utils`
+# `@dorai-ui/utils`
 
-> TODO: description
+List of utils from @dorai-ui
 
-## Usage
+## Installation
 
+```sh
+npm i @dorai-ui/utils
 ```
-const utils = require('@doraiui/utils');
 
-// TODO: DEMONSTRATE API
+or
+
+```sh
+yarn add @dorai-ui/utils
 ```

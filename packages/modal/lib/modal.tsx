@@ -161,30 +161,32 @@ const Group: ModalGroupType = React.forwardRef(
 
 /**
  *
- * Modal Button component for opening and closing modal dialog
+ * Modal Trigger component for opening and closing modal dialog
  *
  */
-type ButtonOwnProps = {
+type TriggerOwnProps = {
   children: React.ReactNode
 }
 
-type ButtonProps<C extends React.ElementType> =
-  Polymorphic.ComponentPropsWithRef<C, ButtonOwnProps>
+type TriggerProps<C extends React.ElementType> =
+  Polymorphic.ComponentPropsWithRef<C, TriggerOwnProps>
 
-const __DEFAULT_BUTTON__ = 'button'
+const __DEFAULT_TRIGGER_TAG__ = 'button'
 
-type ButtonType = <C extends React.ElementType = typeof __DEFAULT_BUTTON__>(
-  props: ButtonProps<C>
+type TriggerType = <
+  C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__
+>(
+  props: TriggerProps<C>
 ) => React.ReactElement | null
 
-const Button: ButtonType = React.forwardRef(
-  <C extends React.ElementType = typeof __DEFAULT_BUTTON__>(
-    { as, children, ...props }: ButtonProps<C>,
+const Trigger: TriggerType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__>(
+    { as, children, ...props }: TriggerProps<C>,
     ref?: Polymorphic.Ref<C>
   ) => {
-    const context = useModalContext('Button')
+    const context = useModalContext('Trigger')
 
-    const TagName = as || __DEFAULT_BUTTON__
+    const TagName = as || __DEFAULT_TRIGGER_TAG__
 
     const handleClicks = callAll(props.onClick, () =>
       context.setIsOpen((prev) => !prev)
@@ -298,7 +300,7 @@ const Overlay: OverlayType = React.forwardRef(
 
 export const Modal = Object.assign(ModalRoot, {
   Group,
-  Button,
+  Trigger,
   Title,
   Description,
   Overlay
