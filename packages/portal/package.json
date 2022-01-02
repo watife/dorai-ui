@@ -15,8 +15,12 @@
   },
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@dorai-ui/utils": "^0.0.0"
   },
