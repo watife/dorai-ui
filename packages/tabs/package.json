@@ -15,7 +15,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
+    "build": "node ./esbuild.js && tsc --emitDeclarationOnly",
+    "semantic-release": "semantic-release --branches main"
   },
   "publishConfig": {
     "access": "public"

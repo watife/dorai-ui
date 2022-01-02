@@ -1,7 +1,5 @@
 # `DORAI UI`
 
-**COMING SOON 🤩**
-
 Accessible, unstyled, open-sourced and fully functional react component library for building design systems
 
 > Documentation site coming soon
