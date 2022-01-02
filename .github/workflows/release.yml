@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [quality]
 
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +23,15 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install
+
+      - name: Build Packages
+        run: yarn build
+
+      - name: Check Linting
+        run: yarn lint
+
+      - name: Run Tests
+        run: yarn test
 
       - name: Release Package
         run: yarn workspaces run semantic-release -e semantic-release-monorepo
