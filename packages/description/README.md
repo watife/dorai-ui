@@ -1,11 +1,19 @@
-# `@doraiui/description`
+# `@dorai-ui/description`
 
-> TODO: description
+The accessible, unstyled fully functional description component from @dorai-ui.
 
 ## Usage
 
-```
-const description = require('@doraiui/description');
+Usage is mainly internal and may be deprecated in future.
 
-// TODO: DEMONSTRATE API
+## Installation
+
+```sh
+npm i @dorai-ui/description
+```
+
+or
+
+```sh
+yarn add @dorai-ui/description
 ```

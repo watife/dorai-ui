@@ -34,7 +34,7 @@ export const Manual: ComponentStory<typeof Modal> = function ModalComponent() {
             <Modal.Description as='p' style={{ background: 'red' }}>
               Description of modal
             </Modal.Description>
-            <Modal.Button>close</Modal.Button>
+            <Modal.Trigger>close</Modal.Trigger>
           </div>
         </Modal.Group>
       </Modal>
@@ -45,7 +45,7 @@ export const Default: ComponentStory<typeof Modal> =
   function AccordionComponent() {
     return (
       <Modal>
-        <Modal.Button>Open Modal</Modal.Button>
+        <Modal.Trigger>Open Modal</Modal.Trigger>
         <Modal.Group>
           <Modal.Overlay
             style={{
@@ -65,7 +65,7 @@ export const Default: ComponentStory<typeof Modal> =
             <Modal.Description as='p' style={{ background: 'red' }}>
               Description of modal
             </Modal.Description>
-            <Modal.Button>close</Modal.Button>
+            <Modal.Trigger>close</Modal.Trigger>
           </div>
         </Modal.Group>
       </Modal>

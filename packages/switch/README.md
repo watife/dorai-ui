@@ -1,11 +1,15 @@
-# `@doraiui/switch`
+# `@dorai-ui/switch`
 
-> TODO: description
+The accessible, unstyled fully functional switch(toggle) component from @dorai-ui
 
-## Usage
+## Installation
 
+```sh
+npm i @dorai-ui/switch
 ```
-const switch = require('@doraiui/switch');
 
-// TODO: DEMONSTRATE API
+or
+
+```sh
+yarn add @dorai-ui/switch
 ```

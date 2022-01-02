@@ -58,32 +58,34 @@ const useSwitchValue = (component: string) => {
 
 /**
  *
- * Toggle Button component
+ * Toggle Trigger component
  *
  */
-type ButtonOwnProps = {
+type TriggerOwnProps = {
   children: React.ReactNode
 }
 
-type ButtonProps<C extends React.ElementType> =
-  Polymorphic.ComponentPropsWithRef<C, ButtonOwnProps>
+type TriggerProps<C extends React.ElementType> =
+  Polymorphic.ComponentPropsWithRef<C, TriggerOwnProps>
 
-const __DEFAULT_BUTTON_TAG__ = 'button'
+const __DEFAULT_TRIGGER_TAG__ = 'button'
 
-type ButtonType = <C extends React.ElementType = typeof __DEFAULT_BUTTON_TAG__>(
-  props: ButtonProps<C>
+type TriggerType = <
+  C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__
+>(
+  props: TriggerProps<C>
 ) => React.ReactElement | null
 
-const Button: ButtonType = React.forwardRef(
-  <C extends React.ElementType = typeof __DEFAULT_BUTTON_TAG__>(
-    { as, children, ...props }: ButtonProps<C>,
+const Trigger: TriggerType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__>(
+    { as, children, ...props }: TriggerProps<C>,
     ref?: Polymorphic.Ref<C>
   ) => {
-    const context = useSwitchValue('Button')
+    const context = useSwitchValue('Trigger')
 
     const labelContext = useLabelValue()
 
-    const TagName = as || __DEFAULT_BUTTON_TAG__
+    const TagName = as || __DEFAULT_TRIGGER_TAG__
 
     const handleClicks = context.disabled
       ? undefined
@@ -116,7 +118,7 @@ const Button: ButtonType = React.forwardRef(
         aria-readonly={context.disabled}
         aria-labelledby={labelContext?.ids}
         tabIndex={0}
-        onKeyDown={handleKeyEvent}
+        onKeyDown={(e) => callAll(props.keyDown, () => handleKeyEvent(e))}
         {...propsHandled}
         ref={ref}
       >
@@ -126,4 +128,4 @@ const Button: ButtonType = React.forwardRef(
   }
 )
 
-export const Switch = Object.assign(SwitchRoot, { Button, Label })
+export const Switch = Object.assign(SwitchRoot, { Trigger, Label })

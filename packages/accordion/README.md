@@ -1,11 +1,15 @@
-# `@doraiui/accordion`
+# `@dorai-ui/accordion`
 
-> TODO: description
+The accessible, unstyled fully functional accordion component from @dorai-ui.
 
-## Usage
+## Installation
 
+```sh
+npm i @dorai-ui/accordion
 ```
-const accordion = require('@doraiui/accordion');
 
-// TODO: DEMONSTRATE API
+or
+
+```sh
+yarn add @dorai-ui/accordion
 ```
