@@ -1,11 +1,15 @@
-# `@doraiui/modal`
+# `@dorai-ui/modal`
 
-> TODO: description
+The accessible, unstyled fully functional modal component from @dorai-ui
 
-## Usage
+## Installation
 
+```sh
+npm i @dorai-ui/modal
 ```
-const modal = require('@doraiui/modal');
 
-// TODO: DEMONSTRATE API
+or
+
+```sh
+yarn add @dorai-ui/modal
 ```

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { Switch } from '../lib/switch'
 
 describe('Safe rules of component', () => {
-  it.each([['Switch.Button', Switch.Button]])(
+  it.each([['Switch.Trigger', Switch.Trigger]])(
     'should error if component is rendered without a parent <Switch />',
     (name, Component) => {
       expect(() => render(<Component>children</Component>)).toThrowError(
@@ -18,7 +18,7 @@ describe('switch rendering', () => {
   it('renders switch component without crashing', () => {
     render(
       <Switch>
-        <Switch.Button>click to toggle</Switch.Button>
+        <Switch.Trigger>click to toggle</Switch.Trigger>
       </Switch>
     )
 
@@ -30,7 +30,7 @@ describe('switch rendering', () => {
       <Switch>
         {({ checked }) => (
           <>
-            <Switch.Button>click to toggle</Switch.Button>
+            <Switch.Trigger>click to toggle</Switch.Trigger>
             <Switch.Label>Label component</Switch.Label>
             {checked ? <p>toggle on</p> : null}
           </>
@@ -53,7 +53,7 @@ describe('switch rendering', () => {
       <Switch>
         {({ checked }) => (
           <>
-            <Switch.Button id='toggle'>click to toggle</Switch.Button>
+            <Switch.Trigger id='toggle'>click to toggle</Switch.Trigger>
             <Switch.Label htmlFor='toggle'>Label component</Switch.Label>
             {checked ? <p>toggle on</p> : null}
           </>
