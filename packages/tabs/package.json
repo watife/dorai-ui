@@ -14,12 +14,12 @@
     "lib",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "node ./esbuild.js && tsc --emitDeclarationOnly",
     "semantic-release": "semantic-release --branches main"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "repository": {
     "type": "git",

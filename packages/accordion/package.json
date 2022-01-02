@@ -11,8 +11,12 @@
   "src": "lib/index.ts",
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
