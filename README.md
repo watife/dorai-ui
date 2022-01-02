@@ -1,8 +1,14 @@
-# DORAI UI (**COMING SOON**)
+# DORAI UI
+
+**COMING SOON 🤩**
 
 Accessible, unstyled, open-sourced and fully functional react component library for building design systems
 
 > Documentation site coming soon
+
+<br />
+
+[![CI](https://github.com/watife/dorai-ui/actions/workflows/quality.yml/badge.svg)](https://github.com/watife/dorai-ui/actions/workflows/quality.yml) ![Shield](https://img.shields.io/badge/contributions-welcome-brightgreen) [![Twitter](https://img.shields.io/twitter/follow/:wati_fe.svg?style=social&label=@wati_fe)](https://twitter.com/wati_fe)
 
 ## Features
 
