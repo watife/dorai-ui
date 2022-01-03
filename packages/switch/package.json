@@ -26,8 +26,8 @@
     "semantic-release": "semantic-release --branches main"
   },
   "dependencies": {
-    "@dorai-ui/label": "^0.0.0",
-    "@dorai-ui/utils": "^0.0.0"
+    "@dorai-ui/label": "0.0.0",
+    "@dorai-ui/utils": "0.0.0"
   },
   "peerDependencies": {
     "react": "16.13.1",

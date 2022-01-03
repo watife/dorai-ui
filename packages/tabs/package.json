@@ -26,7 +26,7 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^0.0.0"
+    "@dorai-ui/utils": "0.0.0"
   },
   "peerDependencies": {
     "react": "16.13.1",
