@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/portal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "dorai-ui accessible portal",
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
@@ -22,7 +22,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dorai-ui/utils": "1.0.0"
+    "@dorai-ui/utils": "1.0.1"
   },
   "peerDependencies": {
     "react": "16.13.1",
