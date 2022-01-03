@@ -34,7 +34,7 @@ jobs:
         run: yarn test
 
       - name: Release Package
-        run: yarn workspaces run semantic-release -e semantic-release-monorepo
+        run: lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
 
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
