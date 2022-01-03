@@ -1,7 +1,7 @@
 {
   "name": "@dorai-ui/description",
   "version": "1.0.1",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "description": "dorai-ui description",
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
@@ -22,7 +22,7 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "1.0.1"
+    "@dorai-ui/utils": "1.0.2"
   },
   "peerDependencies": {
     "react": "16.13.1",
