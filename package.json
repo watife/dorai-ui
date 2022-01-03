@@ -18,7 +18,8 @@
     "commit": "cz",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "semantic-release": "semantic-release --branches main"
+    "semantic-release": "semantic-release --branches main",
+    "release": "auto shipit"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -39,6 +40,7 @@
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
+    "auto": "^10.32.5",
     "babel-jest": "^27.4.5",
     "babel-loader": "^8.2.3",
     "babel-preset-env": "^1.7.0",
@@ -64,9 +66,16 @@
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
   },
+  "auto": {
+    "plugins": [
+      "npm",
+      "released"
+    ]
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "plugins": []
 }

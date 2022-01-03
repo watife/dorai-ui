@@ -4,6 +4,10 @@
 name: Publish Packages
 
 on:
+  workflow_run:
+    workflows: ['quality']
+    types:
+      - completed
   push:
     branches: [main]
 
@@ -27,15 +31,11 @@ jobs:
       - name: Build Packages
         run: yarn build
 
-      - name: Check Linting
-        run: yarn lint
+      - run: git fetch --unshallow --tags
 
-      - name: Run Tests
-        run: yarn test
-
-      - name: Release Package
-        run: lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
-
+      - name: Create Release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn release
