@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/accordion",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "dorai-ui accessible accordion component",
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
@@ -22,7 +22,7 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "1.0.1"
+    "@dorai-ui/utils": "1.0.2"
   },
   "peerDependencies": {
     "react": "16.13.1",

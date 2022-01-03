@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/switch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "switch component for dorai-ui",
   "keywords": [],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
@@ -26,8 +26,8 @@
     "semantic-release": "semantic-release --branches main"
   },
   "dependencies": {
-    "@dorai-ui/label": "1.0.1",
-    "@dorai-ui/utils": "1.0.1"
+    "@dorai-ui/label": "1.0.2",
+    "@dorai-ui/utils": "1.0.2"
   },
   "peerDependencies": {
     "react": "16.13.1",
