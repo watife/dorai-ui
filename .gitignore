@@ -11,6 +11,7 @@
 # production
 /packages/*/**/dist
 /packages/*/errors
+storybook-static
 
 # misc
 .DS_Store
