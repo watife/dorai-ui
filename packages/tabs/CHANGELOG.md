@@ -1,3 +1,15 @@
+# v1.0.5 (Tue Jan 04 2022)
+
+#### 🐛 Bug Fix
+
+- docs(tabs): improve documentation of tabs component [#53](https://github.com/watife/dorai-ui/pull/53) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.0.4 (Tue Jan 04 2022)
 
 #### 🐛 Bug Fix
