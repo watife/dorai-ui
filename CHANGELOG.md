@@ -1,3 +1,23 @@
+# (Thu Jan 06 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update packages [#52](https://github.com/watife/dorai-ui/pull/52) ([@watife](https://github.com/watife))
+- ci: finalize release workflow [#51](https://github.com/watife/dorai-ui/pull/51) ([@watife](https://github.com/watife))
+- `@dorai-ui/tabs@1.0.6`
+  - docs(tabs): improve documentation of tabs component [#53](https://github.com/watife/dorai-ui/pull/53) ([@watife](https://github.com/watife))
+
+#### ⚠️ Pushed to `main`
+
+- `@dorai-ui/accordion@1.0.5`, `@dorai-ui/components@0.0.1`, `@dorai-ui/description@1.0.5`, `@dorai-ui/label@1.0.5`, `@dorai-ui/modal@1.0.5`, `@dorai-ui/portal@1.0.5`, `@dorai-ui/switch@1.0.5`, `@dorai-ui/tabs@1.0.6`, `@dorai-ui/utils@1.0.5`
+  - Merge branch 'release-component-library' ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Tue Jan 04 2022)
 
 #### 🐛 Bug Fix

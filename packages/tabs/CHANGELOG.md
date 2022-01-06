@@ -1,3 +1,22 @@
+# v1.0.6 (Thu Jan 06 2022)
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] (runner@fv-az246-793.py5defvocjqundwqxk0lumnltg.cx.internal.cloudapp.net)
+- Update CHANGELOG.md \[skip ci\] (runner@fv-az246-793.py5defvocjqundwqxk0lumnltg.cx.internal.cloudapp.net)
+- docs(tabs): improve documentation of tabs component [#53](https://github.com/watife/dorai-ui/pull/53) ([@watife](https://github.com/watife))
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'release-component-library' ([@watife](https://github.com/watife))
+
+#### Authors: 2
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+- watife (runner@fv-az246-793.py5defvocjqundwqxk0lumnltg.cx.internal.cloudapp.net)
+
+---
+
 # v1.0.5 (Tue Jan 04 2022)
 
 #### 🐛 Bug Fix

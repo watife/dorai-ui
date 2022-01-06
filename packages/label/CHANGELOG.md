@@ -1,3 +1,15 @@
+# v1.0.5 (Thu Jan 06 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'release-component-library' ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.0.4 (Tue Jan 04 2022)
 
 #### 🐛 Bug Fix
