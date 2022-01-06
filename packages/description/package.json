@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/description",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "dorai-ui description",
   "keywords": [
     "react",
@@ -27,7 +27,7 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^1.0.4"
+    "@dorai-ui/utils": "^1.0.5"
   },
   "peerDependencies": {
     "react": "16.13.1",
