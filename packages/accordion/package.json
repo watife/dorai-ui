@@ -9,7 +9,7 @@
     "accordion"
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/accordion.cjs.js",
   "module": "dist/accordion.esm.js",
   "types": "dist/index.d.ts",

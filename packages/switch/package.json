@@ -10,7 +10,7 @@
     "toggle"
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
