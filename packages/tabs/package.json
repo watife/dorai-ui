@@ -2,9 +2,14 @@
   "name": "@dorai-ui/tabs",
   "version": "1.0.4",
   "description": "dorai-ui tabs",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "tabs"
+  ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "src": "lib/index.ts",
   "main": "dist/tabs.cjs.js",
   "module": "dist/tabs.esm.js",

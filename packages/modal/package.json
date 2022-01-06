@@ -10,7 +10,7 @@
     "dialog"
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "src": "lib/index.ts",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.esm.js",

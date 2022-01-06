@@ -9,7 +9,7 @@
     "utils"
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "src": "lib/index.ts",
   "main": "dist/utils.cjs.js",
   "module": "dist/utils.esm.js",
