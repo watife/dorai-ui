@@ -2,7 +2,12 @@
   "name": "@dorai-ui/utils",
   "version": "1.0.4",
   "description": "dorai-ui utils",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "utils"
+  ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
   "src": "lib/index.ts",

@@ -2,7 +2,12 @@
   "name": "@dorai-ui/accordion",
   "version": "1.0.4",
   "description": "dorai-ui accessible accordion component",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "accordion"
+  ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "ISC",
   "main": "dist/accordion.cjs.js",

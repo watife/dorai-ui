@@ -2,7 +2,12 @@
   "name": "@dorai-ui/label",
   "version": "1.0.4",
   "description": "Internal Label component for dorai-ui",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "label"
+  ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
   "src": "lib/index.ts",
