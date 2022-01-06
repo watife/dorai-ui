@@ -61,11 +61,13 @@ type DescriptionOwnProps = {
 type DescriptionProps<C extends React.ElementType> =
   Polymorphic.ComponentPropsWithRef<C, DescriptionOwnProps>
 
-type DescriptionType = <C extends React.ElementType = 'h2'>(
+const __DEFAULT_DESCRIPTION_TAG__ = 'p'
+
+type DescriptionType = <
+  C extends React.ElementType = typeof __DEFAULT_DESCRIPTION_TAG__
+>(
   props: DescriptionProps<C>
 ) => React.ReactElement | null
-
-const __DEFAULT_DESCRIPTION_TAG__ = 'p'
 
 const Description: DescriptionType = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_DESCRIPTION_TAG__>(

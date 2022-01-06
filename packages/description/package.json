@@ -2,9 +2,14 @@
   "name": "@dorai-ui/description",
   "version": "1.0.4",
   "description": "dorai-ui description",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "description"
+  ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "src": "lib/index.ts",
   "main": "dist/description.cjs.js",
   "module": "dist/description.esm.js",

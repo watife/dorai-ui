@@ -2,7 +2,12 @@
   "name": "@dorai-ui/portal",
   "version": "1.0.4",
   "description": "dorai-ui accessible portal",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "portal"
+  ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
   "src": "lib/index.ts",

@@ -20,7 +20,7 @@
     "build-storybook": "build-storybook",
     "deploy": "yarn build-storybook && gh-pages -d storybook-static",
     "semantic-release": "semantic-release --branches main",
-    "release": "auto shipit && yarn deploy"
+    "release": "auto shipit"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

@@ -2,9 +2,15 @@
   "name": "@dorai-ui/switch",
   "version": "1.0.4",
   "description": "switch component for dorai-ui",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "switch",
+    "toggle"
+  ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"

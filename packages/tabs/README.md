@@ -33,4 +33,4 @@ import { Tabs } from '@dorai-ui/tabs'
 ```
 
 ## Documentation
-Further documentation and examples can be found [here]('https://watife.github.io/dorai-ui/?path=/story/tabs--vertical).
+Further documentation and examples can be found [here](https://watife.github.io/dorai-ui/?path=/story/tabs--vertical).

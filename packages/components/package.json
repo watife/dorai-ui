@@ -1,18 +1,21 @@
 {
-  "name": "@dorai-ui/label",
-  "version": "1.0.4",
-  "description": "Internal Label component for dorai-ui",
+  "name": "@dorai-ui/components",
+  "version": "0.0.0",
+  "description": "@dorai-ui composed components",
   "keywords": [
+    "dorai-ui",
+    "component",
+    "library",
     "react",
     "react-component",
-    "dorai-ui",
-    "label"
+    "accessible"
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
+  "homepage": "https://github.com/watife/dorai-ui#readme",
   "license": "MIT",
   "src": "lib/index.ts",
-  "main": "dist/label.cjs.js",
-  "module": "dist/label.esm.js",
+  "main": "dist/description.cjs.js",
+  "module": "dist/description.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -27,7 +30,12 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^1.0.4"
+    "@dorai-ui/utils": "^1.0.4",
+    "@dorai-ui/accordion": "1.0.4",
+    "@dorai-ui/modal": "1.0.4",
+    "@dorai-ui/tabs": "1.0.5",
+    "@dorai-ui/portal": "1.0.4",
+    "@dorai-ui/switch": "1.0.4"
   },
   "peerDependencies": {
     "react": "16.13.1",
@@ -39,6 +47,5 @@
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"
-  },
-  "homepage": "https://github.com/watife/dorai-ui#readme"
+  }
 }
