@@ -90,16 +90,16 @@ type ModalGroupOwnProps = {
 type ModalProps<C extends React.ElementType> =
   Polymorphic.ComponentPropsWithRef<C, ModalGroupOwnProps>
 
-const __DEFAULT_MODAL_GROUP__ = 'div'
+const __DEFAULT_MODAL_GROUP_TAG__ = 'div'
 
 type ModalGroupType = <
-  C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP__
+  C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__
 >(
   props: ModalProps<C>
 ) => React.ReactElement | null
 
 const Group: ModalGroupType = React.forwardRef(
-  <C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP__>(
+  <C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__>(
     { as, children, ...props }: ModalProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
@@ -136,7 +136,7 @@ const Group: ModalGroupType = React.forwardRef(
       }
     }, [context.isOpen])
 
-    const TagName = as || __DEFAULT_MODAL_GROUP__
+    const TagName = as || __DEFAULT_MODAL_GROUP_TAG__
 
     if (!context.isOpen) return null
 

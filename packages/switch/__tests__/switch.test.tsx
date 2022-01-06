@@ -25,7 +25,7 @@ describe('switch rendering', () => {
     expect(screen.queryByRole(/switch/i)).toBeInTheDocument()
   })
 
-  it('toggles switch if component is ', () => {
+  it('toggles switch if component is clicked', () => {
     render(
       <Switch>
         {({ checked }) => (

@@ -48,7 +48,6 @@ const TabsRoot = ({
     React.useState<number>(defaultIndex)
   const [focusedTabIndex, setFocusedTabIndex] =
     React.useState<number>(defaultIndex)
-  React.useState<number>(defaultIndex)
   const [tabs, setTabs] = React.useState<
     React.MutableRefObject<HTMLElement | null>[]
   >([])

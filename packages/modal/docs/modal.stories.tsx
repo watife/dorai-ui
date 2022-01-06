@@ -1,20 +1,19 @@
 import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { useArgs } from '@storybook/client-api'
 
-import { Modal } from '../lib'
+import { Modal } from '@dorai-ui/modal'
 
-export const Manual: ComponentStory<typeof Modal> = function ModalComponent() {
-  const [isOpen, setIsOpen] = React.useState(false)
-
-  const handleOpenModal = () => {
-    //other actions you want to perform
-    setIsOpen((prev) => !prev)
-  }
+export const Manual: ComponentStory<typeof Modal> = function ModalComponent({
+  ...args
+}) {
+  const [{ isOpen }, updateArgs] = useArgs()
+  const handleClose = () => updateArgs({ isOpen: !isOpen })
   return (
     <div>
-      <button onClick={() => setIsOpen((prev) => !prev)}>Open Modal</button>
-      <Modal isOpen={isOpen} setIsOpen={handleOpenModal}>
+      <button onClick={handleClose}>Open Modal</button>
+      <Modal isOpen={isOpen} setIsOpen={handleClose} {...args}>
         <Modal.Group>
           <Modal.Overlay
             style={{
@@ -41,10 +40,10 @@ export const Manual: ComponentStory<typeof Modal> = function ModalComponent() {
     </div>
   )
 }
-export const Default: ComponentStory<typeof Modal> =
-  function AccordionComponent() {
+export const Controlled: ComponentStory<typeof Modal> =
+  function AccordionComponent({ ...args }) {
     return (
-      <Modal>
+      <Modal {...args}>
         <Modal.Trigger>Open Modal</Modal.Trigger>
         <Modal.Group>
           <Modal.Overlay
@@ -62,7 +61,7 @@ export const Default: ComponentStory<typeof Modal> =
             <Modal.Title as='h1'>
               Title of Modal with my own controls
             </Modal.Title>
-            <Modal.Description as='p' style={{ background: 'red' }}>
+            <Modal.Description style={{ background: 'red' }}>
               Description of modal
             </Modal.Description>
             <Modal.Trigger>close</Modal.Trigger>
@@ -72,6 +71,12 @@ export const Default: ComponentStory<typeof Modal> =
     )
   }
 
-export default { title: 'Modal', component: Modal } as ComponentMeta<
-  typeof Modal
->
+export default {
+  title: 'Modal',
+  component: Modal,
+  args: {
+    isOpen: false,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    onClick: () => {}
+  }
+} as ComponentMeta<typeof Modal>

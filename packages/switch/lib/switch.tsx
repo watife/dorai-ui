@@ -19,7 +19,12 @@ type SwitchType = {
 }
 
 const SwitchRoot = ({ children, checked, disabled }: SwitchType) => {
-  const [isChecked, setIsChecked] = React.useState(checked || false)
+  const [isChecked, setIsChecked] = React.useState(false)
+
+  React.useEffect(() => {
+    if (typeof checked === 'undefined') return
+    setIsChecked(checked)
+  }, [checked])
 
   const toggle = () => setIsChecked((prev) => !prev)
 
