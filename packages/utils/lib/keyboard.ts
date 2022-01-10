@@ -6,7 +6,11 @@ enum KeyBoardKeys {
   ArrowDown = 'ArrowDown',
   Tab = 'Tab',
   Enter = 'Enter',
-  Escape = 'Escape'
+  Escape = 'Escape',
+  PageUp = 'PageUp',
+  Home = 'Home',
+  Down = 'Down',
+  Up = 'Up'
 }
 
 export { KeyBoardKeys }
