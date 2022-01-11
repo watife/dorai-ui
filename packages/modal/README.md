@@ -34,9 +34,9 @@ function ModalComponent() {
           <Modal.Description>
             Description of modal
           </Modal.Description>
-          <Modal.Trigger>
+          <Modal.Close>
             close
-          </Modal.Trigger>
+          </Modal.Close>
         </div>
       </Modal.Group>
     </Modal>

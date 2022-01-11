@@ -33,7 +33,7 @@ export const Manual: ComponentStory<typeof Modal> = function ModalComponent({
             <Modal.Description as='p' style={{ background: 'red' }}>
               Description of modal
             </Modal.Description>
-            <Modal.Trigger>close</Modal.Trigger>
+            <Modal.Close>close</Modal.Close>
           </div>
         </Modal.Group>
       </Modal>
@@ -64,7 +64,7 @@ export const Controlled: ComponentStory<typeof Modal> =
             <Modal.Description style={{ background: 'red' }}>
               Description of modal
             </Modal.Description>
-            <Modal.Trigger>close</Modal.Trigger>
+            <Modal.Close>close</Modal.Close>
           </div>
         </Modal.Group>
       </Modal>
