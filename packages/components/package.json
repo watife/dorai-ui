@@ -43,8 +43,7 @@
     "react-dom": "16.13.1"
   },
   "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly",
-    "semantic-release": "semantic-release --branches main"
+    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"
