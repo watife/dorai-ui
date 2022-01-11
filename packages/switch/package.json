@@ -28,8 +28,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly",
-    "semantic-release": "semantic-release --branches main"
+    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "dependencies": {
     "@dorai-ui/label": "^1.0.5",
