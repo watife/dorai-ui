@@ -69,8 +69,11 @@ The project seeks to support as many components as possible as listed under [Ari
 | ✅     | Dialog (Modal) |
 | ✅     | Switch         |
 | ✅     | Tabs           |
+| ✅     | Alert          |
+| 🛠      | Alert Dialog   |
+| 🛠      | Radio Group    |
+| 🛠      | Checkbox       |
 | 🛠      | Menu Button    |
-| 🛠      | Alert          |
 
 ## Contributors
 
