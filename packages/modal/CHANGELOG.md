@@ -1,3 +1,15 @@
+# v1.0.6 (Tue Jan 11 2022)
+
+#### 🐛 Bug Fix
+
+- feat(modal): modal component close tag [#57](https://github.com/watife/dorai-ui/pull/57) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.0.5 (Thu Jan 06 2022)
 
 #### ⚠️ Pushed to `main`
