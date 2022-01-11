@@ -3,6 +3,25 @@
 #### 🚀 Enhancement
 
 - feat: release pipeline [#59](https://github.com/watife/dorai-ui/pull/59) ([@watife](https://github.com/watife))
+- `@dorai-ui/components@0.1.0`
+  - feat: add alert to composed components [#60](https://github.com/watife/dorai-ui/pull/60) ([@watife](https://github.com/watife))
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/alert@0.2.0`
+  - feat(alert): alert component [#58](https://github.com/watife/dorai-ui/pull/58) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Tue Jan 11 2022)
+
+#### 🚀 Enhancement
+
+- feat: release pipeline [#59](https://github.com/watife/dorai-ui/pull/59) ([@watife](https://github.com/watife))
 
 #### 🐛 Bug Fix
 
