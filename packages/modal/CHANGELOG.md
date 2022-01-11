@@ -1,3 +1,15 @@
+# v1.1.0 (Tue Jan 11 2022)
+
+#### 🚀 Enhancement
+
+- feat: bump packages [#61](https://github.com/watife/dorai-ui/pull/61) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.0.6 (Tue Jan 11 2022)
 
 #### 🐛 Bug Fix
