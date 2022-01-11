@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/modal",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "@dorai-ui accessible modal",
   "keywords": [
     "react",
@@ -28,9 +28,9 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/description": "^1.0.5",
-    "@dorai-ui/portal": "^1.0.5",
-    "@dorai-ui/utils": "^1.0.5"
+    "@dorai-ui/description": "^1.1.0",
+    "@dorai-ui/portal": "^1.1.0",
+    "@dorai-ui/utils": "^1.1.0"
   },
   "peerDependencies": {
     "react": "16.13.1",
