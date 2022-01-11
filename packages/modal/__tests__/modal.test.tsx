@@ -14,7 +14,7 @@ const ModalComp = ({ open }: ModalCompType) => {
         <Modal.Overlay />
         <Modal.Title>Title</Modal.Title>
         <Modal.Description>Modal description</Modal.Description>
-        <Modal.Trigger>Close Modal</Modal.Trigger>
+        <Modal.Close>Close Modal</Modal.Close>
       </Modal.Group>
     </Modal>
   )
@@ -74,7 +74,7 @@ describe('Modal render', () => {
     expect(screen.getByText(/Modal description/i)).toBeInTheDocument()
   })
 
-  it('closes modal when close Trigger is clicked', () => {
+  it('closes modal when Modal Close is clicked', () => {
     render(
       <Modal>
         <Modal.Trigger>Open modal</Modal.Trigger>
@@ -82,7 +82,7 @@ describe('Modal render', () => {
           <Modal.Overlay />
           <Modal.Title>Title</Modal.Title>
           <Modal.Description>Modal description</Modal.Description>
-          <Modal.Trigger>Close modal</Modal.Trigger>
+          <Modal.Close>Close modal</Modal.Close>
         </Modal.Group>
       </Modal>
     )
