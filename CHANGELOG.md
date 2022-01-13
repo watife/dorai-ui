@@ -1,3 +1,16 @@
+# (Thu Jan 13 2022)
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/modal@1.1.1`
+  - refactor(modal): expose modal context [#62](https://github.com/watife/dorai-ui/pull/62) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Tue Jan 11 2022)
 
 #### 🚀 Enhancement
