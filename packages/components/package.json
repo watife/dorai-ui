@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/components",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "@dorai-ui composed components",
   "keywords": [
     "dorai-ui",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@dorai-ui/accordion": "^1.1.0",
     "@dorai-ui/alert": "^0.2.0",
-    "@dorai-ui/modal": "^1.1.0",
+    "@dorai-ui/modal": "^1.1.1",
     "@dorai-ui/portal": "^1.1.0",
     "@dorai-ui/switch": "^1.1.0",
     "@dorai-ui/tabs": "^1.1.0",
