@@ -143,7 +143,6 @@ const Group: ModalGroupType = React.forwardRef(
     return (
       <DoraiPortal id='modal-portal'>
         <TagName
-          {...props}
           aria-modal
           role='dialog'
           tabIndex={-1}
@@ -151,6 +150,7 @@ const Group: ModalGroupType = React.forwardRef(
           aria-describedby={descriptionContext?.ids}
           ref={mergedRef}
           onKeyDown={handleEvent}
+          {...props}
         >
           {children}
         </TagName>
@@ -346,3 +346,5 @@ export const Modal = Object.assign(ModalRoot, {
   Description,
   Overlay
 })
+
+export { useModalContext }
