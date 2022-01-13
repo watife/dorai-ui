@@ -1,0 +1,44 @@
+{
+  "name": "@dorai-ui/alert-dialog",
+  "version": "0.0.0",
+  "description": "@dorai-ui alert-dialog",
+  "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "alert-dialog"
+  ],
+  "license": "MIT",
+  "src": "lib/index.ts",
+  "main": "dist/utils.cjs.js",
+  "module": "dist/utils.esm.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watife/dorai-ui.git"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "@dorai-ui/modal": "^1.1.1",
+    "@dorai-ui/utils": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "bugs": {
+    "url": "https://github.com/watife/dorai-ui/issues"
+  },
+  "homepage": "https://github.com/watife/dorai-ui#readme"
+}
