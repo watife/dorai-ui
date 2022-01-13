@@ -1,5 +1,18 @@
 # (Thu Jan 13 2022)
 
+#### 🚀 Enhancement
+
+- `@dorai-ui/alert-dialog@0.1.0`, `@dorai-ui/components@0.3.0`
+  - feat(alert-dialog): alert-dialog component [#63](https://github.com/watife/dorai-ui/pull/63) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Thu Jan 13 2022)
+
 #### 🐛 Bug Fix
 
 - `@dorai-ui/modal@1.1.1`
