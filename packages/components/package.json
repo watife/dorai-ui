@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/components",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "@dorai-ui composed components",
   "keywords": [
     "dorai-ui",
@@ -30,14 +30,14 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/accordion": "^1.1.0",
-    "@dorai-ui/alert": "^0.2.0",
-    "@dorai-ui/alert-dialog": "^0.1.0",
-    "@dorai-ui/modal": "^1.1.1",
-    "@dorai-ui/portal": "^1.1.0",
-    "@dorai-ui/switch": "^1.1.0",
-    "@dorai-ui/tabs": "^1.1.0",
-    "@dorai-ui/utils": "^1.1.0"
+    "@dorai-ui/accordion": "^1.2.0",
+    "@dorai-ui/alert": "^0.3.0",
+    "@dorai-ui/alert-dialog": "^0.2.0",
+    "@dorai-ui/modal": "^1.2.0",
+    "@dorai-ui/portal": "^1.2.0",
+    "@dorai-ui/switch": "^1.2.0",
+    "@dorai-ui/tabs": "^1.2.0",
+    "@dorai-ui/utils": "^1.2.0"
   },
   "peerDependencies": {
     "react": "16.13.1",
