@@ -1,3 +1,21 @@
+# (Fri Jan 14 2022)
+
+#### 🚀 Enhancement
+
+- `@dorai-ui/alert-dialog@0.2.0`, `@dorai-ui/components@0.4.0`
+  - feat(alert-dialog): alert-dialog component [#63](https://github.com/watife/dorai-ui/pull/63) ([@watife](https://github.com/watife))
+
+#### 🏎 Performance
+
+- `@dorai-ui/alert-dialog@0.2.0`, `@dorai-ui/utils@1.2.0`
+  - fix(alert-dialog): alert dialog action Tag should not be Modal.Close [#64](https://github.com/watife/dorai-ui/pull/64) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Thu Jan 13 2022)
 
 #### 🚀 Enhancement
