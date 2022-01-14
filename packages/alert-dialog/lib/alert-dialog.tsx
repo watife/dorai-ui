@@ -165,9 +165,9 @@ const Action: ActionType = React.forwardRef(
     }
 
     return (
-      <Modal.Close as={TagName} {...propsHandled} ref={ref}>
+      <TagName as={TagName} {...propsHandled} ref={ref}>
         {children}
-      </Modal.Close>
+      </TagName>
     )
   }
 )
