@@ -1,0 +1,44 @@
+{
+  "name": "@dorai-ui/radio-group",
+  "version": "0.0.0",
+  "description": "radio-group component from dorai-ui",
+  "keywords": [
+    "react",
+    "react-component",
+    "dorai-ui",
+    "radio-group"
+  ],
+  "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watife/dorai-ui.git"
+  },
+  "src": "lib/index.ts",
+  "main": "dist/switch.cjs.js",
+  "module": "dist/switch.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "@dorai-ui/label": "^1.2.0",
+    "@dorai-ui/utils": "^1.2.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "bugs": {
+    "url": "https://github.com/watife/dorai-ui/issues"
+  },
+  "homepage": "https://github.com/watife/dorai-ui#readme"
+}

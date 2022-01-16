@@ -58,7 +58,7 @@ import { Tabs } from '@dorai-ui/tabs'
 The project seeks to support as many components as possible as listed under [Aria Design Patterns](https://www.w3.org/TR/wai-aria-practices-1.2). The roadmap table shows components already built and the ones in progress.
 
 <br />
-✅ - Ready to be released<br/>
+✅ - Released<br/>
 <br />
 🛠 - In progress<br/>
 <br />
@@ -70,10 +70,10 @@ The project seeks to support as many components as possible as listed under [Ari
 | ✅     | Switch         |
 | ✅     | Tabs           |
 | ✅     | Alert          |
-| 🛠      | Alert Dialog   |
-| 🛠      | Radio Group    |
+| ✅     | Alert Dialog   |
+| ✅     | Radio Group    |
 | 🛠      | Checkbox       |
-| 🛠      | Menu Button    |
+| 🛠      | Menu           |
 
 ## Contributors
 
