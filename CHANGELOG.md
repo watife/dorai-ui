@@ -1,3 +1,16 @@
+# (Sun Jan 16 2022)
+
+#### 🚀 Enhancement
+
+- `@dorai-ui/components@0.5.0`, `@dorai-ui/radio-group@0.1.0`
+  - feat(radio-group): release component radio-group [#65](https://github.com/watife/dorai-ui/pull/65) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Fri Jan 14 2022)
 
 #### 🚀 Enhancement
