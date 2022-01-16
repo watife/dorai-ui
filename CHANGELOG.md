@@ -1,5 +1,18 @@
 # (Sun Jan 16 2022)
 
+#### 🐛 Bug Fix
+
+- `@dorai-ui/radio-group@0.1.1`
+  - docs(radio-group): update radiogroup README.md with documentation [#66](https://github.com/watife/dorai-ui/pull/66) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Sun Jan 16 2022)
+
 #### 🚀 Enhancement
 
 - `@dorai-ui/components@0.5.0`, `@dorai-ui/radio-group@0.1.0`
