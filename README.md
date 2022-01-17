@@ -4,13 +4,15 @@ Accessible, unstyled, open-sourced and fully functional react component library 
 
 > Documentation site coming soon
 
+> Storybook documentation - [here](https://watife.github.io/dorai-ui/?path=/docs/accordion--multiple)
+
 <br />
 
 [![CI](https://github.com/watife/dorai-ui/actions/workflows/quality.yml/badge.svg)](https://github.com/watife/dorai-ui/actions/workflows/quality.yml) ![Shield](https://img.shields.io/badge/contributions-welcome-brightgreen) [![Twitter](https://img.shields.io/twitter/follow/:wati_fe.svg?style=social&label=@wati_fe)](https://twitter.com/wati_fe)
 
 ## Features
 
-- 🎨 &nbsp; Unstyled --> Are you frustrated with tightly coupled components with styles and a particular approach to extend their functionalities? Dorai offers components not coupled with styles. Do you want to use utility styles or CSS-in-JS? Styles rest in your absolute control.
+- 🎨 &nbsp; Unstyled --> Are you frustrated with tightly coupled components with styles and a fixed approach to extend their functionalities? Dorai offers components not coupled with styles. Do you want to use utility styles or CSS-in-JS? Styles rest in your absolute control.
 
 * 🚀 &nbsp; Accessible --> Building a component library is difficult, supporting accessibility is a more difficult task. With dorai, components are accessible out of the box following the [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.2/#aria_ex) specification.
 
@@ -18,20 +20,24 @@ Accessible, unstyled, open-sourced and fully functional react component library 
 
 * 💧 &nbsp; Independent & All-in-One Component --> Dorai components are independently shipped. This grants the ability to install a single component or multiple as needed. All of the components can be added by installing the @dorai-ui/components.
 
+## Installation
+
+All components can be found [here](https://www.npmjs.com/search?q=dorai-ui) on npm. <br />
+
+To install all of the components together, you can find it [here](https://www.npmjs.com/package/@dorai-ui/components)
+
 ## Example usage
 
 You can make use of a component of your choice by simply installing it;
 
 ```
 npm install @dorai-ui/tabs
-
 ```
 
 or
 
 ```
 yarn add @dorai-ui/tabs
-
 ```
 
 An example way of using the installed component
