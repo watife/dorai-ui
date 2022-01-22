@@ -1,5 +1,18 @@
 # (Sat Jan 22 2022)
 
+#### 💥 Breaking Change
+
+- `@dorai-ui/switch@2.0.0`
+  - feat(switch): switch component API change [#69](https://github.com/watife/dorai-ui/pull/69) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Sat Jan 22 2022)
+
 #### 🚀 Enhancement
 
 - `@dorai-ui/label@1.3.0`
