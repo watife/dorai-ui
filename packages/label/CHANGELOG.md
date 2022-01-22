@@ -1,3 +1,15 @@
+# v2.0.0 (Sat Jan 22 2022)
+
+#### 💥 Breaking Change
+
+- feat: switch Component expose Group and support external Label [#70](https://github.com/watife/dorai-ui/pull/70) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.3.0 (Sat Jan 22 2022)
 
 #### 🚀 Enhancement

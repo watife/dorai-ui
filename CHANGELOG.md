@@ -2,6 +2,19 @@
 
 #### 💥 Breaking Change
 
+- `@dorai-ui/label@2.0.0`, `@dorai-ui/switch@3.0.0`
+  - feat: switch Component expose Group and support external Label [#70](https://github.com/watife/dorai-ui/pull/70) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Sat Jan 22 2022)
+
+#### 💥 Breaking Change
+
 - `@dorai-ui/switch@2.0.0`
   - feat(switch): switch component API change [#69](https://github.com/watife/dorai-ui/pull/69) ([@watife](https://github.com/watife))
 
