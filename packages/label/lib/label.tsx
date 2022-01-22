@@ -4,13 +4,15 @@ import { GetId, Polymorphic } from '@dorai-ui/utils'
 const LabelContext = React.createContext<{
   ids: string | undefined
   registerId: (value: string) => () => void
+  htmlFor: string | undefined
 } | null>(null)
 
 type LabelContextProps = {
   children: ((args: { ids?: string }) => JSX.Element) | React.ReactNode
+  htmlFor?: string
 }
 
-const LabelContextProvider = ({ children }: LabelContextProps) => {
+const LabelContextProvider = ({ children, htmlFor }: LabelContextProps) => {
   const [ids, setIds] = React.useState<string[]>([])
 
   const composeIds = ids.length > 0 ? ids.join(' ') : undefined
@@ -24,8 +26,8 @@ const LabelContextProvider = ({ children }: LabelContextProps) => {
   }, [])
 
   const context = React.useMemo(
-    () => ({ ids: composeIds, registerId }),
-    [composeIds, registerId]
+    () => ({ ids: composeIds, registerId, htmlFor }),
+    [composeIds, htmlFor, registerId]
   )
 
   const render = () => {
@@ -55,9 +57,7 @@ const useLabelValue = () => {
 
 /**
  *
- *
  * Label component
- *
  *
  */
 type LabelOwnProps = {
@@ -69,10 +69,6 @@ type LabelProps<C extends React.ElementType> =
 
 const __DEFAULT_LABEL_TAG__ = 'label'
 
-// type LabelType = <C extends React.ElementType = typeof __DEFAULT_LABEL_TAG__>(
-//   props: LabelProps<C>
-// ) => React.ReactElement | null
-
 const Label = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_LABEL_TAG__>(
     { as, children, ...props }: LabelProps<C>,
@@ -82,6 +78,8 @@ const Label = React.forwardRef(
 
     const { registerId } = context
 
+    const htmlFor = props.htmlFor || context.htmlFor
+
     const id = `dorai-ui-label-${GetId()}`
 
     React.useLayoutEffect(() => {
@@ -90,7 +88,7 @@ const Label = React.forwardRef(
 
     const TagName = as || __DEFAULT_LABEL_TAG__
     return (
-      <TagName id={id} ref={ref} {...props}>
+      <TagName id={id} ref={ref} {...props} htmlFor={htmlFor}>
         {children}
       </TagName>
     )

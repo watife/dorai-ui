@@ -1,13 +1,70 @@
 import React from 'react'
-import { callAll, KeyBoardKeys, Polymorphic } from '@dorai-ui/utils'
-import { LabelContextProvider, Label } from '@dorai-ui/label'
+import { callAll, GetId, KeyBoardKeys, Polymorphic } from '@dorai-ui/utils'
+import { LabelContextProvider, useLabelValue, Label } from '@dorai-ui/label'
 
+const GroupContext = React.createContext<{
+  id: string
+} | null>(null)
+/**
+ *
+ *  Group composes the other components
+ *
+ */
+type GroupOwnProps = {
+  children: React.ReactNode
+}
+type GroupProps<C extends React.ElementType> =
+  Polymorphic.ComponentPropsWithRef<C, GroupOwnProps>
+
+const __DEFAULT_GROUP_TAG__ = 'div'
+
+type GroupType = <C extends React.ElementType = typeof __DEFAULT_GROUP_TAG__>(
+  props: GroupProps<C>
+) => React.ReactElement | null
+
+const Group: GroupType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_GROUP_TAG__>(
+    { as, children, ...props }: GroupProps<C>,
+    ref: Polymorphic.Ref<C>
+  ) => {
+    const TagName = as || __DEFAULT_GROUP_TAG__
+
+    const id = `dorai-ui-switch-${GetId()}`
+    return (
+      <GroupContext.Provider value={{ id }}>
+        <LabelContextProvider htmlFor={id}>
+          <TagName {...props} ref={ref}>
+            {children}
+          </TagName>
+        </LabelContextProvider>
+      </GroupContext.Provider>
+    )
+  }
+)
+
+const useGroupContext = () => {
+  const context = React.useContext(GroupContext)
+
+  if (context === null) {
+    throw new Error(
+      `<Switch /> component is not called within expected parent component`
+    )
+  }
+
+  return context
+}
+
+/**
+ *
+ * Toggle Root component
+ *
+ */
 type RootOwnProps = {
   children: ((args: { checked: boolean }) => JSX.Element) | React.ReactNode
   checked?: boolean
   onChange?: (() => void) | undefined
   disabled?: boolean
-  value?: unknown
+  value?: string
 }
 
 type RootProps<C extends React.ElementType> = Polymorphic.ComponentPropsWithRef<
@@ -15,7 +72,7 @@ type RootProps<C extends React.ElementType> = Polymorphic.ComponentPropsWithRef<
   RootOwnProps
 >
 
-const __DEFAULT_ROOT_TAG__ = 'div'
+const __DEFAULT_ROOT_TAG__ = 'button'
 
 type RootType = <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
   props: RootProps<C>
@@ -53,6 +110,10 @@ const SwitchRoot: RootType = React.forwardRef(
       return children
     }
 
+    const { id } = useGroupContext()
+
+    const { ids } = useLabelValue()
+
     const handleClicks = disabled
       ? undefined
       : callAll(props.onClick, () => toggle())
@@ -80,23 +141,20 @@ const SwitchRoot: RootType = React.forwardRef(
     const TagName = as || __DEFAULT_ROOT_TAG__
 
     return (
-      <LabelContextProvider>
-        {({ ids }) => (
-          <TagName
-            role='switch'
-            aria-checked={isChecked}
-            aria-readonly={disabled}
-            aria-labelledby={ids}
-            tabIndex={0}
-            onKeyDown={(e) => callAll(props.keyDown, () => handleKeyEvent(e))}
-            {...propsHandled}
-            ref={ref}
-            value={value}
-          >
-            {render()}
-          </TagName>
-        )}
-      </LabelContextProvider>
+      <TagName
+        role='switch'
+        aria-checked={isChecked}
+        aria-readonly={disabled}
+        aria-labelledby={ids}
+        id={id}
+        tabIndex={0}
+        onKeyDown={(e) => callAll(props.keyDown, () => handleKeyEvent(e))}
+        {...propsHandled}
+        ref={ref}
+        value={value}
+      >
+        {render()}
+      </TagName>
     )
   }
 )
@@ -136,4 +194,4 @@ const Indicator: IndicatorType = React.forwardRef(
   }
 )
 
-export const Switch = Object.assign(SwitchRoot, { Indicator, Label })
+export const Switch = Object.assign(SwitchRoot, { Group, Indicator, Label })
