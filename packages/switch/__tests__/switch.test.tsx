@@ -6,10 +6,12 @@ import { Switch } from '../lib/switch'
 describe('switch rendering', () => {
   it('renders switch component without crashing', () => {
     render(
-      <Switch>
-        <Switch.Indicator />
+      <Switch.Group>
+        <Switch>
+          <Switch.Indicator />
+        </Switch>
         <Switch.Label>click to toggle</Switch.Label>
-      </Switch>
+      </Switch.Group>
     )
 
     expect(screen.queryByRole(/switch/i)).toBeInTheDocument()
@@ -17,15 +19,12 @@ describe('switch rendering', () => {
 
   it('toggles switch if component is clicked', () => {
     render(
-      <Switch>
-        {({ checked }) => (
-          <>
-            <Switch.Indicator />
-            <Switch.Label>click to toggle</Switch.Label>
-            {checked ? <p>toggle on</p> : null}
-          </>
-        )}
-      </Switch>
+      <Switch.Group>
+        <Switch>
+          <Switch.Indicator />
+        </Switch>
+        <Switch.Label>click to toggle</Switch.Label>
+      </Switch.Group>
     )
 
     expect(screen.queryByRole(/switch/i)).toBeInTheDocument()
@@ -35,34 +34,37 @@ describe('switch rendering', () => {
 
     userEvent.click(toggleBtn)
 
-    expect(screen.queryByText(/toggle on/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole(/switch/i).getAttribute('aria-checked')
+    ).toBeTruthy()
   })
 
   it('toggles if label is clicked', () => {
     render(
-      <Switch>
-        {({ checked }) => (
-          <>
-            <Switch.Indicator />
-            <Switch.Label>Label component</Switch.Label>
-            {checked ? <p>toggle on</p> : null}
-          </>
-        )}
-      </Switch>
+      <Switch.Group>
+        <Switch>
+          <Switch.Indicator />
+        </Switch>
+        <Switch.Label>Label component</Switch.Label>
+      </Switch.Group>
     )
 
     const toggleBtn = screen.getByText(/Label component/i)
 
     userEvent.click(toggleBtn)
 
-    expect(screen.queryByText(/toggle on/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole(/switch/i).getAttribute('aria-checked')
+    ).toBeTruthy()
   })
 
-  it('renders checked component if passed as props', () => {
+  it('renders checked props if passed as props', () => {
     render(
-      <Switch checked>
-        {({ checked }) => <>{checked ? <p>toggle on</p> : null}</>}
-      </Switch>
+      <Switch.Group>
+        <Switch checked>
+          {({ checked }) => <>{checked ? <p>toggle on</p> : null}</>}
+        </Switch>
+      </Switch.Group>
     )
 
     expect(screen.queryByText(/toggle on/i)).toBeInTheDocument()
