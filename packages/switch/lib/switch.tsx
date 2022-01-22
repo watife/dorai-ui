@@ -1,100 +1,61 @@
 import React from 'react'
 import { callAll, KeyBoardKeys, Polymorphic } from '@dorai-ui/utils'
-import { LabelContextProvider, useLabelValue, Label } from '@dorai-ui/label'
+import { LabelContextProvider, Label } from '@dorai-ui/label'
 
-const SwitchContext = React.createContext<{
-  isChecked: boolean
-  toggle: () => void
-  disabled?: boolean
-} | null>(null)
-
-type Arguments = {
-  checked: boolean
-}
-
-type SwitchType = {
-  children: ((args: Arguments) => JSX.Element) | React.ReactNode
+type RootOwnProps = {
+  children: ((args: { checked: boolean }) => JSX.Element) | React.ReactNode
   checked?: boolean
+  onChange?: (() => void) | undefined
   disabled?: boolean
+  value?: unknown
 }
 
-const SwitchRoot = ({ children, checked, disabled }: SwitchType) => {
-  const [isChecked, setIsChecked] = React.useState(false)
+type RootProps<C extends React.ElementType> = Polymorphic.ComponentPropsWithRef<
+  C,
+  RootOwnProps
+>
 
-  React.useEffect(() => {
-    if (typeof checked === 'undefined') return
-    setIsChecked(checked)
-  }, [checked])
+const __DEFAULT_ROOT_TAG__ = 'div'
 
-  const toggle = () => setIsChecked((prev) => !prev)
-
-  const switchProvider = {
-    isChecked,
-    toggle,
-    disabled
-  }
-
-  const render = () => {
-    if (typeof children === 'function') {
-      return children({ checked: isChecked })
-    }
-
-    return children
-  }
-
-  return (
-    <SwitchContext.Provider value={switchProvider}>
-      <LabelContextProvider>{render()}</LabelContextProvider>
-    </SwitchContext.Provider>
-  )
-}
-
-const useSwitchValue = (component: string) => {
-  const context = React.useContext(SwitchContext)
-
-  if (context === null) {
-    throw new Error(
-      `<Switch.${component} /> component is not called within expected parent component`
-    )
-  }
-
-  return context
-}
-
-/**
- *
- * Toggle Trigger component
- *
- */
-type TriggerOwnProps = {
-  children: React.ReactNode
-}
-
-type TriggerProps<C extends React.ElementType> =
-  Polymorphic.ComponentPropsWithRef<C, TriggerOwnProps>
-
-const __DEFAULT_TRIGGER_TAG__ = 'button'
-
-type TriggerType = <
-  C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__
->(
-  props: TriggerProps<C>
+type RootType = <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
+  props: RootProps<C>
 ) => React.ReactElement | null
 
-const Trigger: TriggerType = React.forwardRef(
-  <C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__>(
-    { as, children, ...props }: TriggerProps<C>,
-    ref?: Polymorphic.Ref<C>
+const SwitchRoot: RootType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
+    {
+      as,
+      children,
+      checked,
+      disabled,
+      onChange,
+      value,
+      ...props
+    }: RootProps<C>,
+    ref: Polymorphic.Ref<C>
   ) => {
-    const context = useSwitchValue('Trigger')
+    const [isChecked, setIsChecked] = React.useState(false)
+    React.useEffect(() => {
+      if (typeof checked === 'undefined') return
+      setIsChecked(checked)
+    }, [checked])
 
-    const labelContext = useLabelValue()
+    const toggle =
+      checked && typeof onChange === 'function'
+        ? onChange
+        : () => setIsChecked((prev) => !prev)
 
-    const TagName = as || __DEFAULT_TRIGGER_TAG__
+    const render = () => {
+      if (typeof children === 'function') {
+        return children({ checked: isChecked })
+      }
 
-    const handleClicks = context.disabled
+      return children
+    }
+
+    const handleClicks = disabled
       ? undefined
-      : callAll(props.onClick, () => context.toggle())
+      : callAll(props.onClick, () => toggle())
 
     const handleKeyEvent = React.useCallback(
       (event: React.KeyboardEvent<HTMLElement>) => {
@@ -116,21 +77,63 @@ const Trigger: TriggerType = React.forwardRef(
       onClick: handleClicks
     }
 
+    const TagName = as || __DEFAULT_ROOT_TAG__
+
     return (
-      <TagName
-        role='switch'
-        aria-checked={context.isChecked}
-        aria-readonly={context.disabled}
-        aria-labelledby={labelContext?.ids}
-        tabIndex={0}
-        onKeyDown={(e) => callAll(props.keyDown, () => handleKeyEvent(e))}
-        {...propsHandled}
-        ref={ref}
-      >
+      <LabelContextProvider>
+        {({ ids }) => (
+          <TagName
+            role='switch'
+            aria-checked={isChecked}
+            aria-readonly={disabled}
+            aria-labelledby={ids}
+            tabIndex={0}
+            onKeyDown={(e) => callAll(props.keyDown, () => handleKeyEvent(e))}
+            {...propsHandled}
+            ref={ref}
+            value={value}
+          >
+            {render()}
+          </TagName>
+        )}
+      </LabelContextProvider>
+    )
+  }
+)
+
+/**
+ *
+ * Toggle Indicator component
+ *
+ */
+type IndicatorOwnProps = {
+  children?: React.ReactNode
+}
+
+type IndicatorProps<C extends React.ElementType> =
+  Polymorphic.ComponentPropsWithRef<C, IndicatorOwnProps>
+
+const __DEFAULT_INDICATOR_TAG__ = 'span'
+
+type IndicatorType = <
+  C extends React.ElementType = typeof __DEFAULT_INDICATOR_TAG__
+>(
+  props: IndicatorProps<C>
+) => React.ReactElement | null
+
+const Indicator: IndicatorType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_INDICATOR_TAG__>(
+    { as, children, ...props }: IndicatorProps<C>,
+    ref?: Polymorphic.Ref<C>
+  ) => {
+    const TagName = as || __DEFAULT_INDICATOR_TAG__
+
+    return (
+      <TagName ref={ref} {...props}>
         {children}
       </TagName>
     )
   }
 )
 
-export const Switch = Object.assign(SwitchRoot, { Trigger, Label })
+export const Switch = Object.assign(SwitchRoot, { Indicator, Label })
