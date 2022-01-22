@@ -1,3 +1,20 @@
+# (Sat Jan 22 2022)
+
+#### 🚀 Enhancement
+
+- `@dorai-ui/label@1.3.0`
+  - feat: Label component exposes ids with render props [#68](https://github.com/watife/dorai-ui/pull/68) ([@watife](https://github.com/watife))
+
+#### 📝 Documentation
+
+- docs: update README.md documentation [#67](https://github.com/watife/dorai-ui/pull/67) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Sun Jan 16 2022)
 
 #### 🐛 Bug Fix
