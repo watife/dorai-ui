@@ -7,7 +7,7 @@ const LabelContext = React.createContext<{
 } | null>(null)
 
 type LabelContextProps = {
-  children: React.ReactNode
+  children: ((args: { ids?: string }) => JSX.Element) | React.ReactNode
 }
 
 const LabelContextProvider = ({ children }: LabelContextProps) => {
@@ -28,8 +28,16 @@ const LabelContextProvider = ({ children }: LabelContextProps) => {
     [composeIds, registerId]
   )
 
+  const render = () => {
+    if (typeof children === 'function') {
+      return children({ ids: composeIds })
+    }
+
+    return children
+  }
+
   return (
-    <LabelContext.Provider value={context}>{children}</LabelContext.Provider>
+    <LabelContext.Provider value={context}>{render()}</LabelContext.Provider>
   )
 }
 
