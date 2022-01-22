@@ -16,17 +16,16 @@ yarn add @dorai-ui/switch
 
 ## Example Usage
 
-```
+```jsx
 import { Switch } from '@dorai-ui/switch'
 
 function SwitchComponent() {
   return (
-    <Switch>
+    <Switch name='switch' {...args}>
       {({ checked }) => (
         <>
-          <Switch.Trigger id='toggle'>Click to toggle</Switch.Trigger>
-          <Switch.Label htmlFor='toggle'>toggle label</Switch.Label>
-          <p>{checked ? 'checked' : 'off'}</p>
+          <Switch.Indicator />
+          <Switch.Label>toggle label</Switch.Label>
         </>
       )}
     </Switch>

@@ -2,14 +2,14 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Switch } from '@dorai-ui/switch'
+import { Switch } from '../lib'
 
 const Template: ComponentStory<typeof Switch> = (args) => (
-  <Switch {...args}>
+  <Switch name='switch' {...args}>
     {({ checked }) => (
       <>
-        <Switch.Trigger id='toggle'>Click to toggle</Switch.Trigger>
-        <Switch.Label htmlFor='toggle'>toggle label</Switch.Label>
+        <Switch.Indicator />
+        <Switch.Label>toggle label</Switch.Label>
         <p>{checked ? 'checked' : 'off'}</p>
       </>
     )}
@@ -19,7 +19,8 @@ const Template: ComponentStory<typeof Switch> = (args) => (
 export const Controlled = Template.bind({})
 Controlled.args = {
   checked: false,
-  disabled: false
+  disabled: false,
+  onChange: undefined
 }
 
 export default {

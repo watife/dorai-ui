@@ -3,22 +3,12 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Switch } from '../lib/switch'
 
-describe('Safe rules of component', () => {
-  it.each([['Switch.Trigger', Switch.Trigger]])(
-    'should error if component is rendered without a parent <Switch />',
-    (name, Component) => {
-      expect(() => render(<Component>children</Component>)).toThrowError(
-        `<${name} /> component is not called within expected parent component`
-      )
-    }
-  )
-})
-
 describe('switch rendering', () => {
   it('renders switch component without crashing', () => {
     render(
       <Switch>
-        <Switch.Trigger>click to toggle</Switch.Trigger>
+        <Switch.Indicator />
+        <Switch.Label>click to toggle</Switch.Label>
       </Switch>
     )
 
@@ -30,8 +20,8 @@ describe('switch rendering', () => {
       <Switch>
         {({ checked }) => (
           <>
-            <Switch.Trigger>click to toggle</Switch.Trigger>
-            <Switch.Label>Label component</Switch.Label>
+            <Switch.Indicator />
+            <Switch.Label>click to toggle</Switch.Label>
             {checked ? <p>toggle on</p> : null}
           </>
         )}
@@ -53,8 +43,8 @@ describe('switch rendering', () => {
       <Switch>
         {({ checked }) => (
           <>
-            <Switch.Trigger id='toggle'>click to toggle</Switch.Trigger>
-            <Switch.Label htmlFor='toggle'>Label component</Switch.Label>
+            <Switch.Indicator />
+            <Switch.Label>Label component</Switch.Label>
             {checked ? <p>toggle on</p> : null}
           </>
         )}
