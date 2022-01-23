@@ -4,19 +4,21 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Switch } from '../lib'
 
-const Template: ComponentStory<typeof Switch> = (args) => (
-  <Switch.Group>
-    <Switch name='switch' {...args}>
-      {({ checked }) => (
-        <>
-          <Switch.Indicator />
-          <p>{checked ? 'checked' : 'off'}</p>
-        </>
-      )}
-    </Switch>
-    <Switch.Label>toggle label</Switch.Label>
-  </Switch.Group>
-)
+const Template: ComponentStory<typeof Switch> = (args) => {
+  return (
+    <Switch.Group>
+      <Switch name='switch' {...args}>
+        {({ checked }) => (
+          <>
+            <Switch.Indicator />
+            <p>{checked ? 'checked' : 'off'}</p>
+          </>
+        )}
+      </Switch>
+      <Switch.Label>toggle label</Switch.Label>
+    </Switch.Group>
+  )
+}
 
 export const Controlled = Template.bind({})
 Controlled.args = {
