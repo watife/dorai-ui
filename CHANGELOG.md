@@ -1,3 +1,16 @@
+# (Sun Jan 23 2022)
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/alert-dialog@0.2.1`, `@dorai-ui/alert@0.3.1`, `@dorai-ui/components@2.0.1`, `@dorai-ui/radio-group@1.0.1`
+  - fix: entry point of packages in package.json [#71](https://github.com/watife/dorai-ui/pull/71) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Sat Jan 22 2022)
 
 #### 💥 Breaking Change

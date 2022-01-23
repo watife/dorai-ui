@@ -1,3 +1,15 @@
+# v2.0.1 (Sun Jan 23 2022)
+
+#### 🐛 Bug Fix
+
+- fix: entry point of packages in package.json [#71](https://github.com/watife/dorai-ui/pull/71) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v0.5.0 (Sun Jan 16 2022)
 
 #### 🚀 Enhancement
