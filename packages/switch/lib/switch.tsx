@@ -98,7 +98,7 @@ const SwitchRoot: RootType = React.forwardRef(
     }, [checked])
 
     const toggle =
-      checked && typeof onChange === 'function'
+      typeof checked !== 'undefined' && typeof onChange === 'function'
         ? onChange
         : () => setIsChecked((prev) => !prev)
 
