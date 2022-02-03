@@ -1,6 +1,17 @@
-# `DORAI UI`
+<img
+  src="./logo.svg"
+  alt="dorai-ui logo"
+  title="dorai-ui logo"
+  style="display: inline-block; margin: 0 auto; width:100%" />
 
-Accessible, unstyled, open-sourced and fully functional react component library for building design systems
+<br />
+<br />
+
+# Dorai UI
+
+**An accessible, unstyled, open-sourced and fully functional react component library for building design systems**
+
+<br />
 
 > Documentation site coming soon
 
