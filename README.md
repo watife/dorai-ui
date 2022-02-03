@@ -5,7 +5,6 @@
   style="display: inline-block; margin: 0 auto; width:100%" />
 
 <br />
-<br />
 
 # Dorai UI
 
