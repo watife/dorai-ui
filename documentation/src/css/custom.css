@@ -14,9 +14,8 @@
   --ifm-color-primary-lighter: #0f4adc;
   --ifm-color-primary-lightest: #1a57ef;
 
-  --ifm-footer-title-color: #00000063;
-
-  --ifm-footer-background-color: #ffffff;
+  --ifm-footer-background-color: #000000;
+  --ifm-footer-title-color: rgba(255, 255, 255, 0.41);
 
   --ifm-heading-font-family: 'Roboto';
   --ifm-font-family-base: 'Roboto';
@@ -45,8 +44,6 @@ html[data-theme='dark'] {
   --ifm-color-primary-lightest: #a5cbfc;
 
   --ifm-footer-background-color: #000000;
-
-  --ifm-footer-title-color: rgba(255, 255, 255, 0.41);
 
   --ifm-heading-color: #ffffff;
 
