@@ -1,0 +1,53 @@
+---
+sidebar_position: 1
+---
+
+# Alert
+
+> **Alert component displays a short important message to the user and adheres to [WAI-ARIA Alert pattern](https://www.w3.org/TR/wai-aria-practices-1.2/#alert).**
+
+### Core Features
+
+- Out of the box Accessible
+
+### Installation
+
+```sh
+npm i @dorai-ui/alert
+
+or
+
+yarn add @dorai-ui/alert
+```
+
+### Basic Example
+
+<iframe
+  src="https://codesandbox.io/embed/quiet-browser-tqvfm?fontsize=13&hidenavigation=1&theme=dark&view='editor+preview'"
+  width='100%'
+  height='500px'
+  border='0'
+  borderRadius='10px'
+  overflow='hidden'
+  title='quiet-browser-tqvfm'
+  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+></iframe>
+
+### API
+
+#### Components Composed
+
+```jsx
+import { Alert } from '@dorai-ui/alert'
+
+const AlertComp = () => <Alert />
+```
+
+#### Alert
+
+The main Alert component.
+
+| Props | &nbsp; Default &nbsp; | &nbsp;Description                                                             |
+| ----- | --------------------- | ----------------------------------------------------------------------------- |
+| `as`  | 'div'                 | This grants the ability to change the element this component should render as |

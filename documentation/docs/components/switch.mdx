@@ -1,0 +1,113 @@
+---
+sidebar_position: 3
+---
+
+# Switch
+
+> **Switch component offers a "on" and "off" state similar to checkbox which adheres to the [WAI-ARIA Switch requirement](https://www.w3.org/TR/wai-aria-practices-1.2/#switch).**
+
+### Core Features
+
+- Out of the box Accessiblity
+- Internal control of labelling (You don't need to pass htmlFor on the label or id on the switch)
+- Can be controlled or uncontrolled
+- keyboard navigation
+
+### Installation
+
+```sh
+npm i @dorai-ui/switch
+
+or
+
+yarn add @dorai-ui/switch
+```
+
+### Basic Example
+
+The example below demonstrates using the exposed `checked` props by switch.
+
+The `aria-checked` attribute is also present and can be used for styling.
+
+<iframe
+  src="https://codesandbox.io/embed/elegant-gates-c5jvd?fontsize=13&hidenavigation=1&theme=dark&view='editor+preview'"
+  width='100%'
+  height='500px'
+  border='0'
+  borderRadius='10px'
+  overflow='hidden'
+  title='elegant-gates-c5jvd'
+  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+></iframe>
+
+### API
+
+The switch component can be controlled or uncontrolled.
+
+#### Aria attributes
+
+| Attributes     | Default | Description                              |
+| -------------- | ------- | ---------------------------------------- |
+| `aria-checked` | false   | Holds the checked state of the component |
+
+#### Components Composed
+
+```jsx
+import { Switch } from '@dorai-ui/switch'
+
+const SwitchComp = () => (
+  <Switch.Group>
+    <Switch>
+      <Switch.Indicator />
+    </Switch>
+    <Switch.Label>Label</Switch.Label>
+  </Switch.Group>
+)
+```
+
+#### Group
+
+Group is the parent component for all other components, it exposes the context and is required.
+
+| Props | Default | Description                                                                   |
+| ----- | ------- | ----------------------------------------------------------------------------- |
+| as    | 'div'   | This grants the ability to change the element this component should render as |
+
+<br />
+
+#### Switch
+
+The main Switch component. It exposes the checked state as a render props
+
+| Props    | Default  | Type     | Description                                                                                    |
+| -------- | -------- | -------- | ---------------------------------------------------------------------------------------------- |
+| checked  | -        | boolean  | For controlled state, the checked property is required and controls the state of the component |
+| onChange | -        | function | Required for component state control ability                                                   |
+| disabled | -        | boolean  | Prevents switch component from been clickable                                                  |
+| value    | -        | string   | The value of the component which can be read with the name attribute                           |
+| as       | 'button' | -        | This grants the ability to change the element this component should render as                  |
+
+##### Render Props
+
+| Props   | Type    | Description                                                                       |
+| ------- | ------- | --------------------------------------------------------------------------------- |
+| checked | boolean | Exposes the checked state of the component which is useful for uncontrolled state |
+
+<br />
+
+#### Indicator
+
+Stylable Indicator (or numb) which can be styled to show the toggled state
+
+| Props | Default | Description                                                                   |
+| ----- | ------- | ----------------------------------------------------------------------------- |
+| as    | 'span'  | This grants the ability to change the element this component should render as |
+
+#### Label
+
+Optional Label component. Out of the box, it is clickable and tied to the Switch component.
+
+| Props | Default | Description                                                                   |
+| ----- | ------- | ----------------------------------------------------------------------------- |
+| as    | 'label' | This grants the ability to change the element this component should render as |

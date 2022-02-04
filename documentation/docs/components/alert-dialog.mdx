@@ -1,0 +1,154 @@
+---
+sidebar_position: 2
+---
+
+# Alert Dialog
+
+> **Alert Dialog component is a modal dialog that interrupts the user's workflow to deliver an important message which requires an action. It adheres to the [WAI-ARIA Alert Dialog specification](https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog).**
+
+### Core Features
+
+- Out of the box accessible
+- Keyboard interaction management
+- Focus management and lock (trapped focus within modal)
+- Controlled or Uncontrolled
+
+### Installation
+
+```sh
+npm i @dorai-ui/alert-dialog
+
+or
+
+yarn add @dorai-ui/alert-dialog
+```
+
+### Basic Example
+
+For more flexibility such as performing an API call before triggering the modal, use the controlled state. For example;
+
+```jsx
+import React from 'React'
+import { AlertDialog } from '@dorai-ui/alert-dialog'
+
+const ControlledAlertDialog = () => {
+  const [open, setIsOpen] = React.useState(false)
+
+  const handleOpenState = () => {
+    if (open) {
+      return setIsOpen(false)
+    }
+
+    const url = 'https://jsonplaceholder.typicode.com/users'
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setIsOpen(true)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  return (
+    <div>
+      <AlertDialog isOpen={open} setIsOpen={handleOpenState}>
+        <AlertDialog.Trigger />
+        <AlertDialog.Group>
+          <AlertDialog.Title />
+          <AlertDialog.Description />
+          <AlertDialog.Cancel />
+          <AlertDialog.Action />
+        </AlertDialog.Group>
+      </AlertDialog>
+    </div>
+  )
+}
+```
+
+### API
+
+All component accepts default HTML props that are assignable to them. For example, a `div` cannot accept the href prop but the `a` tag would.
+
+#### Components Composed
+
+```jsx
+import { AlertDialog } from '@dorai-ui/alert-dialog'
+
+const AlertDialogComp = () => (
+  <AlertDialog>
+    <AlertDialog.Trigger />
+    <AlertDialog.Group>
+      <AlertDialog.Title />
+      <AlertDialog.Description />
+      <AlertDialog.Cancel />
+      <AlertDialog.Action />
+    </AlertDialog.Group>
+  </AlertDialog>
+)
+```
+
+#### `AlertDialog (required)`
+
+AlertDialog is the parent component for all other components, it exposes the context and is required.
+
+| Props          | Default        | Type                   | Description                                                                                   |
+| -------------- | -------------- | ---------------------- | --------------------------------------------------------------------------------------------- |
+| `isOpen`       | false          | Boolean                | For controlled state, the isOpen property is required and controls the state of the component |
+| `setIsOpen`    | -              | Function               | Required for component state control ability                                                  |
+| `initialFocus` | firstFocusable | React.MutableRefObject | initial focuable component when modal is open                                                 |
+| `as`           | 'button'       | HTMLElement            | This grants the ability to change the element this component should render as                 |
+
+<br />
+
+#### `Trigger (Optional)`
+
+Optional Trigger button is used for the uncontrolled state to trigger the modal. In the controlled state, this can be used and it triggers the function passed to setIsOpen
+
+| Props | Default  | Type        | Description                                                                   |
+| ----- | -------- | ----------- | ----------------------------------------------------------------------------- |
+| `as`  | 'button' | HTMLElement | This grants the ability to change the element this component should render as |
+
+<br />
+
+#### `Group`
+
+The Group component manages focus lock and exposed certain context value of and it is required.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| `as`  | 'span'  | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Title`
+
+The Title component labels the alertdialog. This is important for Accessiblity.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| `as`  | 'h2'    | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Description (Optional)`
+
+Optional Description component describes the alertdialog component. This enables screen readers to announce the purpose of the modal / dialog but it should be concised.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| `as`  | 'h2'    | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Cancel`
+
+Cancel tag is useful in the alertdialog and it takes the initial focus when triggered.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| `as`  | 'h2'    | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Action`
+
+Action tag performs the call to action needed in the alertdialog. It is important to note that this can be controlled by passing in the onClick props.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| `as`  | 'h2'    | HTMLElement | This grants the ability to change the element this component should render as |
