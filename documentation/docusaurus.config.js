@@ -10,7 +10,7 @@ const config = {
   title: 'Dorai UI',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'watife', // Usually your GitHub org/user name.
