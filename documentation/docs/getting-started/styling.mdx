@@ -1,0 +1,64 @@
+---
+sidebar_position: 3
+---
+
+# Styling
+
+> Dorai components are unstyled and grants you the freedom to add your own styling choice when implementing design systems.
+
+Dorai components are HTML tags wrapped with functionalities. They receive all of the default props such as className, styles e.t.c.
+
+### Render Props
+
+States such as &nbsp; `active`&nbsp;, `open`&nbsp;, &nbsp;`checked` of a component are exposed via render props and grants you the ability to style different state.
+
+Let's style the Dorai switch component using vanilla CSS and the render props `checked`
+
+**source code**: [here](https://codesandbox.io/s/elegant-gates-c5jvd?file=/src/styles.css:0-486)
+
+<iframe
+  src="https://codesandbox.io/embed/elegant-gates-c5jvd?fontsize=14&hidenavigation=1&theme=dark&view='editor+preview'"
+  width='100%'
+  height='500px'
+  border='0'
+  borderRadius='10px'
+  overflow='hidden'
+  title='elegant-gates-c5jvd'
+  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+></iframe>
+<br />
+<br />
+
+### Attributes
+
+Component states are also exposed with a `aria-*` attributes and can be leveraged for styling.
+
+We can also accomplish styling using the _**aria-checked**_ attribute as shown
+below;
+
+```css
+.switch[aria-checked='true'] .indicator {
+  left: 36.5px;
+  background: #ffffff;
+}
+```
+
+With the above approach, we can have a simplified component as shown below;
+
+```jsx
+import React from 'react'
+import { Switch } from '@dorai-ui/switch'
+import './styles.css'
+
+function SwitchComponent() {
+  return (
+    <Switch.Group className='group'>
+      <Switch className='switch'>
+        <Switch.Indicator className='indicator' />
+      </Switch>
+      <Switch.Label className='label'>Toggle Switch</Switch.Label>
+    </Switch.Group>
+  )
+}
+```
