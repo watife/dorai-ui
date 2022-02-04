@@ -8,9 +8,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Dorai UI',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://dorai-ui.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'watife', // Usually your GitHub org/user name.
