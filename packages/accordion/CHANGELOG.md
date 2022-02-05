@@ -1,3 +1,15 @@
+# v2.0.0 (Sat Feb 05 2022)
+
+#### 💥 Breaking Change
+
+- feat(accordion): expose HTML tag for accordion root and optimize panel tag [#78](https://github.com/watife/dorai-ui/pull/78) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.1.0 (Tue Jan 11 2022)
 
 #### 🚀 Enhancement

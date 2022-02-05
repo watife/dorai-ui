@@ -1,3 +1,30 @@
+# (Sat Feb 05 2022)
+
+#### 💥 Breaking Change
+
+- `@dorai-ui/accordion@2.0.0`
+  - feat(accordion): expose HTML tag for accordion root and optimize panel tag [#78](https://github.com/watife/dorai-ui/pull/78) ([@watife](https://github.com/watife))
+
+#### 🐛 Bug Fix
+
+- feat: update documentation site config [#75](https://github.com/watife/dorai-ui/pull/75) ([@watife](https://github.com/watife))
+- feat: documentation site [#74](https://github.com/watife/dorai-ui/pull/74) ([@watife](https://github.com/watife))
+- docs: add the logo for the component library [#73](https://github.com/watife/dorai-ui/pull/73) ([@watife](https://github.com/watife))
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md ([@watife](https://github.com/watife))
+
+#### 📝 Documentation
+
+- docs: add modal documentation and clean up previous ones [#77](https://github.com/watife/dorai-ui/pull/77) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Sun Jan 23 2022)
 
 #### 🐛 Bug Fix
