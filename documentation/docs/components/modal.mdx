@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Alert Dialog
+# Modal (Dialog)
 
-> **Alert Dialog component is a modal dialog that interrupts the user's workflow to deliver an important message which requires an action. It adheres to the [WAI-ARIA Alert Dialog specification](https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog).**
+> **Fully functional, accessible modal component which overlaid on either the primary window or another dialog window, rendering the content underneath inert. It adheres to the [WAI-ARIA Modal specification](https://www.w3.org/TR/wai-aria-practices-1.2/#dialog_modal).**
 
 ### Core Features
 
@@ -16,23 +16,23 @@ sidebar_position: 2
 ### Installation
 
 ```sh
-npm i @dorai-ui/alert-dialog
+npm i @dorai-ui/modal
 
 or
 
-yarn add @dorai-ui/alert-dialog
+yarn add @dorai-ui/modal
 ```
 
 ### Basic Example
 
 <iframe
-  src="https://codesandbox.io/embed/alert-dialog-x71u1?fontsize=13&hidenavigation=1&theme=dark&view='editor+preview'"
+  src="https://codesandbox.io/embed/modal-cz0xd?fontsize=14&hidenavigation=1&theme=dark&view='editor+preview'"
   width='100%'
   height='500px'
   border='0'
   borderRadius='10px'
   overflow='hidden'
-  title='alert-dialog'
+  title='modal'
   allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
   sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
 ></iframe>
@@ -49,9 +49,9 @@ For example, making an API call when the modal is opened and closed
 
 ```jsx
 import React from 'React'
-import { AlertDialog } from '@dorai-ui/alert-dialog'
+import { Modal } from '@dorai-ui/modal'
 
-const ControlledAlertDialog = () => {
+const ControlledModal = () => {
   const [open, setIsOpen] = React.useState(false)
 
   const closeAPICall = () => {
@@ -94,15 +94,14 @@ const ControlledAlertDialog = () => {
 
   return (
     <div>
-      <AlertDialog isOpen={open} setIsOpen={handleOpenState}>
-        <AlertDialog.Trigger />
-        <AlertDialog.Group>
-          <AlertDialog.Title />
-          <AlertDialog.Description />
-          <AlertDialog.Cancel />
-          <AlertDialog.Action />
-        </AlertDialog.Group>
-      </AlertDialog>
+      <Modal isOpen={open} setIsOpen={handleOpenState}>
+        <Modal.Trigger />
+        <Modal.Group>
+          <Modal.Title />
+          <Modal.Description />
+          <Modal.Close />
+        </Modal.Group>
+      </Modal>
     </div>
   )
 }
@@ -113,26 +112,26 @@ const ControlledAlertDialog = () => {
 When modal is triggered, focus is put on the first focusable element. We can set the component to receive the first focus by
 using the `initialFocus` props which accepts a ref.
 
-For Example, the initialFocus is moved to the action button below;
+For Example, the initialFocus is moved to the proceed button below;
 
 ```jsx
 import React from 'React'
-import { AlertDialog } from '@dorai-ui/alert-dialog'
+import { Modal } from '@dorai-ui/modal'
 
-const FocusableAlertDialog = () => {
+const FocusableDialog = () => {
   const actionRef = React.useRef(null)
 
   return (
     <div>
-      <AlertDialog initialFocus={actionRef}>
-        <AlertDialog.Trigger />
-        <AlertDialog.Group>
-          <AlertDialog.Title />
-          <AlertDialog.Description />
-          <AlertDialog.Cancel />
-          <AlertDialog.Action ref={actionRef} />
-        </AlertDialog.Group>
-      </AlertDialog>
+      <Modal initialFocus={actionRef}>
+        <Modal.Trigger />
+        <Modal.Group>
+          <Modal.Title />
+          <Modal.Description />
+          <Modal.Cancel />
+          <button ref={actionRef}>Proceed</button>
+        </Modal.Group>
+      </Modal>
     </div>
   )
 }
@@ -145,30 +144,29 @@ All component accepts default HTML props that are assignable to them. For exampl
 #### Components Composed
 
 ```jsx
-import { AlertDialog } from '@dorai-ui/alert-dialog'
+import { Modal } from '@dorai-ui/modal'
 
-const AlertDialogComp = () => (
-  <AlertDialog>
-    <AlertDialog.Trigger />
-    <AlertDialog.Group>
-      <AlertDialog.Title />
-      <AlertDialog.Description />
-      <AlertDialog.Cancel />
-      <AlertDialog.Action />
-    </AlertDialog.Group>
-  </AlertDialog>
+const ModalComp = () => (
+  <Modal>
+    <Modal.Trigger />
+    <Modal.Group>
+      <Modal.Title />
+      <Modal.Description />
+      <Modal.Close />
+    </Modal.Group>
+  </Modal>
 )
 ```
 
-#### `AlertDialog (required)`
+#### `Modal (required)`
 
-AlertDialog is the parent component for all other components, it exposes the context and is required.
+Modal is the parent component for all other components, it exposes the context and is required.
 
 | Props        | Default        | Type                   | Description                                                                                   |
 | ------------ | -------------- | ---------------------- | --------------------------------------------------------------------------------------------- |
 | isOpen       | false          | Boolean                | For controlled state, the isOpen property is required and controls the state of the component |
 | setIsOpen    | -              | Function               | Required for component state control ability                                                  |
-| initialFocus | firstFocusable | React.MutableRefObject | initial focuable component when modal is open                                                 |
+| initialFocus | firstFocusable | React.MutableRefObject | Handles component to receive first focus when the modal is opened. Must be a focuable element |
 | as           | 'button'       | HTMLElement            | This grants the ability to change the element this component should render as                 |
 
 <br />
@@ -193,7 +191,7 @@ The Group component manages focus lock and exposed certain context value of and 
 
 #### `Title`
 
-The Title component labels the alertdialog. This is important for Accessiblity.
+The Title component labels the modal. This is important for Accessiblity.
 
 | Props | Default | Type        | Description                                                                   |
 | ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
@@ -201,23 +199,15 @@ The Title component labels the alertdialog. This is important for Accessiblity.
 
 #### `Description (Optional)`
 
-Optional Description component describes the alertdialog component. This enables screen readers to announce the purpose of the modal / dialog but it should be concised.
+Optional Description component describes the modal component. This enables screen readers to announce the purpose of the modal / dialog but it should be concised.
 
 | Props | Default | Type        | Description                                                                   |
 | ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
 | as    | 'h2'    | HTMLElement | This grants the ability to change the element this component should render as |
 
-#### `Cancel`
+#### `Close`
 
-Cancel tag is useful in the alertdialog and it takes the initial focus when triggered.
-
-| Props | Default | Type        | Description                                                                   |
-| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
-| as    | 'h2'    | HTMLElement | This grants the ability to change the element this component should render as |
-
-#### `Action`
-
-Action tag performs the call to action needed in the alertdialog. It is important to note that this can be controlled by passing in the onClick props.
+Close tag triggers the close of the modal component.
 
 | Props | Default | Type        | Description                                                                   |
 | ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
