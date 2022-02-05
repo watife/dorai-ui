@@ -47,9 +47,9 @@ The switch component can be controlled or uncontrolled.
 
 #### Aria attributes
 
-| Attributes     | Default | Description                              |
-| -------------- | ------- | ---------------------------------------- |
-| `aria-checked` | false   | Holds the checked state of the component |
+| Attributes   | Default | Description                              |
+| ------------ | ------- | ---------------------------------------- |
+| aria-checked | false   | Holds the checked state of the component |
 
 #### Components Composed
 
@@ -66,7 +66,7 @@ const SwitchComp = () => (
 )
 ```
 
-#### Group
+#### `Group`
 
 Group is the parent component for all other components, it exposes the context and is required.
 
@@ -76,7 +76,7 @@ Group is the parent component for all other components, it exposes the context a
 
 <br />
 
-#### Switch
+#### `Switch`
 
 The main Switch component. It exposes the checked state as a render props
 
@@ -88,7 +88,7 @@ The main Switch component. It exposes the checked state as a render props
 | value    | -        | string   | The value of the component which can be read with the name attribute                           |
 | as       | 'button' | -        | This grants the ability to change the element this component should render as                  |
 
-##### Render Props
+##### `Render Props`
 
 | Props   | Type    | Description                                                                       |
 | ------- | ------- | --------------------------------------------------------------------------------- |
@@ -96,7 +96,7 @@ The main Switch component. It exposes the checked state as a render props
 
 <br />
 
-#### Indicator
+#### `Indicator`
 
 Stylable Indicator (or numb) which can be styled to show the toggled state
 
@@ -104,7 +104,7 @@ Stylable Indicator (or numb) which can be styled to show the toggled state
 | ----- | ------- | ----------------------------------------------------------------------------- |
 | as    | 'span'  | This grants the ability to change the element this component should render as |
 
-#### Label
+#### `Label`
 
 Optional Label component. Out of the box, it is clickable and tied to the Switch component.
 
