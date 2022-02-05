@@ -27,76 +27,98 @@ const AccordionContext = React.createContext<{
   type?: AccordionUsageType
 } | null>(null)
 
-type AccordionType = {
-  children: React.ReactNode
+type RootOwnProps = {
+  children: ((args: { open: boolean }) => JSX.Element) | React.ReactNode
   type?: AccordionUsageType
   defaultIndex?: number
 }
 
-const Root = ({
-  children,
-  type = TypeEnum.Multiple,
-  defaultIndex
-}: AccordionType) => {
-  const [accordions, registerAccordions] = React.useState<
-    React.MutableRefObject<HTMLElement | null>[]
-  >([])
-  const [activeAccordion, setGlobalActiveAccordion] =
-    React.useState<React.MutableRefObject<HTMLElement | null>>()
+type RootProps<C extends React.ElementType> = Polymorphic.ComponentPropsWithRef<
+  C,
+  RootOwnProps
+>
 
-  // handle defaultIndex
-  React.useEffect(() => {
-    if (typeof defaultIndex !== 'number') return
+const __DEFAULT_ROOT_TAG__ = 'div'
 
-    const accordionToBeDefault = accordions[defaultIndex]
-    setGlobalActiveAccordion(accordionToBeDefault)
-  }, [accordions, defaultIndex])
+type RootType = <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
+  props: RootProps<C>
+) => React.ReactElement | null
 
-  const handleRegisterAccordion = React.useCallback(
-    (element: React.MutableRefObject<HTMLElement | null>) => {
-      registerAccordions((prev) => [...prev, element])
-    },
-    []
-  )
-
-  /**
-   *
-   * When type is multiple, the global active accordion state is not needed hence we return early
-   *
-   */
-  const handleSetGlobalActiveAccordion = React.useCallback(
-    (element: React.MutableRefObject<HTMLElement | null>) => {
-      if (type === TypeEnum.Multiple) return
-      setGlobalActiveAccordion(element)
-    },
-    [type]
-  )
-
-  const context = React.useMemo(
-    () => ({
-      accordions,
-      activeAccordion,
-      handleRegisterAccordion,
-      handleSetGlobalActiveAccordion,
+const Root: RootType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
+    {
+      as,
+      children,
+      type = TypeEnum.Multiple,
       defaultIndex,
-      type
-    }),
-    [
-      accordions,
-      activeAccordion,
-      defaultIndex,
-      type,
-      handleRegisterAccordion,
-      handleSetGlobalActiveAccordion
-    ]
-  )
+      ...props
+    }: RootProps<C>,
+    ref: Polymorphic.Ref<C>
+  ) => {
+    const [accordions, registerAccordions] = React.useState<
+      React.MutableRefObject<HTMLElement | null>[]
+    >([])
+    const [activeAccordion, setGlobalActiveAccordion] =
+      React.useState<React.MutableRefObject<HTMLElement | null>>()
 
-  return (
-    <AccordionContext.Provider value={context}>
-      {children}
-    </AccordionContext.Provider>
-  )
-}
+    // handle defaultIndex
+    React.useEffect(() => {
+      if (typeof defaultIndex !== 'number') return
+
+      const accordionToBeDefault = accordions[defaultIndex]
+      setGlobalActiveAccordion(accordionToBeDefault)
+    }, [accordions, defaultIndex])
+
+    const handleRegisterAccordion = React.useCallback(
+      (element: React.MutableRefObject<HTMLElement | null>) => {
+        registerAccordions((prev) => [...prev, element])
+      },
+      []
+    )
+
+    /**
+     *
+     * When type is multiple, the global active accordion state is not needed hence we return early
+     *
+     */
+    const handleSetGlobalActiveAccordion = React.useCallback(
+      (element: React.MutableRefObject<HTMLElement | null>) => {
+        if (type === TypeEnum.Multiple) return
+        setGlobalActiveAccordion(element)
+      },
+      [type]
+    )
+
+    const context = React.useMemo(
+      () => ({
+        accordions,
+        activeAccordion,
+        handleRegisterAccordion,
+        handleSetGlobalActiveAccordion,
+        defaultIndex,
+        type
+      }),
+      [
+        accordions,
+        activeAccordion,
+        defaultIndex,
+        type,
+        handleRegisterAccordion,
+        handleSetGlobalActiveAccordion
+      ]
+    )
+
+    const TagName = as || __DEFAULT_ROOT_TAG__
+
+    return (
+      <AccordionContext.Provider value={context}>
+        <TagName ref={ref} {...props}>
+          {children}
+        </TagName>
+      </AccordionContext.Provider>
+    )
+  }
+)
 
 const useRootValue = (component: string) => {
   const context = React.useContext(AccordionContext)
@@ -382,11 +404,10 @@ const Panel: PanelType = React.forwardRef(
       handleSetContentIds(id, 'panelId')
     }, [handleSetContentIds, id])
 
-    if (!open && !fixed) return null
-
     return (
       <TagName
         id={id}
+        hidden={!open && !fixed}
         aria-labelledby={contentIds?.triggerId || undefined}
         {...props}
         ref={ref}

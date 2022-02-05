@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Accordion } from '@dorai-ui/accordion'
+import { Accordion } from '../lib/accordion'
 
 type AccordionType = {
   defaultIndex?: number
@@ -53,42 +53,30 @@ describe('Safe rules of component', () => {
     it('should render without crashing', () => {
       render(<AccordionComponent />)
 
-      expect(
-        screen.queryByText(/This is the panel text/i)
-      ).not.toBeInTheDocument()
-      expect(
-        screen.queryByText(/This is the panel text 2/i)
-      ).not.toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text')).not.toBeVisible()
+      expect(screen.queryByText('This is the panel text 2')).not.toBeVisible()
     })
 
     it("by default doesn't render any panel until clicked", () => {
       render(<AccordionComponent />)
 
-      expect(
-        screen.queryByText(/This is the panel text/i)
-      ).not.toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text')).not.toBeVisible()
 
-      expect(
-        screen.queryByText(/This is the panel text 2/i)
-      ).not.toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text 2')).not.toBeVisible()
 
       const panelBtn = screen.getByText(/accordion trigger/i)
 
       userEvent.click(panelBtn)
 
-      expect(screen.queryByText(/This is the panel text/i)).toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text')).toBeVisible()
 
-      expect(
-        screen.queryByText(/This is the panel text 2/i)
-      ).not.toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text 2')).not.toBeVisible()
 
       const panelBtn2 = screen.getByText(/open accordion 2/i)
 
       userEvent.click(panelBtn2)
 
-      expect(
-        screen.queryByText(/This is the panel text 2/i)
-      ).toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text 2')).toBeVisible()
     })
 
     it('renders only single accordion', () => {
@@ -98,29 +86,23 @@ describe('Safe rules of component', () => {
 
       userEvent.click(panelBtn)
 
-      expect(screen.queryByText(/This is the panel text/i)).toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text')).toBeVisible()
 
-      expect(
-        screen.queryByText(/This is the panel text 2/i)
-      ).not.toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text 2')).not.toBeVisible()
 
       const panelBtn2 = screen.getByText(/open accordion 2/i)
 
       userEvent.click(panelBtn2)
 
-      expect(
-        screen.queryByText(/This is the panel text 2/i)
-      ).toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text 2')).toBeVisible()
 
-      expect(
-        screen.queryByText('This is the panel text')
-      ).not.toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text')).not.toBeVisible()
     })
 
     it('renders default index', () => {
       render(<AccordionComponent type='single' defaultIndex={0} />)
 
-      expect(screen.queryByText(/This is the panel text/i)).toBeInTheDocument()
+      expect(screen.queryByText('This is the panel text')).toBeVisible()
     })
   })
 })
