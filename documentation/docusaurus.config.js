@@ -28,8 +28,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/watife/dorai-ui/documentation'
+          editUrl: 'https://github.com/watife/dorai-ui/edit/main/documentation'
         },
         blog: false,
         theme: {
