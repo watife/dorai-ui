@@ -1,0 +1,147 @@
+---
+sidebar_position: 1
+---
+
+# Accordion
+
+> **Group of vertically stacked headings that controls show and hide of contents. It adheres to [WAI-ARIA Accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.2/#accordion).**
+
+### Core Features
+
+- Out of the box accessible
+- Single or multiple content expandable
+- Keyboard interaction management
+
+### Installation
+
+```sh
+npm i @dorai-ui/accordion
+
+or
+
+yarn add @dorai-ui/accordion
+```
+
+### Basic Example
+
+<iframe
+  src="https://codesandbox.io/embed/accordion-1hbf1?fontsize=14&hidenavigation=1&theme=dark&view='editor+preview'"
+  width='100%'
+  height='500px'
+  border='0'
+  borderRadius='10px'
+  overflow='hidden'
+  title='accordion'
+  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+></iframe>
+
+#### Single or Multiple
+
+By default, multiple accordion groups can be open at the same time, we can control this by changing the type props to single as shown below;
+
+```jsx
+import { Accordion } from '@dorai-ui/accordion'
+
+const AccordionComp = () => (
+  <Accordion type='single'>
+    <Accordion.Group>
+      <Accordion.Header>
+        <Accordion.Trigger />
+      </Accordion.Header>
+      <Accordion.Panel />
+    </Accordion.Group>
+  </Accordion>
+)
+```
+
+#### Open render prop
+
+Also, the open state of each accordion group is exposed through the render prop as shown below;
+
+```jsx
+import { Accordion } from '@dorai-ui/accordion'
+
+const AccordionComp = () => (
+  <Accordion>
+    <Accordion.Group>
+      {({ open }) => (
+        <>
+          <Accordion.Header>
+            <Accordion.Trigger />
+          </Accordion.Header>
+          <Accordion.Panel />
+        </>
+      )}
+    </Accordion.Group>
+  </Accordion>
+)
+```
+
+### API
+
+#### Components Composed
+
+```jsx
+import { Accordion } from '@dorai-ui/accordion'
+
+const AccordionComp = () => (
+  <Accordion>
+    <Accordion.Group />
+    <Accordion.Header>
+      <Accordion.Trigger />
+    </Accordion.Header>
+    <Accordion.Panel />
+  </Accordion>
+)
+```
+
+#### `Accordion`
+
+Accordion is the parent component for all other components, it exposes the context and is required.
+
+| Props        | Default    | Options                  | Type        | Description                                                                   |
+| ------------ | ---------- | ------------------------ | ----------- | ----------------------------------------------------------------------------- |
+| defaultIndex | -          | index of accordion group | number      | signifies which accordion group should be of default open                     |
+| type         | 'multiple' | 'single' or 'multiple'   | string      | controls the number of accordion that can be open at once                     |
+| as           | 'div'      | HTML tag                 | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Group`
+
+A required component which exposes certain contexts to childen props and group together each trigger and content.
+It exposes the open state of the group through a render prop.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| as    | 'div'   | HTMLElement | This grants the ability to change the element this component should render as |
+
+##### `Render Props`
+
+| Props | Type    | Description                                            |
+| ----- | ------- | ------------------------------------------------------ |
+| open  | boolean | Exposes the open state of an accordion group component |
+
+#### `Header`
+
+An accessiblity required component which labels the accordion group section and wraps the trigger component.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| as    | 'h3'    | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Trigger`
+
+The trigger component controls the open and close state of an accordion group.
+
+| Props | Default  | Type        | Description                                                                   |
+| ----- | -------- | ----------- | ----------------------------------------------------------------------------- |
+| as    | 'button' | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Panel`
+
+The Panel component holds the content of the accordion.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| fixed | false   | boolean     | This controls if we want this accordion panel to be collapsable or not        |
+| as    | 'div'   | HTMLElement | This grants the ability to change the element this component should render as |
