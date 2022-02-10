@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Tabs } from '@dorai-ui/tabs'
+import { Tabs } from '../lib'
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>
