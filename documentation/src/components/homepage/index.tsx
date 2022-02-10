@@ -68,7 +68,7 @@ function HomePage() {
               ))}
             </div>
             <Link
-              to='/components/alert'
+              to='/components/accordion'
               className='button button--primary button--lg home-btn'
             >
               View all components
