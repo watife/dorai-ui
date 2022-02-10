@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/components",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "@dorai-ui composed components",
   "keywords": [
     "dorai-ui",
@@ -32,11 +32,11 @@
   "dependencies": {
     "@dorai-ui/accordion": "^2.0.0",
     "@dorai-ui/alert": "^0.3.1",
-    "@dorai-ui/alert-dialog": "^0.2.1",
-    "@dorai-ui/modal": "^1.2.0",
+    "@dorai-ui/alert-dialog": "^0.3.0",
+    "@dorai-ui/modal": "^1.3.0",
     "@dorai-ui/portal": "^1.2.0",
-    "@dorai-ui/radio-group": "^1.0.1",
-    "@dorai-ui/switch": "^3.0.1",
+    "@dorai-ui/radio-group": "^1.1.0",
+    "@dorai-ui/switch": "^3.1.0",
     "@dorai-ui/tabs": "^1.2.0",
     "@dorai-ui/utils": "^1.2.0"
   },
