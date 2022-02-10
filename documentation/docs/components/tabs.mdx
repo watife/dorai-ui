@@ -1,0 +1,153 @@
+---
+sidebar_position: 6
+---
+
+# Tabs
+
+> **Tabs are a set of layered sections of content, known as tab panels, that display one panel of content at a time which adheres to the [WAI-ARIA Tabs requirement](https://www.w3.org/TR/wai-aria-practices-1.2/#tabpanel)**.
+
+### Core Features
+
+- Out of the box accessiblity
+- horizontal or vertical orientation
+- manual or automatic triggers
+- keyboard navigation
+
+### Installation
+
+```sh
+npm i @dorai-ui/tabs
+
+or
+
+yarn add @dorai-ui/tabs
+```
+
+### Basic Example
+
+The example below demonstrates using the exposed `checked` props by switch.
+
+The `aria-checked` attribute is also present and can be used for styling.
+
+<iframe
+  src='https://codesandbox.io/embed/tabs-7qu3k?fontsize=14&hidenavigation=1&theme=dark&view=preview'
+  width='100%'
+  height='600px'
+  border='0'
+  borderRadius='10px'
+  overflow='hidden'
+  title='tabs'
+  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+></iframe>
+
+#### Initial Focused Tab Trigger (defaultIndex)
+
+We can change the initial focused tab trigger by passing in the `defaultIndex` prop.
+
+**NOTE**: The Tab trigger are registered in an array, hence the `defaultIndex` passed uses the array index count starting from 0.
+
+##### Warning Texts for Initial Focus
+
+If the `defaultIndex` passed doesn't match any of the index in the array, it is ignored and defaults to the first focuable with a console warning text.
+
+If the `defaultIndex` passed matches that of a disabled Tab trigger, the focus is automatically moved to the next focuable element with a console warning text.
+
+#### Manual Trigger
+
+The Tabs component can be triggered manually by passing the prop `manual` to the component.
+
+Tabs Trigger which receive focus in the manual state can be activated by pressing the `enter` or `space` key.
+
+```jsx
+import React from 'react'
+import { Tabs } from '@dorai-ui/tabs'
+
+export default function App() {
+  return (
+    <Tabs manual>
+      <Tabs.List>
+        <Tabs.Trigger />
+      </Tabs.List>
+      <Tabs.Panel />
+    </Tabs>
+  )
+}
+```
+
+#### Orientation Change
+
+Out of the box, the `horizontal` orientation is active, but this can be changed by passing the `vertical` prop to the Tabs component.
+
+The `vertical` orientation changes the keyboard control from `arrow-left` & `arrow-right` to `arrow-up` & `arrow-down`.
+
+Example below;
+
+```jsx
+import React from 'react'
+import { Tabs } from '@dorai-ui/tabs'
+
+export default function App() {
+  return (
+    <Tabs vertical>
+      <Tabs.List>
+        <Tabs.Trigger />
+      </Tabs.List>
+      <Tabs.Panel />
+    </Tabs>
+  )
+}
+```
+
+### API
+
+#### Components Composed
+
+```jsx
+import { Tabs } from '@dorai-ui/tabs'
+
+const TabsComp = () => (
+  <Tabs>
+    <Tabs.List>
+      <Tabs.Trigger />
+    </Tabs.List>
+    <Tabs.Panel />
+  </Tabs>
+)
+```
+
+#### `Tabs`
+
+Tabs is the parent component for all other components, it exposes the context and is required.
+
+| Props        | Default | Options           | Type        | Description                                                                                                           |
+| ------------ | ------- | ----------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| defaultIndex | 0       | Tab Trigger index | Number      | Controls the default Tab (Tabs Trigger) to be focused                                                                 |
+| vertical     | false   | true / false      | Boolean     | This changes the orientation to vertical and also the keyboard arrow triggers                                         |
+| manual       | false   | true / false      | Boolean     | This changes the trigger of the Tab Trigger from automatic to manual; hence retricting keyboard arrow trigger ability |
+| as           | 'div'   | HTML tag          | HTMLElement | This grants the ability to change the element this component should render as                                         |
+
+#### `List`
+
+Tabs List wraps the Tab Triggers.
+
+| Props | Default | Options  | Type        | Description                                                                   |
+| ----- | ------- | -------- | ----------- | ----------------------------------------------------------------------------- |
+| as    | 'div'   | HTML tag | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Trigger`
+
+Tabs Trigger is a component that triggers and controls the visibility of the associated panel
+
+| Props    | Default  | Options      | Type        | Description                                                                   |
+| -------- | -------- | ------------ | ----------- | ----------------------------------------------------------------------------- |
+| disabled | false    | true / false | Boolean     | controls the disabled state of a trigger and its associated panel             |
+| as       | 'button' | HTML tag     | HTMLElement | This grants the ability to change the element this component should render as |
+
+#### `Panel`
+
+Tabs Panel shows the content of the associated Trigger
+
+| Props | Default | Options  | Type        | Description                                                                   |
+| ----- | ------- | -------- | ----------- | ----------------------------------------------------------------------------- |
+| as    | 'div'   | HTML tag | HTMLElement | This grants the ability to change the element this component should render as |

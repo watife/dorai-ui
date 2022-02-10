@@ -162,4 +162,42 @@ describe('Component Render', () => {
     expect(screen.queryByText(/tab panel 2/i)).not.toBeVisible()
     expect(screen.queryByText(/tab panel 1/i)).toBeVisible()
   })
+
+  it('focuses on the first focusable element if defaultIndex is disabled', () => {
+    render(
+      <Tabs defaultIndex={1}>
+        <Tabs.List>
+          <Tabs.Trigger>tab 1</Tabs.Trigger>
+          <Tabs.Trigger disabled>tab 2</Tabs.Trigger>
+          <Tabs.Trigger>tab 3</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Panel>tab panel 1</Tabs.Panel>
+        <Tabs.Panel>tab panel 2</Tabs.Panel>
+        <Tabs.Panel>tab panel 3</Tabs.Panel>
+      </Tabs>
+    )
+
+    const tab3 = screen.getByText(/tab 3/i)
+
+    expect(tab3).toHaveFocus()
+  })
+
+  it("focuses on the first focusable if the defaultIndex doesn't match any tab", () => {
+    render(
+      <Tabs defaultIndex={10}>
+        <Tabs.List>
+          <Tabs.Trigger>tab 1</Tabs.Trigger>
+          <Tabs.Trigger>tab 2</Tabs.Trigger>
+          <Tabs.Trigger>tab 3</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Panel>tab panel 1</Tabs.Panel>
+        <Tabs.Panel>tab panel 2</Tabs.Panel>
+        <Tabs.Panel>tab panel 3</Tabs.Panel>
+      </Tabs>
+    )
+
+    const tab1 = screen.getByText(/tab 1/i)
+
+    expect(tab1).toHaveFocus()
+  })
 })

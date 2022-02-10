@@ -111,6 +111,59 @@ const TabsRoot: RootType = React.forwardRef(
       setActiveTabIndex(index)
     }
 
+    const nextFocuableTab = React.useCallback(
+      (initialIndex: number) => {
+        for (let index = initialIndex; index < tabs.length; index++) {
+          if (!tabs[index].current?.hasAttribute('disabled')) {
+            handleSetFocusedTabIndex(index)
+            handleSetActiveTabIndex(index)
+            break
+          }
+        }
+      },
+      [handleSetFocusedTabIndex, tabs]
+    )
+
+    // Handle Default Index
+    React.useEffect(() => {
+      if (!tabs.length) return
+      /**
+       * If the default index passed is not existing, look for the next focusable from 0
+       */
+      if (!tabs[defaultIndex]) {
+        nextFocuableTab(0)
+        console.warn(
+          `
+          /**
+           * 
+           * Dorai-ui Warning
+           * 
+           */
+
+          The default index (${defaultIndex}) passed doesn't match any of the Tab Trigger index (starting from 0); hence focus is set to the next focusable tab trigger
+          `
+        )
+        return
+      }
+
+      /**
+       * If the default index passed is disabled, set the next focuable element with a warning
+       */
+      if (tabs[defaultIndex]?.current?.hasAttribute('disabled')) {
+        nextFocuableTab(defaultIndex)
+        console.warn(
+          `
+          /**
+           * 
+           * Dorai-ui Warning
+           * 
+           */
+          The defaultIndex (${defaultIndex}) passed belongs to a disabled tab trigger; hence focus is automatically moved to the next focusable tab trigger
+          `
+        )
+      }
+    }, [defaultIndex, handleSetFocusedTabIndex, nextFocuableTab, tabs])
+
     const context = React.useMemo(
       () => ({
         tabs,
