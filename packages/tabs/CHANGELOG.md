@@ -1,3 +1,15 @@
+# v2.2.0 (Thu Feb 10 2022)
+
+#### 🚀 Enhancement
+
+- feat: improve tabs component and release docs [#84](https://github.com/watife/dorai-ui/pull/84) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v2.1.0 (Thu Feb 10 2022)
 
 #### 🚀 Enhancement
