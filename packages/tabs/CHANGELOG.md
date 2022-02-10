@@ -1,3 +1,15 @@
+# v2.0.0 (Thu Feb 10 2022)
+
+#### 💥 Breaking Change
+
+- feat: expose tabs wrapper tag [#82](https://github.com/watife/dorai-ui/pull/82) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.1.0 (Tue Jan 11 2022)
 
 #### 🚀 Enhancement

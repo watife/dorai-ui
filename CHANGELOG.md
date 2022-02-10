@@ -1,5 +1,18 @@
 # (Thu Feb 10 2022)
 
+#### 💥 Breaking Change
+
+- `@dorai-ui/tabs@2.0.0`
+  - feat: expose tabs wrapper tag [#82](https://github.com/watife/dorai-ui/pull/82) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Thu Feb 10 2022)
+
 #### 🚀 Enhancement
 
 - `@dorai-ui/description@1.3.0`, `@dorai-ui/label@2.1.0`
