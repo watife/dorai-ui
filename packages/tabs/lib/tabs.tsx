@@ -427,12 +427,13 @@ const Panel: TabPanelType = React.forwardRef(
       <TagName
         role='tabpanel'
         id={id}
+        hidden={!active}
         ref={mergedPanelRef}
         aria-labelledby={tabs[panelIndex]?.current?.id}
         tabIndex={active ? 0 : -1}
         {...props}
       >
-        {active ? children : null}
+        {children}
       </TagName>
     )
   }

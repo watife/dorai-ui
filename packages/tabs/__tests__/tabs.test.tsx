@@ -39,9 +39,9 @@ describe('Component Render', () => {
   it('renders tab component without crashing', () => {
     render(<TabComp />)
 
-    expect(screen.getByText(/tab panel 1/i)).toBeInTheDocument()
-    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
-    expect(screen.queryByRole(/tablist/i)).toBeInTheDocument()
+    expect(screen.getByText(/tab panel 1/i)).toBeVisible()
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeVisible()
+    expect(screen.queryByRole(/tablist/i)).toBeVisible()
   })
 
   it('puts focus on tab', () => {
@@ -57,8 +57,8 @@ describe('Component Render', () => {
 
     expect(screen.getByText(/tab 2/i)).toHaveFocus()
 
-    expect(screen.queryByText(/tab panel 1/i)).not.toBeInTheDocument()
-    expect(screen.getByText(/tab panel 2/i)).toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 1/i)).not.toBeVisible()
+    expect(screen.getByText(/tab panel 2/i)).toBeVisible()
   })
 
   it('puts focus by manual trigger and panel shows when enter or space is clicked', () => {
@@ -72,13 +72,13 @@ describe('Component Render', () => {
 
     userEvent.keyboard('{arrowright}')
 
-    expect(screen.queryByText(/tab panel 1/i)).toBeInTheDocument()
-    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 1/i)).toBeVisible()
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeVisible()
 
     userEvent.keyboard('{enter}')
 
-    expect(screen.queryByText(/tab panel 1/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/tab panel 2/i)).toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 1/i)).not.toBeVisible()
+    expect(screen.queryByText(/tab panel 2/i)).toBeVisible()
   })
 
   it('skips over disabled tab', () => {
@@ -106,8 +106,8 @@ describe('Component Render', () => {
     expect(screen.getByText(/tab 2/i)).not.toHaveFocus()
     expect(screen.getByText(/tab 3/i)).toHaveFocus()
 
-    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/tab panel 3/i)).toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeVisible()
+    expect(screen.queryByText(/tab panel 3/i)).toBeVisible()
   })
 
   it('activates clicked tab', () => {
@@ -119,7 +119,7 @@ describe('Component Render', () => {
 
     expect(tab2).toHaveFocus()
 
-    expect(screen.queryByText(/tab panel 2/i)).toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 2/i)).toBeVisible()
   })
 
   it('allows keyboard keys based on orientation set', () => {
@@ -138,11 +138,11 @@ describe('Component Render', () => {
 
     userEvent.keyboard('{arrowright}')
 
-    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeVisible()
 
     userEvent.keyboard('{arrowdown}')
 
-    expect(screen.queryByText(/tab panel 2/i)).toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 2/i)).toBeVisible()
   })
 
   it('last element goes to first element on further click and vice versa', () => {
@@ -153,13 +153,13 @@ describe('Component Render', () => {
     // click on right arrow twice
     userEvent.keyboard('{arrowright}{arrowright}')
 
-    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/tab panel 1/i)).toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeVisible()
+    expect(screen.queryByText(/tab panel 1/i)).toBeVisible()
 
     // click on left arrow twice
     userEvent.keyboard('{arrowleft}{arrowleft}')
 
-    expect(screen.queryByText(/tab panel 2/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/tab panel 1/i)).toBeInTheDocument()
+    expect(screen.queryByText(/tab panel 2/i)).not.toBeVisible()
+    expect(screen.queryByText(/tab panel 1/i)).toBeVisible()
   })
 })
