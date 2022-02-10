@@ -15,14 +15,6 @@ import { KeyBoardKeys, GetId, mergeRefs, Polymorphic } from '@dorai-ui/utils'
  *
  *
  */
-
-type TabsType = {
-  children: React.ReactNode
-  defaultIndex?: number
-  manual?: boolean
-  vertical?: boolean
-}
-
 type OrientationType = 'vertical' | 'horizontal'
 
 const TabsContext = React.createContext<{
@@ -38,91 +30,124 @@ const TabsContext = React.createContext<{
   manual: boolean
 } | null>(null)
 
-const TabsRoot = ({
-  children,
-  defaultIndex = 0,
-  manual = false,
-  vertical
-}: TabsType) => {
-  const [activeTabIndex, setActiveTabIndex] =
-    React.useState<number>(defaultIndex)
-  const [focusedTabIndex, setFocusedTabIndex] =
-    React.useState<number>(defaultIndex)
-  const [tabs, setTabs] = React.useState<
-    React.MutableRefObject<HTMLElement | null>[]
-  >([])
-  const [panels, setPanels] = React.useState<
-    React.MutableRefObject<HTMLElement | null>[]
-  >([])
-
-  const orientation: OrientationType = vertical ? 'vertical' : 'horizontal'
-
-  const handleRegisterTab = React.useCallback(
-    (element: React.MutableRefObject<HTMLElement | null>) => {
-      if (!element) return
-      setTabs((prev) => [...prev, element])
-
-      return () =>
-        setTabs((prev) => {
-          return prev.filter((tab) => tab !== element)
-        })
-    },
-    []
-  )
-
-  const handleRegisterPanel = React.useCallback(
-    (element: React.MutableRefObject<HTMLElement | null>) => {
-      if (!element) return
-      setPanels((prev) => [...prev, element])
-
-      return () =>
-        setPanels((prev) => {
-          return prev.filter((tab) => tab !== element)
-        })
-    },
-    []
-  )
-
-  const handleSetFocusedTabIndex = React.useCallback(
-    (index: number) => {
-      setFocusedTabIndex(index)
-      return tabs[index]?.current?.focus()
-    },
-    [tabs]
-  )
-
-  const handleSetActiveTabIndex = (index: number) => {
-    setActiveTabIndex(index)
-  }
-
-  const context = React.useMemo(
-    () => ({
-      tabs,
-      handleRegisterTab,
-      panels,
-      handleRegisterPanel,
-      activeTabIndex,
-      focusedTabIndex,
-      handleSetActiveTabIndex,
-      handleSetFocusedTabIndex,
-      orientation,
-      manual
-    }),
-    [
-      tabs,
-      handleRegisterTab,
-      panels,
-      handleRegisterPanel,
-      activeTabIndex,
-      focusedTabIndex,
-      handleSetFocusedTabIndex,
-      orientation,
-      manual
-    ]
-  )
-
-  return <TabsContext.Provider value={context}>{children}</TabsContext.Provider>
+type RootOwnProps = {
+  children: React.ReactNode
+  defaultIndex?: number
+  manual?: boolean
+  vertical?: boolean
 }
+
+type RootProps<C extends React.ElementType> = Polymorphic.ComponentPropsWithRef<
+  C,
+  RootOwnProps
+>
+
+const __DEFAULT_ROOT_TAG__ = 'div'
+
+type RootType = <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
+  props: RootProps<C>
+) => React.ReactElement | null
+
+const TabsRoot: RootType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
+    {
+      as,
+      children,
+      defaultIndex = 0,
+      manual = false,
+      vertical,
+      ...props
+    }: RootProps<C>,
+    ref: Polymorphic.Ref<C>
+  ) => {
+    const [activeTabIndex, setActiveTabIndex] =
+      React.useState<number>(defaultIndex)
+    const [focusedTabIndex, setFocusedTabIndex] =
+      React.useState<number>(defaultIndex)
+    const [tabs, setTabs] = React.useState<
+      React.MutableRefObject<HTMLElement | null>[]
+    >([])
+    const [panels, setPanels] = React.useState<
+      React.MutableRefObject<HTMLElement | null>[]
+    >([])
+
+    const orientation: OrientationType = vertical ? 'vertical' : 'horizontal'
+
+    const handleRegisterTab = React.useCallback(
+      (element: React.MutableRefObject<HTMLElement | null>) => {
+        if (!element) return
+        setTabs((prev) => [...prev, element])
+
+        return () =>
+          setTabs((prev) => {
+            return prev.filter((tab) => tab !== element)
+          })
+      },
+      []
+    )
+
+    const handleRegisterPanel = React.useCallback(
+      (element: React.MutableRefObject<HTMLElement | null>) => {
+        if (!element) return
+        setPanels((prev) => [...prev, element])
+
+        return () =>
+          setPanels((prev) => {
+            return prev.filter((tab) => tab !== element)
+          })
+      },
+      []
+    )
+
+    const handleSetFocusedTabIndex = React.useCallback(
+      (index: number) => {
+        setFocusedTabIndex(index)
+        return tabs[index]?.current?.focus()
+      },
+      [tabs]
+    )
+
+    const handleSetActiveTabIndex = (index: number) => {
+      setActiveTabIndex(index)
+    }
+
+    const context = React.useMemo(
+      () => ({
+        tabs,
+        handleRegisterTab,
+        panels,
+        handleRegisterPanel,
+        activeTabIndex,
+        focusedTabIndex,
+        handleSetActiveTabIndex,
+        handleSetFocusedTabIndex,
+        orientation,
+        manual
+      }),
+      [
+        tabs,
+        handleRegisterTab,
+        panels,
+        handleRegisterPanel,
+        activeTabIndex,
+        focusedTabIndex,
+        handleSetFocusedTabIndex,
+        orientation,
+        manual
+      ]
+    )
+
+    const TagName = as || __DEFAULT_ROOT_TAG__
+
+    return (
+      <TabsContext.Provider value={context}>
+        <TagName ref={ref} {...props}>
+          {children}
+        </TagName>
+      </TabsContext.Provider>
+    )
+  }
+)
 
 const useTabsValue = (component: string) => {
   const context = React.useContext(TabsContext)
