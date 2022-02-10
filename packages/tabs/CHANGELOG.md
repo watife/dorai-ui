@@ -1,3 +1,15 @@
+# v2.1.0 (Thu Feb 10 2022)
+
+#### 🚀 Enhancement
+
+- perf(tabs): improve performance of tabs to prevent removing chidren from the DOM [#83](https://github.com/watife/dorai-ui/pull/83) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v2.0.0 (Thu Feb 10 2022)
 
 #### 💥 Breaking Change
