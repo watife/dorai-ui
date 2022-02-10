@@ -1,3 +1,15 @@
+# v2.1.0 (Thu Feb 10 2022)
+
+#### 🚀 Enhancement
+
+- fix: replace useLayoutEffect with useEffect to support server side [#81](https://github.com/watife/dorai-ui/pull/81) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v2.0.0 (Sat Jan 22 2022)
 
 #### 💥 Breaking Change

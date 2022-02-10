@@ -1,3 +1,21 @@
+# (Thu Feb 10 2022)
+
+#### 🚀 Enhancement
+
+- `@dorai-ui/description@1.3.0`, `@dorai-ui/label@2.1.0`
+  - fix: replace useLayoutEffect with useEffect to support server side [#81](https://github.com/watife/dorai-ui/pull/81) ([@watife](https://github.com/watife))
+
+#### 📝 Documentation
+
+- doc: update README [#80](https://github.com/watife/dorai-ui/pull/80) ([@watife](https://github.com/watife))
+- docs(accordion): add documentation for the accordion component [#79](https://github.com/watife/dorai-ui/pull/79) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Sat Feb 05 2022)
 
 #### 💥 Breaking Change
