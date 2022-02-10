@@ -80,7 +80,7 @@ const Description: DescriptionType = React.forwardRef(
 
     const id = `dorai-ui-description-${GetId()}`
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
       return registerId(id)
     }, [id, registerId])
 

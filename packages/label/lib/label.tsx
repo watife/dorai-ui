@@ -82,7 +82,7 @@ const Label = React.forwardRef(
 
     const id = `dorai-ui-label-${GetId()}`
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
       return registerId(id)
     }, [id, registerId])
 
