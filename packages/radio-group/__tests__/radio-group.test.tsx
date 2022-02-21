@@ -14,6 +14,14 @@ describe('Safe rules of component', () => {
       )
     }
   )
+
+  it('echos error if Indicator is called outside of Option Tag', () => {
+    expect(() =>
+      render(<RadioGroup.Indicator>children</RadioGroup.Indicator>)
+    ).toThrowError(
+      `<RadioGroup.Indicator /> component is not called within <RadioGroup.Option /> component`
+    )
+  })
 })
 
 describe('radiogroup rendering', () => {
