@@ -9,24 +9,57 @@ const Template: ComponentStory<typeof RadioGroup> = (args) => {
 
   return (
     <RadioGroup {...args} value={value} onChange={setValue}>
-      <RadioGroup.Label>Example Label</RadioGroup.Label>
-      <RadioGroup.Option value='option 1'>
-        {({ checked, active }) => (
-          <span
-            style={{ color: checked ? 'purple' : active ? 'red' : 'unset' }}
-          >
-            option 1 checked
-          </span>
-        )}
+      <RadioGroup.Option
+        value='option 1'
+        style={{
+          width: '10px',
+          height: '10px',
+          border: '1px solid black',
+          marginBottom: '40px'
+        }}
+      >
+        <RadioGroup.Indicator
+          style={{
+            width: '10px',
+            height: '10px',
+            borderRadius: '50%',
+            content: "' '"
+          }}
+        />
+        <RadioGroup.Label
+          style={{
+            marginLeft: '30px',
+            width: '100%'
+          }}
+        >
+          Example
+        </RadioGroup.Label>
       </RadioGroup.Option>
-      <RadioGroup.Option value='option 2'>
-        {({ checked, active }) => (
-          <span
-            style={{ color: checked ? 'purple' : active ? 'red' : 'unset' }}
-          >
-            option 2 checked
-          </span>
-        )}
+
+      <RadioGroup.Option
+        value='option 2'
+        style={{
+          width: '10px',
+          height: '10px',
+          border: '1px solid black',
+          marginBottom: '40px'
+        }}
+      >
+        <RadioGroup.Label
+          style={{
+            marginLeft: '30px',
+            width: '100%'
+          }}
+        >
+          Group
+        </RadioGroup.Label>
+        <RadioGroup.Indicator
+          style={{
+            width: '10px',
+            height: '10px',
+            borderRadius: '50%'
+          }}
+        />
       </RadioGroup.Option>
     </RadioGroup>
   )

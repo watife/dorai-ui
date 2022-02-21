@@ -152,14 +152,10 @@ const Group: GroupType = React.forwardRef(
   ) => {
     const TagName = as || __DEFAULT_GROUP_TAG__
 
-    /**
-     * This is a hacky solution and will be removed
-     * Future work will be done to maybe remove the LabelContext all together but the future is not now.
-     */
     return (
       <LabelContextProvider>
-        <Root value={value} onChange={onChange}>
-          {({ ids }) => (
+        {({ ids }) => (
+          <Root value={value} onChange={onChange}>
             <TagName
               role='radiogroup'
               aria-labelledby={ids}
@@ -168,8 +164,8 @@ const Group: GroupType = React.forwardRef(
             >
               {children}
             </TagName>
-          )}
-        </Root>
+          </Root>
+        )}
       </LabelContextProvider>
     )
   }
@@ -180,6 +176,8 @@ const Group: GroupType = React.forwardRef(
  * Radio Option component
  *
  */
+const OptionContext = React.createContext<{ checked: boolean } | null>(null)
+
 type OptionOwnProps = {
   children:
     | ((args: { active: boolean; checked: boolean }) => JSX.Element)
@@ -289,7 +287,7 @@ const Option: OptionType = React.forwardRef(
 
     const dataValue = internalRef?.current?.getAttribute('data-value')
 
-    const checked = propsValue && propsValue === dataValue
+    const checked = !!(propsValue?.length && propsValue === dataValue)
 
     const render = () => {
       if (typeof children === 'function') {
@@ -302,33 +300,87 @@ const Option: OptionType = React.forwardRef(
       return children
     }
 
+    const getTabIndex = () => {
+      if (checked || (!checkedOption && internalRef === firstFocusableItem)) {
+        return 0
+      }
+
+      return -1
+    }
+
     return (
-      <TagName
-        role='radio'
-        onClick={!disabled ? handleClickEvent : undefined}
-        onKeyDown={handleKeyPress}
-        aria-checked={checked ? true : false}
-        value={optionValue}
-        data-value={optionValue}
-        onFocus={
-          !disabled ? () => handleSetActiveOption(internalRef) : undefined
-        }
-        onBlur={!disabled ? () => handleBlurOption() : undefined}
-        tabIndex={
-          checked
-            ? 0
-            : !checkedOption && internalRef === firstFocusableItem
-            ? 0
-            : -1
-        }
-        aria-disabled={disabled}
-        ref={mergedRefs}
-        {...props}
-      >
-        {render()}
+      <OptionContext.Provider value={{ checked }}>
+        <TagName
+          role='radio'
+          onClick={!disabled ? handleClickEvent : undefined}
+          onKeyDown={handleKeyPress}
+          aria-checked={checked ? true : false}
+          value={optionValue}
+          data-value={optionValue}
+          onFocus={
+            !disabled ? () => handleSetActiveOption(internalRef) : undefined
+          }
+          onBlur={!disabled ? () => handleBlurOption() : undefined}
+          tabIndex={getTabIndex()}
+          aria-disabled={disabled}
+          ref={mergedRefs}
+          {...props}
+        >
+          {render()}
+        </TagName>
+      </OptionContext.Provider>
+    )
+  }
+)
+
+const useOptionContext = (component: string) => {
+  const context = React.useContext(OptionContext)
+
+  if (context === null) {
+    throw new Error(
+      `<RadioGroup.${component} /> component is not called within <RadioGroup.Option /> component`
+    )
+  }
+
+  return context
+}
+
+/**
+ *
+ * Radio Indicator component
+ *
+ */
+
+type IndicatorOwnProps = {
+  children?: React.ReactNode
+}
+
+type IndicatorProps<C extends React.ElementType> =
+  Polymorphic.ComponentPropsWithRef<C, IndicatorOwnProps>
+
+const __DEFAULT_INDICATOR_TAG__ = 'span'
+
+type IndicatorType = <
+  C extends React.ElementType = typeof __DEFAULT_INDICATOR_TAG__
+>(
+  props: IndicatorProps<C>
+) => React.ReactElement | null
+
+const Indicator: IndicatorType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_INDICATOR_TAG__>(
+    { as, children, ...props }: IndicatorProps<C>,
+    ref?: Polymorphic.Ref<C>
+  ) => {
+    const { checked } = useOptionContext('Indicator')
+
+    const TagName = as || __DEFAULT_INDICATOR_TAG__
+
+    return (
+      <TagName ref={ref} {...props} data-checked={!checked}>
+        {children}
       </TagName>
     )
   }
 )
 
-export const RadioGroup = Object.assign(Group, { Option, Label })
+export const RadioGroup = Object.assign(Group, { Option, Label, Indicator })
