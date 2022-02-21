@@ -1,3 +1,15 @@
+# v1.2.0 (Mon Feb 21 2022)
+
+#### 🚀 Enhancement
+
+- feat: add indicator tag to radio-group and improve group tag [#85](https://github.com/watife/dorai-ui/pull/85) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.0.1 (Sun Jan 23 2022)
 
 #### 🐛 Bug Fix
