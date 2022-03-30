@@ -41,7 +41,7 @@ if (pkg.main) {
     minify: true,
     sourcemap: false,
     target: ['node10.4'],
-    outfile: path.join(path.resolve('./'), `dist/${name}.cjs.js`),
+    outfile: path.join(path.resolve('./'), `dist/cjs/${name}.js`),
     pure,
     banner,
     external
@@ -57,7 +57,7 @@ if (pkg.module) {
     minify: true,
     sourcemap: false,
     target: ['esnext'],
-    outfile: path.join(path.resolve('./'), `dist/${name}.esm.js`),
+    outfile: path.join(path.resolve('./'), `dist/esm/${name}.js`),
     pure,
     banner,
     external

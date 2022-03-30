@@ -14,8 +14,8 @@
   "homepage": "https://github.com/watife/dorai-ui#readme",
   "license": "MIT",
   "src": "lib/index.ts",
-  "main": "dist/components.cjs.js",
-  "module": "dist/components.esm.js",
+  "main": "dist/cjs/components.js",
+  "module": "dist/esm/components.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",

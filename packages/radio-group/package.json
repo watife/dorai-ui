@@ -15,8 +15,8 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "src": "lib/index.ts",
-  "main": "dist/radio-group.cjs.js",
-  "module": "dist/radio-group.esm.js",
+  "main": "dist/cjs/radio-group.js",
+  "module": "dist/esm/radio-group.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",

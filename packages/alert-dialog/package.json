@@ -11,8 +11,8 @@
   ],
   "license": "MIT",
   "src": "lib/index.ts",
-  "main": "dist/alert-dialog.cjs.js",
-  "module": "dist/alert-dialog.esm.js",
+  "main": "dist/cjs/alert-dialog.js",
+  "module": "dist/esm/alert-dialog.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",

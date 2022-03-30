@@ -11,8 +11,8 @@
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
   "src": "lib/index.ts",
-  "main": "dist/alert.cjs.js",
-  "module": "dist/alert.esm.js",
+  "main": "dist/cjs/alert.js",
+  "module": "dist/esm/alert.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",

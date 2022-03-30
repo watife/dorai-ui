@@ -10,8 +10,8 @@
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
-  "main": "dist/accordion.cjs.js",
-  "module": "dist/accordion.esm.js",
+  "main": "dist/cjs/accordion.js",
+  "module": "dist/esm/accordion.js",
   "types": "dist/index.d.ts",
   "src": "lib/index.ts",
   "files": [
