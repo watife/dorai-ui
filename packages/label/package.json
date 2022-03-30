@@ -11,8 +11,8 @@
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
   "src": "lib/index.ts",
-  "main": "dist/label.cjs.js",
-  "module": "dist/label.esm.js",
+  "main": "dist/cjs/label.js",
+  "module": "dist/esm/label.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",

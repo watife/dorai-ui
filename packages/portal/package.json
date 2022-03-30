@@ -11,8 +11,8 @@
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
   "src": "lib/index.ts",
-  "main": "dist/portal.cjs.js",
-  "module": "dist/portal.esm.js",
+  "main": "dist/cjs/portal.js",
+  "module": "dist/esm/portal.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",

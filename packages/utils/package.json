@@ -11,8 +11,8 @@
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
   "src": "lib/index.ts",
-  "main": "dist/utils.cjs.js",
-  "module": "dist/utils.esm.js",
+  "main": "dist/cjs/utils.js",
+  "module": "dist/esm/utils.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
