@@ -1,3 +1,17 @@
+# (Wed Mar 30 2022)
+
+#### 🐛 Bug Fix
+
+- feat: add issue template for feature and bug request [#86](https://github.com/watife/dorai-ui/pull/86) ([@watife](https://github.com/watife))
+- `@dorai-ui/accordion@2.0.1`, `@dorai-ui/alert-dialog@0.3.1`, `@dorai-ui/alert@0.3.2`, `@dorai-ui/components@4.3.1`, `@dorai-ui/description@1.3.1`, `@dorai-ui/label@2.1.1`, `@dorai-ui/modal@1.3.1`, `@dorai-ui/portal@1.2.1`, `@dorai-ui/radio-group@1.2.1`, `@dorai-ui/switch@3.1.1`, `@dorai-ui/tabs@2.2.1`, `@dorai-ui/utils@1.2.1`
+  - feat: improve export modules file structure and extension [#90](https://github.com/watife/dorai-ui/pull/90) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Mon Feb 21 2022)
 
 #### 🚀 Enhancement

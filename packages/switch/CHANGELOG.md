@@ -1,3 +1,15 @@
+# v3.1.1 (Wed Mar 30 2022)
+
+#### 🐛 Bug Fix
+
+- feat: improve export modules file structure and extension [#90](https://github.com/watife/dorai-ui/pull/90) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v3.0.1 (Sun Jan 23 2022)
 
 #### 🐛 Bug Fix
