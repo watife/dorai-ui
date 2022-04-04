@@ -1,3 +1,21 @@
+# (Mon Apr 04 2022)
+
+#### ⚠️ Pushed to `main`
+
+- fix: pipeline package lockfiles ([@watife](https://github.com/watife))
+- fix: pipeline package installation ([@watife](https://github.com/watife))
+
+#### 🔩 Dependency Updates
+
+- `@dorai-ui/accordion@2.0.2`, `@dorai-ui/alert-dialog@0.3.2`, `@dorai-ui/alert@0.3.3`, `@dorai-ui/components@4.3.2`, `@dorai-ui/description@1.3.2`, `@dorai-ui/label@2.1.2`, `@dorai-ui/modal@1.3.2`, `@dorai-ui/portal@1.2.2`, `@dorai-ui/radio-group@1.2.2`, `@dorai-ui/switch@3.1.2`, `@dorai-ui/tabs@2.2.2`, `@dorai-ui/utils@1.2.2`
+  - feat: bump version of react to 18.0 [#91](https://github.com/watife/dorai-ui/pull/91) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Wed Mar 30 2022)
 
 #### 🐛 Bug Fix

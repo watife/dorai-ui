@@ -1,3 +1,15 @@
+# v3.1.2 (Mon Apr 04 2022)
+
+#### 🔩 Dependency Updates
+
+- feat: bump version of react to 18.0 [#91](https://github.com/watife/dorai-ui/pull/91) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v3.1.1 (Wed Mar 30 2022)
 
 #### 🐛 Bug Fix
