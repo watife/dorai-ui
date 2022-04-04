@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/radio-group",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "radio-group component from dorai-ui",
   "keywords": [
     "react",
@@ -30,8 +30,8 @@
     "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "dependencies": {
-    "@dorai-ui/label": "^2.1.1",
-    "@dorai-ui/utils": "^1.2.1"
+    "@dorai-ui/label": "^2.1.2",
+    "@dorai-ui/utils": "^1.2.2"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
