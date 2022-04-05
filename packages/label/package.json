@@ -10,10 +10,10 @@
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
-  "src": "lib/index.ts",
-  "main": "dist/cjs/label.js",
-  "module": "dist/esm/label.js",
-  "types": "dist/index.d.ts",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-label.cjs.js",
+  "module": "dist/dorai-ui-label.esm.js",
+  "types": "dist/dorai-ui-label.cjs.d.ts",
   "files": [
     "dist",
     "lib",
@@ -32,9 +32,6 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"

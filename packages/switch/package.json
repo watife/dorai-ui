@@ -15,10 +15,10 @@
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
-  "src": "lib/index.ts",
-  "main": "dist/cjs/switch.js",
-  "module": "dist/esm/switch.js",
-  "types": "dist/index.d.ts",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-switch.cjs.js",
+  "module": "dist/dorai-ui-switch.esm.js",
+  "types": "dist/dorai-ui-switch.cjs.d.ts",
   "files": [
     "dist",
     "lib",
@@ -26,9 +26,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "dependencies": {
     "@dorai-ui/label": "^2.1.1",

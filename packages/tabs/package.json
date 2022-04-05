@@ -10,10 +10,10 @@
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
-  "src": "lib/index.ts",
-  "main": "dist/cjs/tabs.js",
-  "module": "dist/esm/tabs.js",
-  "types": "dist/index.d.ts",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-tabs.cjs.js",
+  "module": "dist/dorai-ui-tabs.esm.js",
+  "types": "dist/dorai-ui-tabs.cjs.d.ts",
   "files": [
     "dist",
     "lib",
@@ -21,9 +21,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "repository": {
     "type": "git",

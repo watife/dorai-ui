@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { AlertDialog } from '../lib'
+import { AlertDialog } from '../src'
 
 type AlertDialogCompType = {
   open?: boolean

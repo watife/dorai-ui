@@ -10,10 +10,10 @@
     "alert-dialog"
   ],
   "license": "MIT",
-  "src": "lib/index.ts",
-  "main": "dist/cjs/alert-dialog.js",
-  "module": "dist/esm/alert-dialog.js",
-  "types": "dist/index.d.ts",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-alert-dialog.cjs.js",
+  "module": "dist/dorai-ui-alert-dialog.esm.js",
+  "types": "dist/dorai-ui-alert-dialog.cjs.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
@@ -25,9 +25,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "dependencies": {
     "@dorai-ui/modal": "^1.3.1",

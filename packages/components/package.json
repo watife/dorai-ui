@@ -13,10 +13,10 @@
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "homepage": "https://github.com/watife/dorai-ui#readme",
   "license": "MIT",
-  "src": "lib/index.ts",
-  "main": "dist/cjs/components.js",
-  "module": "dist/esm/components.js",
-  "types": "dist/index.d.ts",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-components.cjs.js",
+  "module": "dist/dorai-ui-components.esm.js",
+  "types": "dist/dorai-ui-components.cjs.d.ts",
   "files": [
     "dist",
     "lib",
@@ -43,9 +43,6 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"

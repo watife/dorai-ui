@@ -14,10 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
-  "src": "lib/index.ts",
-  "main": "dist/cjs/radio-group.js",
-  "module": "dist/esm/radio-group.js",
-  "types": "dist/index.d.ts",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-radio-group.cjs.js",
+  "module": "dist/dorai-ui-radio-group.esm.js",
+  "types": "dist/dorai-ui-radio-group.cjs.d.ts",
   "files": [
     "dist",
     "lib",
@@ -25,9 +25,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "dependencies": {
     "@dorai-ui/label": "^2.1.1",

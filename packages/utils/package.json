@@ -10,10 +10,10 @@
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
-  "src": "lib/index.ts",
-  "main": "dist/cjs/utils.js",
-  "module": "dist/esm/utils.js",
-  "types": "dist/index.d.ts",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-utils.cjs.js",
+  "module": "dist/dorai-ui-utils.esm.js",
+  "types": "dist/dorai-ui-utils.cjs.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/watife/dorai-ui.git"
@@ -25,9 +25,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",

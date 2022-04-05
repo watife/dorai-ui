@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { RadioGroup } from '../lib'
+import { RadioGroup } from '../src'
 
 describe('Safe rules of component', () => {
   it.each([['Option', RadioGroup.Option]])(

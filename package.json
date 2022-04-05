@@ -12,7 +12,8 @@
   "license": "MIT",
   "repository": "watife/dorai-ui",
   "scripts": {
-    "build": "lerna run build",
+    "build": "yarn build:packages",
+    "build:packages": "preconstruct build",
     "lint": "eslint .",
     "test": "jest",
     "commit": "cz",
@@ -20,13 +21,15 @@
     "build-storybook": "build-storybook",
     "deploy": "yarn build-storybook && gh-pages -d storybook-static",
     "semantic-release": "semantic-release --branches main",
-    "release": "auto shipit"
+    "publish:packages": "auto shipit",
+    "release": "yarn build && yarn publish:packages"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
     "@babel/preset-typescript": "^7.16.5",
+    "@preconstruct/cli": "^2.1.5",
     "@storybook/addon-a11y": "^6.4.9",
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addon-console": "^1.2.3",
@@ -47,7 +50,6 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "cz-conventional-changelog": "^3.3.0",
-    "esbuild": "^0.14.8",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react": "^1.1.7",
@@ -76,5 +78,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
   }
 }

@@ -10,10 +10,9 @@
   ],
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "license": "MIT",
-  "main": "dist/cjs/accordion.js",
-  "module": "dist/esm/accordion.js",
-  "types": "dist/index.d.ts",
-  "src": "lib/index.ts",
+  "main": "dist/dorai-ui-accordion.cjs.js",
+  "module": "dist/dorai-ui-accordion.esm.js",
+  "types": "dist/dorai-ui-accordion.cjs.d.ts",
   "files": [
     "dist",
     "lib",
@@ -33,11 +32,11 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
-  "scripts": {
-    "build": "node ./esbuild.js && tsc --emitDeclarationOnly"
-  },
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"
   },
-  "homepage": "https://github.com/watife/dorai-ui#readme"
+  "homepage": "https://github.com/watife/dorai-ui#readme",
+  "devDependencies": {
+    "@preconstruct/cli": "^2.1.5"
+  }
 }
