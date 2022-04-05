@@ -1,4 +1,0 @@
-{
-  "main": "dist/dorai-ui-utils-keyboard.cjs.js",
-  "module": "dist/dorai-ui-utils-keyboard.esm.js"
-}
