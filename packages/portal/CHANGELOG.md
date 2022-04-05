@@ -1,3 +1,20 @@
+# v1.2.4 (Tue Apr 05 2022)
+
+#### 🐛 Bug Fix
+
+- Revert "perf: grant multiple entry points to utils and reduce bundle size on its import" [#95](https://github.com/watife/dorai-ui/pull/95) ([@watife](https://github.com/watife))
+
+#### 🏎 Performance
+
+- perf: grant multiple entry points to utils and reduce bundle size on its import [#96](https://github.com/watife/dorai-ui/pull/96) ([@watife](https://github.com/watife))
+- perf: grant multiple entry points to utils and reduce bundle size on its import [#94](https://github.com/watife/dorai-ui/pull/94) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.2.3 (Tue Apr 05 2022)
 
 #### 🐛 Bug Fix

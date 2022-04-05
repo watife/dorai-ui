@@ -2,6 +2,25 @@
 
 #### 🐛 Bug Fix
 
+- `@dorai-ui/accordion@2.0.4`, `@dorai-ui/alert-dialog@0.3.4`, `@dorai-ui/alert@0.3.5`, `@dorai-ui/description@1.3.4`, `@dorai-ui/label@2.1.4`, `@dorai-ui/modal@1.3.4`, `@dorai-ui/portal@1.2.4`, `@dorai-ui/switch@3.1.4`, `@dorai-ui/tabs@2.2.4`, `@dorai-ui/utils@1.2.4`
+  - Revert "perf: grant multiple entry points to utils and reduce bundle size on its import" [#95](https://github.com/watife/dorai-ui/pull/95) ([@watife](https://github.com/watife))
+
+#### 🏎 Performance
+
+- `@dorai-ui/accordion@2.0.4`, `@dorai-ui/alert-dialog@0.3.4`, `@dorai-ui/alert@0.3.5`, `@dorai-ui/description@1.3.4`, `@dorai-ui/label@2.1.4`, `@dorai-ui/modal@1.3.4`, `@dorai-ui/portal@1.2.4`, `@dorai-ui/switch@3.1.4`, `@dorai-ui/tabs@2.2.4`, `@dorai-ui/utils@1.2.4`
+  - perf: grant multiple entry points to utils and reduce bundle size on its import [#96](https://github.com/watife/dorai-ui/pull/96) ([@watife](https://github.com/watife))
+  - perf: grant multiple entry points to utils and reduce bundle size on its import [#94](https://github.com/watife/dorai-ui/pull/94) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Tue Apr 05 2022)
+
+#### 🐛 Bug Fix
+
 - `@dorai-ui/accordion@2.0.3`, `@dorai-ui/alert-dialog@0.3.3`, `@dorai-ui/alert@0.3.4`, `@dorai-ui/components@4.3.3`, `@dorai-ui/description@1.3.3`, `@dorai-ui/label@2.1.3`, `@dorai-ui/modal@1.3.3`, `@dorai-ui/portal@1.2.3`, `@dorai-ui/radio-group@1.2.3`, `@dorai-ui/switch@3.1.3`, `@dorai-ui/tabs@2.2.3`, `@dorai-ui/utils@1.2.3`
   - build: migrate from esbuild to preconstruct for building the packages [#93](https://github.com/watife/dorai-ui/pull/93) ([@watife](https://github.com/watife))
 
