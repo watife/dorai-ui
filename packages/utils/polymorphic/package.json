@@ -1,4 +1,0 @@
-{
-  "main": "dist/dorai-ui-utils-polymorphic.cjs.js",
-  "module": "dist/dorai-ui-utils-polymorphic.esm.js"
-}

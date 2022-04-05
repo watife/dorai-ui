@@ -1,6 +1,6 @@
 export * from './call-all'
 export * from './get-id'
-export * from './merge-refs'
+export * from './merge-ref'
 export * as Polymorphic from './polymorphic'
 export * from './use-focus-lock'
 export * from './use-portal'

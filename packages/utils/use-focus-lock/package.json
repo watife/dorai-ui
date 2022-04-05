@@ -1,4 +1,0 @@
-{
-  "main": "dist/dorai-ui-utils-use-focus-lock.cjs.js",
-  "module": "dist/dorai-ui-utils-use-focus-lock.esm.js"
-}

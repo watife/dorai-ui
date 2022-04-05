@@ -1,9 +1,11 @@
 import React from 'react'
-import { callAll } from '@dorai-ui/utils/call-all'
-import { GetId } from '@dorai-ui/utils/get-id'
-import { mergeRefs } from '@dorai-ui/utils/merge-refs'
-import * as Polymorphic from '@dorai-ui/utils/polymorphic'
-import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
+import {
+  callAll,
+  GetId,
+  mergeRefs,
+  Polymorphic,
+  KeyBoardKeys
+} from '@dorai-ui/utils'
 
 enum TypeEnum {
   Single = 'single',

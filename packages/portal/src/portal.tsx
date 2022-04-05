@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import { usePortal } from '@dorai-ui/utils/use-portal'
+import { usePortal } from '@dorai-ui/utils'
 
 /**
  *
