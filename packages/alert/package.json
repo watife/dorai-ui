@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/alert",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "@dorai-ui alert component",
   "keywords": [
     "react",
@@ -27,7 +27,7 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^1.2.3"
+    "@dorai-ui/utils": "^1.2.4"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
