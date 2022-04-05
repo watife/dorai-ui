@@ -1,3 +1,15 @@
+# v0.3.4 (Tue Apr 05 2022)
+
+#### 🐛 Bug Fix
+
+- build: migrate from esbuild to preconstruct for building the packages [#93](https://github.com/watife/dorai-ui/pull/93) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v0.3.3 (Mon Apr 04 2022)
 
 #### 🔩 Dependency Updates
