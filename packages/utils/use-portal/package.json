@@ -1,0 +1,4 @@
+{
+  "main": "dist/dorai-ui-utils-use-portal.cjs.js",
+  "module": "dist/dorai-ui-utils-use-portal.esm.js"
+}

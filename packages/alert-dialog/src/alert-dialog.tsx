@@ -1,6 +1,8 @@
 import React from 'react'
 import { Modal, useModalContext } from '@dorai-ui/modal'
-import { callAll, mergeRefs, Polymorphic } from '@dorai-ui/utils'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
+import { mergeRefs } from '@dorai-ui/utils/merge-refs'
+import { callAll } from '@dorai-ui/utils/call-all'
 
 /**
  * Alert Dialog Context

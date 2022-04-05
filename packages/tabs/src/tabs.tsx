@@ -1,5 +1,9 @@
 import React from 'react'
-import { KeyBoardKeys, GetId, mergeRefs, Polymorphic } from '@dorai-ui/utils'
+
+import { GetId } from '@dorai-ui/utils/get-id'
+import { mergeRefs } from '@dorai-ui/utils/merge-refs'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
+import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
 
 /**
  *
