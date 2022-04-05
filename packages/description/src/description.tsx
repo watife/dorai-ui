@@ -1,5 +1,6 @@
 import React from 'react'
-import { GetId, Polymorphic } from '@dorai-ui/utils'
+import { GetId } from '@dorai-ui/utils/get-id'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 
 const DescriptionContext = React.createContext<{
   ids: string | undefined

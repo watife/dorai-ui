@@ -1,5 +1,9 @@
 import React from 'react'
-import { callAll, GetId, KeyBoardKeys, Polymorphic } from '@dorai-ui/utils'
+
+import { callAll } from '@dorai-ui/utils/call-all'
+import { GetId } from '@dorai-ui/utils/get-id'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
+import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
 import { LabelContextProvider, useLabelValue, Label } from '@dorai-ui/label'
 
 const GroupContext = React.createContext<{

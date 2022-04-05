@@ -1,11 +1,10 @@
 import React from 'react'
-import {
-  useFocusLock,
-  callAll,
-  KeyBoardKeys,
-  mergeRefs,
-  Polymorphic
-} from '@dorai-ui/utils'
+
+import { callAll } from '@dorai-ui/utils/call-all'
+import { useFocusLock } from '@dorai-ui/utils/use-focus-lock'
+import { mergeRefs } from '@dorai-ui/utils/merge-refs'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
+import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
 import { DoraiPortal } from '@dorai-ui/portal'
 import {
   Description,
