@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { RadioGroup } from '../lib'
+import { RadioGroup } from '../src'
 
 const Template: ComponentStory<typeof RadioGroup> = (args) => {
   const [value, setValue] = React.useState(null)

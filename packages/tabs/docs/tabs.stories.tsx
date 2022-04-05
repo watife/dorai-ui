@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Tabs } from '../lib'
+import { Tabs } from '../src'
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>

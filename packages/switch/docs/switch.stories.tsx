@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Switch } from '../lib'
+import { Switch } from '../src'
 
 const Template: ComponentStory<typeof Switch> = (args) => {
   return (

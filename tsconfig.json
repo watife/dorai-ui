@@ -1,19 +1,16 @@
 {
-  "include": [
-    "packages/**/*.ts",
-    "packages/accordion/doc/accordion.stories.tsx",
-    "./jest-setup.ts"
-  ],
+  "include": ["packages", "./jest-setup.ts"],
   "exclude": ["node_modules", "stories", ".storybook", "dist"],
   "compilerOptions": {
-    "outDir": "./dist",
-    "target": "ESNEXT",
+    "target": "es5",
     "module": "commonjs",
     "jsx": "react",
+    "lib": ["dom", "esnext"],
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true
   }
 }

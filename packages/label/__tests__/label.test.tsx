@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Label } from '../lib'
+import { Label } from '../src'
 
 describe('Safe rules of component', () => {
   it.each([['Label', Label]])(
