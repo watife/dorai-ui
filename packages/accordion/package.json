@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/accordion",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "dorai-ui accessible accordion component",
   "keywords": [
     "react",
@@ -26,7 +26,7 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^1.2.2"
+    "@dorai-ui/utils": "^1.2.3"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
