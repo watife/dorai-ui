@@ -20,7 +20,13 @@
   },
   "files": [
     "dist",
-    "lib",
+    "call-all",
+    "get-id",
+    "keyboard",
+    "merge-refs",
+    "polymorphic",
+    "use-focus-lock",
+    "use-portal",
     "README.md"
   ],
   "publishConfig": {
@@ -33,5 +39,17 @@
   "bugs": {
     "url": "https://github.com/watife/dorai-ui/issues"
   },
-  "homepage": "https://github.com/watife/dorai-ui#readme"
+  "homepage": "https://github.com/watife/dorai-ui#readme",
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "call-all.ts",
+      "get-id.ts",
+      "keyboard.ts",
+      "merge-refs.ts",
+      "polymorphic.ts",
+      "use-focus-lock.ts",
+      "use-portal.ts"
+    ]
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Polymorphic } from '@dorai-ui/utils'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 
 type AlertOwnProps = {
   children: React.ReactNode

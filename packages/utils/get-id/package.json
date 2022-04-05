@@ -1,0 +1,4 @@
+{
+  "main": "dist/dorai-ui-utils-get-id.cjs.js",
+  "module": "dist/dorai-ui-utils-get-id.esm.js"
+}

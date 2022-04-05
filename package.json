@@ -68,12 +68,6 @@
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
   },
-  "auto": {
-    "plugins": [
-      "npm",
-      "released"
-    ]
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -82,6 +76,26 @@
   "preconstruct": {
     "packages": [
       "packages/*"
+    ]
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "conventional-commits",
+      "first-time-contributor",
+      "released"
+    ],
+    "onlyPublishWithReleaseLabel": true,
+    "labels": [
+      {
+        "name": "minor",
+        "changelogTitle": "🚀 Feature",
+        "description": "Increment the minor version when merged",
+        "releaseType": "minor",
+        "color": "#F1A60E",
+        "overwrite": true
+      }
     ]
   }
 }
