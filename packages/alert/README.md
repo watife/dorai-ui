@@ -14,16 +14,6 @@ or
 yarn add @dorai-ui/alert
 ```
 
-## Example Usage
+## Documentation
 
-```
-import { Alert } from '@dorai-ui/alert'
-
-function AlertComponent()  {
-  return (
-    <Alert>
-      <p>Alert component</>
-    </Alert>
-  )
-}
-```
+Further documentation and examples can be found [here](https://www.dorai-ui.com/components/alert).
