@@ -14,30 +14,6 @@ or
 yarn add @dorai-ui/alert-dialog
 ```
 
-## Example Usage
-
-```
-import { AlertDialog } from '@dorai-ui/alert-dialog'
-
-function AlertDialogComponent() {
-  return (
-    <AlertDialog>
-      <AlertDialog.Trigger>Open AlertDialog</AlertDialog.Trigger>
-      <AlertDialog.Group>
-        <AlertDialog.Overlay />
-        <AlertDialog.Title>Title</AlertDialog.Title>
-        <AlertDialog.Description>
-          This action cannot be reversed once clicked, please be certain you
-          want to proceed!
-        </AlertDialog.Description>
-        <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-        <AlertDialog.Action>Delete</AlertDialog.Action>
-      </AlertDialog.Group>
-    </AlertDialog>
-  )
-}
-```
-
 ## Documentation
 
-Further documentation and examples can be found [here](http://localhost:6006/?path=/story/alert-dialog--default).
+Further documentation and examples can be found [here](https://www.dorai-ui.com/components/alert-dialog).

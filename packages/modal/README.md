@@ -14,36 +14,6 @@ or
 yarn add @dorai-ui/modal
 ```
 
-## Example Usage
-
-```
-import { Modal } from '@dorai-ui/modal'
-
-function ModalComponent() {
-  return (
-    <Modal>
-      <Modal.Trigger>
-        Open Modal
-      </Modal.Trigger>
-      <Modal.Group>
-        <Modal.Overlay />
-        <div>
-          <Modal.Title>
-            Title of Modal with my own controls
-          </Modal.Title>
-          <Modal.Description>
-            Description of modal
-          </Modal.Description>
-          <Modal.Close>
-            close
-          </Modal.Close>
-        </div>
-      </Modal.Group>
-    </Modal>
-  )
-}
-```
-
 ## Documentation
 
-Further documentation and examples can be found [here](https://watife.github.io/dorai-ui/?path=/story/modal--manual).
+Further documentation and examples can be found [here](https://www.dorai-ui.com/components/modal).
