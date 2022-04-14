@@ -1,3 +1,15 @@
+# v0.3.6 (Thu Apr 14 2022)
+
+#### 📝 Documentation
+
+- docs: update documentation links in the README for packages [#97](https://github.com/watife/dorai-ui/pull/97) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v0.3.5 (Tue Apr 05 2022)
 
 #### 🐛 Bug Fix

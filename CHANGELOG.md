@@ -1,3 +1,20 @@
+# (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
+- fix: deployment pipeline ([@watife](https://github.com/watife))
+
+#### 📝 Documentation
+
+- `@dorai-ui/accordion@2.0.5`, `@dorai-ui/alert-dialog@0.3.5`, `@dorai-ui/alert@0.3.6`, `@dorai-ui/modal@1.3.5`, `@dorai-ui/radio-group@1.2.5`, `@dorai-ui/switch@3.1.5`, `@dorai-ui/tabs@2.2.5`
+  - docs: update documentation links in the README for packages [#97](https://github.com/watife/dorai-ui/pull/97) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Tue Apr 05 2022)
 
 #### 🐛 Bug Fix
