@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/alert-dialog",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "@dorai-ui alert-dialog",
   "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
   "keywords": [
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dorai-ui/modal": "^1.3.4",
+    "@dorai-ui/modal": "^1.3.5",
     "@dorai-ui/utils": "^1.2.4"
   },
   "peerDependencies": {
