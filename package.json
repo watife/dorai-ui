@@ -25,6 +25,10 @@
     "release": "yarn build && yarn publish:packages"
   },
   "devDependencies": {
+    "@auto-it/all-contributors": "^10.36.5",
+    "@auto-it/conventional-commits": "^10.36.5",
+    "@auto-it/first-time-contributor": "^10.36.5",
+    "@auto-it/released": "^10.36.5",
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
