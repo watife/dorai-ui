@@ -1,6 +1,6 @@
 # `@dorai-ui/components`
 
-The accessible, unstyled fully functional components from @dorai-ui
+All accessible, unstyled fully functional components from @dorai-ui
 
 ## Installation
 
@@ -16,4 +16,4 @@ yarn add @dorai-ui/components
 
 ## Documentation
 
-Further documentation and examples can be found [here](https://watife.github.io/dorai-ui).
+Further documentation and examples can be found [here](https://www.dorai-ui.com/components/accordion).
