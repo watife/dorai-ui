@@ -1,3 +1,15 @@
+# v5.0.0 (Tue Apr 19 2022)
+
+#### 💥 Breaking Change
+
+- feat: remove utils and portal from the components install [#98](https://github.com/watife/dorai-ui/pull/98) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v4.3.3 (Tue Apr 05 2022)
 
 #### 🐛 Bug Fix
