@@ -2,6 +2,19 @@
 
 #### 🚀 Feature
 
+- `@dorai-ui/accordion@2.2.0`, `@dorai-ui/description@1.5.0`, `@dorai-ui/label@2.3.0`, `@dorai-ui/switch@3.3.0`, `@dorai-ui/tabs@2.4.0`
+  - Revert "feat: Replace GetId() utils with useId from React 18" [#102](https://github.com/watife/dorai-ui/pull/102) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Tue Apr 26 2022)
+
+#### 🚀 Feature
+
 - `@dorai-ui/accordion@2.1.0`, `@dorai-ui/description@1.4.0`, `@dorai-ui/label@2.2.0`, `@dorai-ui/switch@3.2.0`, `@dorai-ui/tabs@2.3.0`
   - feat: Replace GetId() utils with useId from React 18 [#101](https://github.com/watife/dorai-ui/pull/101) ([@watife](https://github.com/watife))
 
