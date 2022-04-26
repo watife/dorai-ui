@@ -1,4 +1,5 @@
 import React from 'react'
+import { GetId } from '@dorai-ui/utils/get-id'
 import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 
 const LabelContext = React.createContext<{
@@ -80,7 +81,7 @@ const Label = React.forwardRef(
 
     const htmlFor = props.htmlFor || context.htmlFor
 
-    const id = `dorai-ui-label-${React.useId()}`
+    const id = `dorai-ui-label-${GetId()}`
 
     React.useEffect(() => {
       return registerId(id)

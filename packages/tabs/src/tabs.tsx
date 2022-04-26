@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { GetId } from '@dorai-ui/utils/get-id'
 import { mergeRefs } from '@dorai-ui/utils/merge-refs'
 import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
@@ -243,7 +244,7 @@ const Trigger: TabType = React.forwardRef(
     { as, children, disabled, ...props }: TabProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
-    const id = `dorai-ui-tab-${React.useId()}`
+    const id = `dorai-ui-tab-${GetId()}`
 
     const internalRef = React.useRef<HTMLElement>(null)
 
@@ -463,7 +464,7 @@ const Panel: TabPanelType = React.forwardRef(
   ) => {
     const TagName = as || __DEFAULT_TABPANEL_TAG__
 
-    const id = `dorai-ui-tab-panel-${React.useId()}`
+    const id = `dorai-ui-tab-panel-${GetId()}`
 
     const internalRef = React.useRef<HTMLElement>(null)
 
