@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/radio-group",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "radio-group component from dorai-ui",
   "keywords": [
     "react",
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dorai-ui/label": "^2.2.0",
+    "@dorai-ui/label": "^2.3.0",
     "@dorai-ui/utils": "^1.2.4"
   },
   "peerDependencies": {

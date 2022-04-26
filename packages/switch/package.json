@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/switch",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "switch component for dorai-ui",
   "keywords": [
     "react",
@@ -28,7 +28,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dorai-ui/label": "^2.2.0",
+    "@dorai-ui/label": "^2.3.0",
     "@dorai-ui/utils": "^1.2.4"
   },
   "peerDependencies": {
