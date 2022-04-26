@@ -1,5 +1,6 @@
 import React from 'react'
 import { callAll } from '@dorai-ui/utils/call-all'
+import { GetId } from '@dorai-ui/utils/get-id'
 import { mergeRefs } from '@dorai-ui/utils/merge-refs'
 import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
@@ -25,6 +26,7 @@ const AccordionContext = React.createContext<{
 } | null>(null)
 
 type RootOwnProps = {
+  children: ((args: { open: boolean }) => JSX.Element) | React.ReactNode
   type?: AccordionUsageType
   defaultIndex?: number
 }
@@ -42,7 +44,13 @@ type RootType = <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
 
 const Root: RootType = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_ROOT_TAG__>(
-    { as, type = TypeEnum.Multiple, defaultIndex, ...props }: RootProps<C>,
+    {
+      as,
+      children,
+      type = TypeEnum.Multiple,
+      defaultIndex,
+      ...props
+    }: RootProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
     const [accordions, registerAccordions] = React.useState<
@@ -103,7 +111,7 @@ const Root: RootType = React.forwardRef(
     return (
       <AccordionContext.Provider value={context}>
         <TagName ref={ref} {...props}>
-          {props.children}
+          {children}
         </TagName>
       </AccordionContext.Provider>
     )
@@ -267,7 +275,7 @@ const Trigger: TriggerType = React.forwardRef(
   ) => {
     const TagName = as || __DEFAULT_TRIGGER_TAG__
 
-    const id = `dorai-ui-accordion-trigger-${React.useId()}`
+    const id = `dorai-ui-accordion-trigger-${GetId()}`
 
     const {
       handleSetGroupState,
@@ -329,8 +337,12 @@ const Trigger: TriggerType = React.forwardRef(
  *
  */
 
+type HeaderOwnProps = {
+  children: React.ReactNode
+}
+
 type HeaderProps<C extends React.ElementType> =
-  Polymorphic.ComponentPropsWithRef<C>
+  Polymorphic.ComponentPropsWithRef<C, HeaderOwnProps>
 
 const __DEFAULT_HEADER_TAG__ = 'h3'
 
@@ -340,7 +352,7 @@ type HeaderType = <C extends React.ElementType = typeof __DEFAULT_HEADER_TAG__>(
 
 const Header: HeaderType = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_HEADER_TAG__>(
-    { as, ...props }: GroupProps<C>,
+    { as, children, ...props }: GroupProps<C>,
     ref?: Polymorphic.Ref<C>
   ) => {
     useGroupValue('Header')
@@ -349,7 +361,7 @@ const Header: HeaderType = React.forwardRef(
 
     return (
       <TagName {...props} ref={ref}>
-        {props.children}
+        {children}
       </TagName>
     )
   }
@@ -382,7 +394,7 @@ const Panel: PanelType = React.forwardRef(
   ) => {
     const TagName = as || __DEFAULT_PANEL_TAG__
 
-    const id = `dorai-ui-accordion-panel-${React.useId()}`
+    const id = `dorai-ui-accordion-panel-${GetId()}`
 
     const { open, handleSetContentIds, contentIds } = useGroupValue('Panel')
 
@@ -394,7 +406,6 @@ const Panel: PanelType = React.forwardRef(
       <TagName
         id={id}
         hidden={!open && !fixed}
-        role='region'
         aria-labelledby={contentIds?.triggerId || undefined}
         {...props}
         ref={ref}
