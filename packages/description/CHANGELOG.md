@@ -1,3 +1,15 @@
+# v1.4.0 (Tue Apr 26 2022)
+
+#### 🚀 Feature
+
+- feat: Replace GetId() utils with useId from React 18 [#101](https://github.com/watife/dorai-ui/pull/101) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.3.4 (Tue Apr 05 2022)
 
 #### 🐛 Bug Fix
