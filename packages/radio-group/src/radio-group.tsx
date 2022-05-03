@@ -1,5 +1,5 @@
 import React from 'react'
-import { KeyBoardKeys, mergeRefs, Polymorphic } from '@dorai-ui/utils'
+import { GetId, KeyBoardKeys, mergeRefs, Polymorphic } from '@dorai-ui/utils'
 import { LabelContextProvider, useLabelValue, Label } from '@dorai-ui/label'
 
 /**
@@ -203,6 +203,8 @@ const Option: OptionType = React.forwardRef(
     const internalRef = React.useRef<HTMLElement | null>(null)
     const mergedRefs = mergeRefs([internalRef, ref])
 
+    const id = `dorai-ui-radiogroup-${GetId()}`
+
     const {
       options,
       handleSetActiveOption,
@@ -309,26 +311,32 @@ const Option: OptionType = React.forwardRef(
     }
 
     return (
-      <OptionContext.Provider value={{ checked }}>
-        <TagName
-          role='radio'
-          onClick={!disabled ? handleClickEvent : undefined}
-          onKeyDown={handleKeyPress}
-          aria-checked={checked ? true : false}
-          value={optionValue}
-          data-value={optionValue}
-          onFocus={
-            !disabled ? () => handleSetActiveOption(internalRef) : undefined
-          }
-          onBlur={!disabled ? () => handleBlurOption() : undefined}
-          tabIndex={getTabIndex()}
-          aria-disabled={disabled}
-          ref={mergedRefs}
-          {...props}
-        >
-          {render()}
-        </TagName>
-      </OptionContext.Provider>
+      <LabelContextProvider htmlFor={id}>
+        {({ ids }) => (
+          <OptionContext.Provider value={{ checked }}>
+            <TagName
+              id={id}
+              role='radio'
+              onClick={!disabled ? handleClickEvent : undefined}
+              onKeyDown={handleKeyPress}
+              aria-labelledby={ids}
+              aria-checked={checked}
+              value={optionValue}
+              data-value={optionValue}
+              onFocus={
+                !disabled ? () => handleSetActiveOption(internalRef) : undefined
+              }
+              onBlur={!disabled ? () => handleBlurOption() : undefined}
+              tabIndex={getTabIndex()}
+              aria-disabled={disabled}
+              ref={mergedRefs}
+              {...props}
+            >
+              {render()}
+            </TagName>
+          </OptionContext.Provider>
+        )}
+      </LabelContextProvider>
     )
   }
 )
@@ -376,7 +384,7 @@ const Indicator: IndicatorType = React.forwardRef(
     const TagName = as || __DEFAULT_INDICATOR_TAG__
 
     return (
-      <TagName ref={ref} {...props} data-checked={!checked}>
+      <TagName ref={ref} {...props} data-checked={checked}>
         {children}
       </TagName>
     )

@@ -2,13 +2,14 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { RadioGroup } from '../src'
+import { RadioGroup } from '@dorai-ui/radio-group'
 
 const Template: ComponentStory<typeof RadioGroup> = (args) => {
-  const [value, setValue] = React.useState(null)
+  const [value, setValue] = React.useState('')
 
   return (
     <RadioGroup {...args} value={value} onChange={setValue}>
+      <RadioGroup.Label>Example Radio</RadioGroup.Label>
       <RadioGroup.Option
         value='option 1'
         style={{
@@ -25,6 +26,7 @@ const Template: ComponentStory<typeof RadioGroup> = (args) => {
             borderRadius: '50%',
             content: "' '"
           }}
+          as='div'
         />
         <RadioGroup.Label
           style={{
@@ -59,6 +61,7 @@ const Template: ComponentStory<typeof RadioGroup> = (args) => {
             height: '10px',
             borderRadius: '50%'
           }}
+          as='div'
         />
       </RadioGroup.Option>
     </RadioGroup>
