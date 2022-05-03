@@ -1,0 +1,128 @@
+---
+sidebar_position: 7
+---
+
+# Radio Group
+
+> **A collection of checkable buttons known as radio buttons, each of which can only be checked once. which adheres to the [WAI-ARIA Radio Group requirement](https://www.w3.org/TR/wai-aria-practices-1.2/#radiobutton).**
+
+### Core Features
+
+- Out of the box accessible
+- Keyboard interaction management
+
+### Installation
+
+For individual installation of the radio-group component, you can use either of the commands below;
+
+```sh
+npm i @dorai-ui/radio-group
+
+or
+
+yarn add @dorai-ui/radio-group
+```
+
+### ChangeLog
+
+The Change log of this component can be found [here](https://github.com/watife/dorai-ui/blob/main/packages/radio-group/CHANGELOG.md)
+
+### Basic example
+
+<iframe
+  src='https://codesandbox.io/embed/radio-group-c5ntqe?fontsize=14&hidenavigation=1&theme=dark'
+  width='100%'
+  height='500px'
+  border='0'
+  borderRadius='10px'
+  overflow='hidden'
+  title='radio-group'
+  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+></iframe>
+
+#### Default value
+
+From the example above, "email" is the default value when the radio-group is rendered. You can also remove a default value by setting the initial value to an empty string ("")
+
+#### Accessiblity
+
+The label component is tied to it's immediate parent component. The first label tag "How would you like to be contacted:" is related to the RadioGroup component itself, while Labels found in the Option tags are related and associated with it.
+
+#### Checked render prop
+
+The checked state of a radio-group option is exposed through the render prop as shown below;
+
+```jsx
+import { RadioGroup } from '@dorai-ui/radio-group'
+
+const RadioGroupComp = () => (
+    <RadioGroup>
+      <RadioGroup.Option>
+        {({checked}) => (
+          <RadioGroup.Indicator />
+          <RadioGroup.Label />
+        )}
+      </RadioGroup.Option>
+    </RadioGroup>
+)
+```
+
+### API
+
+#### Components Composed
+
+```jsx
+import { RadioGroup } from '@dorai-ui/radio-group'
+
+const RadioGroupComp = () => (
+  <RadioGroup>
+    <RadioGroup.Option>
+      <RadioGroup.Indicator />
+      <RadioGroup.Label />
+    </RadioGroup.Option>
+  </RadioGroup>
+)
+```
+
+#### `RadioGroup`
+
+RadioGroup is the parent component for all other components, it exposes the context and is required.
+
+| Props    | Default | Options                    | Type        | Description                                                                                     |
+| -------- | ------- | -------------------------- | ----------- | ----------------------------------------------------------------------------------------------- |
+| value    | -       | values of the options tags | string      | A required field of the initial state of the radio-group, or a default value of the radio-group |
+| onChange | -       | -                          | function    | the contolled state updater of the radio-group                                                  |
+| as       | 'div'   | HTML tag                   | HTMLElement | This grants the ability to change the element this component should render as                   |
+
+#### `Option`
+
+A required component which exposes certain contexts to childen props and represents each option in the radio-group.
+It exposes the checked state of the group through a render prop.
+
+| Props | Default | Type        | Description                                                                   |
+| ----- | ------- | ----------- | ----------------------------------------------------------------------------- |
+| value | -       | string      | The value of the option tag when selected. It is a required field             |
+| as    | 'div'   | HTMLElement | This grants the ability to change the element this component should render as |
+
+##### `Render Props`
+
+| Props   | Type    | Description                                      |
+| ------- | ------- | ------------------------------------------------ |
+| Checked | boolean | Exposes the checked state of an option component |
+
+#### `Label`
+
+Label component. Out of the box, it is clickable and tied to the next immediate parent component.
+
+| Props | Default | Description                                                                   |
+| ----- | ------- | ----------------------------------------------------------------------------- |
+| as    | 'label' | This grants the ability to change the element this component should render as |
+
+#### `Indicator`
+
+The indicator component shows the checked state of the parent options using the `data-checked=true` attribute. This is useful in styling as demonstrated in the example above:
+
+| Props | Default | Description                                                                   |
+| ----- | ------- | ----------------------------------------------------------------------------- |
+| as    | 'span'  | This grants the ability to change the element this component should render as |
