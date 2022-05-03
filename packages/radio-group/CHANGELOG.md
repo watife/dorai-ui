@@ -1,3 +1,15 @@
+# v1.4.1 (Tue May 03 2022)
+
+#### 🐛 Bug Fix
+
+- fix: radio-group indicator checked state and accessible label [#104](https://github.com/watife/dorai-ui/pull/104) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.2.5 (Thu Apr 14 2022)
 
 #### 📝 Documentation
