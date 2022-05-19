@@ -1,5 +1,4 @@
 import React from 'react'
-import { GetId } from '@dorai-ui/utils/get-id'
 import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 
 const DescriptionContext = React.createContext<{
@@ -79,7 +78,7 @@ const Description: DescriptionType = React.forwardRef(
 
     const { registerId } = context
 
-    const id = `dorai-ui-description-${GetId()}`
+    const id = `dorai-ui-description-${React.useId()}`
 
     React.useEffect(() => {
       return registerId(id)
