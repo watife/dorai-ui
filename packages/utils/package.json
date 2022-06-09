@@ -27,6 +27,7 @@
     "polymorphic",
     "use-focus-lock",
     "use-portal",
+    "make-id",
     "README.md"
   ],
   "publishConfig": {
@@ -49,7 +50,8 @@
       "merge-refs.ts",
       "polymorphic.ts",
       "use-focus-lock.ts",
-      "use-portal.ts"
+      "use-portal.ts",
+      "make-id.tsx"
     ]
   }
 }
