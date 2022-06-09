@@ -1,3 +1,15 @@
+# v1.3.0 (Thu Jun 09 2022)
+
+#### 🚀 Feature
+
+- feat: create make-id util [#108](https://github.com/watife/dorai-ui/pull/108) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.2.4 (Tue Apr 05 2022)
 
 #### 🐛 Bug Fix

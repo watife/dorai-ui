@@ -1,3 +1,20 @@
+# (Thu Jun 09 2022)
+
+#### 🚀 Feature
+
+- `@dorai-ui/utils@1.3.0`
+  - feat: create make-id util [#108](https://github.com/watife/dorai-ui/pull/108) ([@watife](https://github.com/watife))
+
+#### 📝 Documentation
+
+- docs: release documentation for radio-group [#105](https://github.com/watife/dorai-ui/pull/105) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Tue May 03 2022)
 
 #### 🐛 Bug Fix
