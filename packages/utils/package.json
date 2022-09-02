@@ -50,8 +50,7 @@
       "merge-refs.ts",
       "polymorphic.ts",
       "use-focus-lock.ts",
-      "use-portal.ts",
-      "make-id.tsx"
+      "use-portal.ts"
     ]
   }
 }
