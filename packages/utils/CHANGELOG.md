@@ -1,3 +1,15 @@
+# v1.3.1 (Fri Sep 02 2022)
+
+#### 🐛 Bug Fix
+
+- fix: server side rendering hydration [#109](https://github.com/watife/dorai-ui/pull/109) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.3.0 (Thu Jun 09 2022)
 
 #### 🚀 Feature
