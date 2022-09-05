@@ -1,5 +1,23 @@
 # (Mon Sep 05 2022)
 
+#### 🚀 Feature
+
+- `@dorai-ui/components@5.4.0`
+  - feat: Add tooltip to generic component [#111](https://github.com/watife/dorai-ui/pull/111) ([@watife](https://github.com/watife))
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/components@5.4.0`
+  - fix: generic component version for packages [#112](https://github.com/watife/dorai-ui/pull/112) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Mon Sep 05 2022)
+
 #### 💥 Breaking Change
 
 - `@dorai-ui/tooltip@1.0.0`, `@dorai-ui/utils@2.0.0`
