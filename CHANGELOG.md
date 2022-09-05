@@ -1,3 +1,16 @@
+# (Mon Sep 05 2022)
+
+#### 💥 Breaking Change
+
+- `@dorai-ui/tooltip@1.0.0`, `@dorai-ui/utils@2.0.0`
+  - feat: tooltip component [#110](https://github.com/watife/dorai-ui/pull/110) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Fri Sep 02 2022)
 
 #### 🐛 Bug Fix
