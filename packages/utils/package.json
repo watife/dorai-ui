@@ -27,7 +27,6 @@
     "polymorphic",
     "use-focus-lock",
     "use-portal",
-    "make-id",
     "README.md"
   ],
   "publishConfig": {

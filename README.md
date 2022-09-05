@@ -60,6 +60,7 @@ The project seeks to support as many components as possible as listed under [Ari
 | ✅     | Alert          |
 | ✅     | Alert Dialog   |
 | ✅     | Radio Group    |
+| ✅     | Tooltip        |
 | 🛠      | Checkbox       |
 | 🛠      | Menu           |
 

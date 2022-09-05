@@ -1,0 +1,42 @@
+{
+  "name": "@dorai-ui/tooltip",
+  "version": "0.0.0",
+  "description": "dorai-ui accessible tooltip",
+  "keywords": [
+    "tooltip"
+  ],
+  "author": "Boluwatife Fakorede <watifefakorede@gmail.com>",
+  "license": "MIT",
+  "src": "src/index.ts",
+  "main": "dist/dorai-ui-tooltip.cjs.js",
+  "module": "dist/dorai-ui-tooltip.esm.js",
+  "types": "dist/dorai-ui-tooltip.cjs.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "README.md"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watife/dorai-ui.git"
+  },
+  "dependencies": {
+    "@dorai-ui/utils": "^1.2.4",
+    "@dorai-ui/portal": "^1.2.4"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/watife/dorai-ui/issues"
+  },
+  "homepage": "https://github.com/watife/dorai-ui#readme"
+}
