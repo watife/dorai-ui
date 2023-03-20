@@ -1,6 +1,6 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import React from 'react'
 import { Modal } from '../src/modal'
 
 type ModalCompType = {
@@ -92,6 +92,35 @@ describe('Modal render', () => {
     userEvent.click(modalBtn)
 
     userEvent.click(screen.getByText(/close modal/i))
+
+    expect(screen.queryByRole(/dialog/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/title/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Modal description/i)).not.toBeInTheDocument()
+  })
+
+  it('closes Modal when overlay is absent and outside modal is clicked', () => {
+    render(
+      <div data-testid='body'>
+        <Modal>
+          <Modal.Trigger>Open modal</Modal.Trigger>
+          <Modal.Group>
+            <Modal.Title>Title</Modal.Title>
+            <Modal.Description>Modal description</Modal.Description>
+            <Modal.Close>Close modal</Modal.Close>
+          </Modal.Group>
+        </Modal>
+      </div>
+    )
+
+    const modalBtn = screen.getByText(/open modal/i)
+
+    userEvent.click(modalBtn)
+
+    expect(screen.queryByText(/title/i)).toBeInTheDocument()
+
+    const bodyTag = screen.getByTestId('body')
+
+    userEvent.click(bodyTag)
 
     expect(screen.queryByRole(/dialog/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/title/i)).not.toBeInTheDocument()

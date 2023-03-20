@@ -162,12 +162,13 @@ const ModalComp = () => (
 
 Modal is the parent component for all other components, it exposes the context and is required.
 
-| Props        | Default        | Type                   | Description                                                                                   |
-| ------------ | -------------- | ---------------------- | --------------------------------------------------------------------------------------------- |
-| isOpen       | false          | Boolean                | For controlled state, the isOpen property is required and controls the state of the component |
-| setIsOpen    | -              | Function               | Required for component state control ability                                                  |
-| initialFocus | firstFocusable | React.MutableRefObject | Handles component to receive first focus when the modal is opened. Must be a focuable element |
-| as           | 'button'       | HTMLElement            | This grants the ability to change the element this component should render as                 |
+| Props         | Default        | Type                   | Description                                                                                                              |
+| ------------- | -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| isOpen        | false          | Boolean                | For controlled state, the isOpen property is required and controls the state of the component                            |
+| setIsOpen     | -              | Function               | Required for component state control ability                                                                             |
+| persistOnOpen | false          | Boolean                | When set to true, outside clicks on modal do not close the modal but modal can still be closed using the close component |
+| initialFocus  | firstFocusable | React.MutableRefObject | Handles component to receive first focus when the modal is opened. Must be a focuable element                            |
+| as            | 'button'       | HTMLElement            | This grants the ability to change the element this component should render as                                            |
 
 <br />
 
