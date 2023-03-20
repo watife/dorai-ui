@@ -1,3 +1,23 @@
+# (Mon Mar 20 2023)
+
+#### 🚀 Feature
+
+- `@dorai-ui/components@5.5.0`
+  - feat: Add tooltip to generic component [#111](https://github.com/watife/dorai-ui/pull/111) ([@watife](https://github.com/watife))
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/modal@2.1.0`, `@dorai-ui/utils@2.1.0`
+  - fix: close modal not working without overlay component [#113](https://github.com/watife/dorai-ui/pull/113) ([@watife](https://github.com/watife))
+- `@dorai-ui/components@5.5.0`
+  - fix: generic component version for packages [#112](https://github.com/watife/dorai-ui/pull/112) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Mon Sep 05 2022)
 
 #### 🚀 Feature

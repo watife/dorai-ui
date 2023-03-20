@@ -1,3 +1,15 @@
+# v2.1.0 (Mon Mar 20 2023)
+
+#### 🐛 Bug Fix
+
+- fix: close modal not working without overlay component [#113](https://github.com/watife/dorai-ui/pull/113) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v2.0.0 (Mon Sep 05 2022)
 
 #### 💥 Breaking Change
