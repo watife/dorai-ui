@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { useArgs } from '@storybook/client-api'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { Modal } from '@dorai-ui/modal'
 
@@ -76,6 +76,7 @@ export default {
   component: Modal,
   args: {
     isOpen: false,
+    persistOnOpen: true,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onClick: () => {}
   }

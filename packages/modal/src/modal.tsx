@@ -1,16 +1,17 @@
 import React from 'react'
 
-import { callAll } from '@dorai-ui/utils/call-all'
-import { useFocusLock } from '@dorai-ui/utils/use-focus-lock'
-import { mergeRefs } from '@dorai-ui/utils/merge-refs'
-import * as Polymorphic from '@dorai-ui/utils/polymorphic'
-import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
-import { DoraiPortal } from '@dorai-ui/portal'
 import {
   Description,
   DescriptionContextProvider,
   useDescriptionValue
 } from '@dorai-ui/description'
+import { DoraiPortal } from '@dorai-ui/portal'
+import { callAll } from '@dorai-ui/utils/call-all'
+import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
+import { mergeRefs } from '@dorai-ui/utils/merge-refs'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
+import { useFocusLock } from '@dorai-ui/utils/use-focus-lock'
+import { useOutsideClick } from '@dorai-ui/utils/use-outside-click'
 
 /**
  *
@@ -29,26 +30,30 @@ type ModalType = {
   isOpen?: boolean
   setIsOpen?: () => void
   initialFocus?: React.MutableRefObject<HTMLElement | null>
+  persistOnOpen?: boolean
 }
 
 const ModalContext = React.createContext<{
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
   initialFocus?: React.MutableRefObject<HTMLElement | null>
+  persistOnOpen?: boolean
 } | null>(null)
 
 const ModalRoot = ({
   children,
   isOpen,
   setIsOpen: setIsOpenProps,
-  initialFocus
+  initialFocus,
+  persistOnOpen = false
 }: ModalType) => {
   const [open, setOpen] = React.useState<boolean>(isOpen || false)
 
   const modalProvider = {
     isOpen: isOpen || open,
     setIsOpen: setIsOpenProps || setOpen,
-    initialFocus: initialFocus
+    initialFocus,
+    persistOnOpen
   }
 
   const render = () => {
@@ -121,6 +126,12 @@ const Group: ModalGroupType = React.forwardRef(
 
     // lock focus within the modal
     useFocusLock(internalRef, context.initialFocus)
+
+    useOutsideClick(internalRef, () => {
+      if (!context.persistOnOpen) {
+        closeModal()
+      }
+    })
 
     // scroll lock
     React.useEffect(() => {
@@ -307,12 +318,12 @@ const Overlay: OverlayType = React.forwardRef(
 
     const mergedRef = mergeRefs([overlayRef, ref])
 
-    const closeModal = () => context.setIsOpen((prev) => !prev)
+    const closeModal = callAll(props.onClick, () => context.setIsOpen(false))
 
     const handleCloseOnOverlay = (
       event: React.MouseEvent<HTMLElement, MouseEvent>
     ) => {
-      if (event.target === overlayRef.current) {
+      if (event.target === overlayRef.current && !context.persistOnOpen) {
         closeModal()
       }
     }

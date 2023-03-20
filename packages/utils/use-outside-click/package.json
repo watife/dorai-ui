@@ -1,0 +1,4 @@
+{
+  "main": "dist/dorai-ui-utils-use-outside-click.cjs.js",
+  "module": "dist/dorai-ui-utils-use-outside-click.esm.js"
+}
