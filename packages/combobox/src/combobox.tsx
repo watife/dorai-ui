@@ -1,6 +1,11 @@
-import { callAll, GetId, KeyBoardKeys, mergeRefs } from '@dorai-ui/utils'
+import {
+  callAll,
+  GetId,
+  KeyBoardKeys,
+  mergeRefs,
+  sortByDomNode
+} from '@dorai-ui/utils'
 import * as Polymorphic from '@dorai-ui/utils/polymorphic'
-import { sortByDomNode } from '@dorai-ui/utils/src'
 import { useOutsideClick } from '@dorai-ui/utils/use-outside-click'
 import React from 'react'
 
