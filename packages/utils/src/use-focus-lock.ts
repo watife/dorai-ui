@@ -71,4 +71,27 @@ function useFocusLock(
   }, [handleKeyPress])
 }
 
-export { useFocusLock }
+/**
+ *
+ * Thanks to Headless UI for this approach
+ */
+function sortByDomNode<T>(
+  nodes: T[],
+  compareFn: (item: T) => HTMLElement | null = (i) =>
+    i as unknown as HTMLElement | null
+): T[] {
+  return nodes.sort((a, b) => {
+    const at = compareFn(a)
+    const bt = compareFn(b)
+
+    if (at === null || bt === null) return 0
+
+    const position = at.compareDocumentPosition(bt)
+
+    if (position & Node.DOCUMENT_POSITION_FOLLOWING) return -1
+    if (position & Node.DOCUMENT_POSITION_PRECEDING) return 1
+    return 0
+  })
+}
+
+export { useFocusLock, sortByDomNode }
