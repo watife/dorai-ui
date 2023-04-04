@@ -1,3 +1,16 @@
+# (Tue Apr 04 2023)
+
+#### 🚀 Feature
+
+- `@dorai-ui/combobox@1.1.0`, `@dorai-ui/utils@2.2.0`
+  - feat: Dorai UI combobox [#114](https://github.com/watife/dorai-ui/pull/114) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Mon Mar 20 2023)
 
 #### 🚀 Feature
