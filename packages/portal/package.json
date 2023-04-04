@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/portal",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "dorai-ui accessible portal",
   "keywords": [
     "react",
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^2.1.0"
+    "@dorai-ui/utils": "^2.2.0"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
