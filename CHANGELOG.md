@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@dorai-ui/combobox@1.1.3`
+  - fix: combobox options should not be in a portal [#118](https://github.com/watife/dorai-ui/pull/118) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Tue Apr 04 2023)
+
+#### 🐛 Bug Fix
+
 - `@dorai-ui/combobox@1.1.2`
   - fix: combobox dependencies update [#117](https://github.com/watife/dorai-ui/pull/117) ([@watife](https://github.com/watife))
   - fix: combobox options should display in a portal [#116](https://github.com/watife/dorai-ui/pull/116) ([@watife](https://github.com/watife))

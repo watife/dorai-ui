@@ -1,3 +1,15 @@
+# v1.1.3 (Tue Apr 04 2023)
+
+#### 🐛 Bug Fix
+
+- fix: combobox options should not be in a portal [#118](https://github.com/watife/dorai-ui/pull/118) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.1.2 (Tue Apr 04 2023)
 
 #### 🐛 Bug Fix
