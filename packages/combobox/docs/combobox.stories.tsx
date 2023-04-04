@@ -17,28 +17,32 @@ const Template: ComponentStory<typeof Combobox> = (args) => {
   const [query, setQuery] = React.useState('nftd')
 
   return (
-    <Combobox {...args} setValue={setQuery} value={DATA[0]}>
-      <Combobox.Input
-        as='input'
-        openOnFocus={true}
-        onChange={(e) => setQuery(e.target.value)}
-        defaultValue={query}
-      />
-      <Combobox.Options>
-        {filteredData(query).map((item) => (
-          <Combobox.Option
-            key={item.name}
-            value={item}
-            onClick={() => console.log(item.age)}
-          >
-            {({ active, selected }) => {
-              console.log(active, selected)
-              return <span>{item.name}</span>
-            }}
-          </Combobox.Option>
-        ))}
-      </Combobox.Options>
-    </Combobox>
+    <div>
+      <Combobox {...args} setValue={setQuery} value={DATA[0]}>
+        <Combobox.Input
+          as='input'
+          openOnFocus={true}
+          onChange={(e) => setQuery(e.target.value)}
+          defaultValue={query}
+        />
+        <Combobox.Options>
+          {filteredData(query).map((item) => (
+            <Combobox.Option
+              key={item.name}
+              value={item}
+              onClick={() => console.log(item.age)}
+            >
+              {({ active, selected }) => {
+                console.log(active, selected)
+                return <span>{item.name}</span>
+              }}
+            </Combobox.Option>
+          ))}
+        </Combobox.Options>
+      </Combobox>
+
+      <span>Hellooo</span>
+    </div>
   )
 }
 
