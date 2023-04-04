@@ -1,4 +1,3 @@
-import { DoraiPortal } from '@dorai-ui/portal'
 import {
   callAll,
   GetId,
@@ -582,17 +581,15 @@ const Options: OptionsType = React.forwardRef(
     const TagName = as || __DEFAULT_OPTIONS_TAG__
 
     return (
-      <DoraiPortal id='combobox-portal'>
-        <TagName
-          role='listbox'
-          aria-autocomplete='list'
-          hidden={!state.isOptionsOpen ?? props.disabled}
-          {...props}
-          ref={ref}
-        >
-          {children}
-        </TagName>
-      </DoraiPortal>
+      <TagName
+        role='listbox'
+        aria-autocomplete='list'
+        hidden={!state.isOptionsOpen ?? props.disabled}
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </TagName>
     )
   }
 )
