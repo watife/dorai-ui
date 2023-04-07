@@ -1,3 +1,15 @@
+# v1.1.4 (Fri Apr 07 2023)
+
+#### 🐛 Bug Fix
+
+- fix: combobox root type missing [#119](https://github.com/watife/dorai-ui/pull/119) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.1.3 (Tue Apr 04 2023)
 
 #### 🐛 Bug Fix
