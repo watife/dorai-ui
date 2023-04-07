@@ -137,9 +137,7 @@ const ComboboxContext = React.createContext<{
   handleSetOptionsState: (isOpen: boolean) => void
   handleNextFocusable: () => void
   handlePreviousFocusable: () => void
-  handleSelectOption: <T>(
-    option: Omit<OptionRef<T>, 'value' | 'optRef'>
-  ) => void
+  handleSelectOption: <T>(option: Omit<OptionRef<T>, 'optRef'>) => void
   handleNeutralNextFocusable: (nextValue: number) => void
   handleSetValue: (value: string) => void
 } | null>(null)
@@ -147,9 +145,8 @@ const ComboboxContext = React.createContext<{
 type RootOwnProps<T> = {
   children: React.ReactNode
   value: T
-  setValue: React.Dispatch<React.SetStateAction<T>>
+  onSelect: React.Dispatch<React.SetStateAction<T>>
   autocomplete?: boolean
-  controlled: boolean
 }
 
 type RootProps<
@@ -261,7 +258,7 @@ const Root: RootType = React.forwardRef(
     }, [state.nextFocusableIndex, state.optionRefs])
 
     const handleSelectOption = React.useCallback(
-      <T,>(option: Omit<OptionRef<T>, 'value' | 'optRef'>) => {
+      <T,>(option: Omit<OptionRef<T>, 'optRef'>) => {
         if (inputRef.current) {
           inputRef.current.value = option.textValue
         }
@@ -269,8 +266,9 @@ const Root: RootType = React.forwardRef(
           type: ActionEnum.setSelectedOption,
           ...option
         })
+        props.onSelect(option.value)
       },
-      []
+      [props]
     )
 
     const context = React.useMemo(
@@ -387,7 +385,8 @@ const Input: InputType = React.forwardRef(
 
         handleSelectOption({
           id: nodes[index].id,
-          textValue: nodes[index].textValue
+          textValue: nodes[index].textValue,
+          value: nodes[index].value
         })
 
         defaultValueRef.current = true
@@ -675,7 +674,8 @@ const Option: OptionType = React.forwardRef(
       () =>
         handleSelectOption({
           id,
-          textValue: internalRef.current?.textContent?.toLowerCase() ?? ''
+          textValue: internalRef.current?.textContent?.toLowerCase() ?? '',
+          value: value
         }),
       () =>
         handleSetValue(internalRef.current?.textContent?.toLowerCase() ?? '')

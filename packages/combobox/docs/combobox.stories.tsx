@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof Combobox> = (args) => {
 
   return (
     <div>
-      <Combobox {...args} setValue={setQuery} value={DATA[0].name}>
+      <Combobox {...args} onSelect={setQuery} value={DATA[0].name}>
         <Combobox.Input
           as='input'
           openOnFocus={true}
