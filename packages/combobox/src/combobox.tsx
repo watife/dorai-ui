@@ -159,7 +159,14 @@ type RootProps<
 
 const __DEFAULT_COMBOBOX_TAG__ = 'div'
 
-const Root = React.forwardRef(
+type RootType = <
+  T,
+  C extends React.ElementType = typeof __DEFAULT_COMBOBOX_TAG__
+>(
+  props: RootProps<T, C>
+) => React.ReactElement | null
+
+const Root: RootType = React.forwardRef(
   <T, C extends React.ElementType = typeof __DEFAULT_COMBOBOX_TAG__>(
     { as, children, value, ...props }: RootProps<T, C>,
     ref: Polymorphic.Ref<C>
