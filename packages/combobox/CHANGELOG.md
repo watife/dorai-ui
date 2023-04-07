@@ -1,3 +1,15 @@
+# v1.1.5 (Fri Apr 07 2023)
+
+#### 🐛 Bug Fix
+
+- fix: combobox selected value not propagating [#120](https://github.com/watife/dorai-ui/pull/120) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.1.4 (Fri Apr 07 2023)
 
 #### 🐛 Bug Fix

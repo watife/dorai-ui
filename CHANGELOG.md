@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@dorai-ui/combobox@1.1.5`
+  - fix: combobox selected value not propagating [#120](https://github.com/watife/dorai-ui/pull/120) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
+# (Fri Apr 07 2023)
+
+#### 🐛 Bug Fix
+
 - `@dorai-ui/combobox@1.1.4`
   - fix: combobox root type missing [#119](https://github.com/watife/dorai-ui/pull/119) ([@watife](https://github.com/watife))
 
