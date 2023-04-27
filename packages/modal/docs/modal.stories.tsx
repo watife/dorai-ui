@@ -44,7 +44,13 @@ export const Controlled: ComponentStory<typeof Modal> =
   function AccordionComponent({ ...args }) {
     return (
       <Modal {...args}>
-        <Modal.Trigger>Open Modal</Modal.Trigger>
+        <Modal.Trigger
+          onClick={(e: any) => {
+            console.log(e.target)
+          }}
+        >
+          Open Modal
+        </Modal.Trigger>
         <Modal.Group>
           <Modal.Overlay
             style={{
@@ -76,8 +82,10 @@ export default {
   component: Modal,
   args: {
     isOpen: false,
-    persistOnOpen: true,
+    persistOnOpen: false,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onClick: () => {}
+    onClick: (e: any) => {
+      console.log(e)
+    }
   }
 } as ComponentMeta<typeof Modal>

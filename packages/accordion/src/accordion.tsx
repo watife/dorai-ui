@@ -1,9 +1,9 @@
-import React from 'react'
 import { callAll } from '@dorai-ui/utils/call-all'
 import { GetId } from '@dorai-ui/utils/get-id'
+import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
 import { mergeRefs } from '@dorai-ui/utils/merge-refs'
 import * as Polymorphic from '@dorai-ui/utils/polymorphic'
-import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
+import React from 'react'
 
 enum TypeEnum {
   Single = 'single',
@@ -321,7 +321,7 @@ const Trigger: TriggerType = React.forwardRef(
         aria-expanded={open}
         aria-controls={contentIds?.panelId || undefined}
         onClick={handleClickEvent}
-        onKeyDown={(event) => handleKeyEvent(event)}
+        onKeyDown={callAll(props.onKeyDown, handleKeyEvent)}
         {...props}
         ref={ref}
       >
