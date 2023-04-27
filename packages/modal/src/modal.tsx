@@ -88,22 +88,43 @@ const useModalContext = (component: string) => {
  * Modal Group composes the other components
  *
  */
+// type ModalGroupOwnProps = {
+//   children: React.ReactNode
+// }
+// type ModalProps<C extends React.ElementType> =
+//   Polymorphic.ComponentPropsWithRef<C, ModalGroupOwnProps>
+
+// const __DEFAULT_MODAL_GROUP_TAG__ = 'div'
+
+// type ModalGroupType = <
+//   C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__
+// >(
+//   props: ModalProps<C>
+// ) => React.ReactElement | null
+
+// const Group: ModalGroupType = React.forwardRef(
+//   <C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__>(
+//     { as, children, ...props }: ModalProps<C>,
+//     ref: Polymorphic.Ref<C>
+//   )
+
 type ModalGroupOwnProps = {
   children: React.ReactNode
 }
+
 type ModalProps<C extends React.ElementType> =
   Polymorphic.ComponentPropsWithRef<C, ModalGroupOwnProps>
 
 const __DEFAULT_MODAL_GROUP_TAG__ = 'div'
 
 type ModalGroupType = <
-  C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__
+  C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__
 >(
   props: ModalProps<C>
 ) => React.ReactElement | null
 
 const Group: ModalGroupType = React.forwardRef(
-  <C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__>(
+  <C extends React.ElementType = typeof __DEFAULT_TRIGGER_TAG__>(
     { as, children, ...props }: ModalProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
@@ -198,15 +219,17 @@ const Trigger: TriggerType = React.forwardRef(
 
     const TagName = as || __DEFAULT_TRIGGER_TAG__
 
-    const handleClicks = callAll(props.onClick, () => context.setIsOpen(true))
-
-    const propsHandled = {
-      ...props,
-      onClick: handleClicks
+    function propsClick(e: React.MouseEvent<HTMLElement, MouseEvent>) {
+      e.stopPropagation()
+      if (props.onClick) {
+        props.onClick(e)
+      }
     }
 
+    const handleClick = callAll(propsClick, () => context.setIsOpen(true))
+
     return (
-      <TagName {...propsHandled} ref={ref}>
+      <TagName {...props} ref={ref} onClick={handleClick}>
         {children}
       </TagName>
     )
@@ -240,11 +263,18 @@ const Close: CloseType = React.forwardRef(
 
     const TagName = as || __DEFAULT_CLOSE_TAG__
 
-    const handleClicks = callAll(props.onClick, () => context.setIsOpen(false))
+    function propsClick(e: React.MouseEvent<HTMLElement, MouseEvent>) {
+      e.stopPropagation()
+      if (props.onClick) {
+        props.onClick(e)
+      }
+    }
+
+    const handleClick = callAll(propsClick, () => context.setIsOpen(false))
 
     const propsHandled = {
       ...props,
-      onClick: handleClicks
+      onClick: handleClick
     }
 
     return (
@@ -318,20 +348,40 @@ const Overlay: OverlayType = React.forwardRef(
 
     const mergedRef = mergeRefs([overlayRef, ref])
 
-    const closeModal = callAll(props.onClick, () => context.setIsOpen(false))
+    function propsClick(
+      e:
+        | React.MouseEvent<HTMLElement, MouseEvent>
+        | React.KeyboardEvent<HTMLElement>
+    ) {
+      e.stopPropagation()
+
+      if (props.onClick) {
+        props.onClick(e)
+      }
+
+      if (props.onMouseDown) {
+        props.onMouseDown(e)
+      }
+
+      if (props.onKeyDown) {
+        props.onKeyDown(e)
+      }
+    }
+
+    const closeModal = callAll(propsClick, () => context.setIsOpen(false))
 
     const handleCloseOnOverlay = (
       event: React.MouseEvent<HTMLElement, MouseEvent>
     ) => {
       if (event.target === overlayRef.current && !context.persistOnOpen) {
-        closeModal()
+        closeModal(event)
       }
     }
 
     const handleEvent = (event: React.KeyboardEvent<HTMLElement>): void => {
       if (event.key === KeyBoardKeys.Escape) {
         event.stopPropagation()
-        closeModal()
+        closeModal(event)
       }
     }
 

@@ -1,6 +1,6 @@
 const callAll =
-  (...fns: ((args: unknown[]) => void)[]) =>
-  (...args: unknown[]) =>
-    fns.forEach((fn) => fn && fn([...args]))
+  <T extends any[]>(...fns: Array<(...args: T) => void>) =>
+  (...args: T) =>
+    fns.forEach((fn) => fn?.(...args))
 
 export { callAll }

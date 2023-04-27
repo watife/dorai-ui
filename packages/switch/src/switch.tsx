@@ -1,10 +1,10 @@
 import React from 'react'
 
+import { Label, LabelContextProvider, useLabelValue } from '@dorai-ui/label'
 import { callAll } from '@dorai-ui/utils/call-all'
 import { GetId } from '@dorai-ui/utils/get-id'
-import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
-import { LabelContextProvider, useLabelValue, Label } from '@dorai-ui/label'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
 
 const GroupContext = React.createContext<{
   id: string
@@ -152,7 +152,7 @@ const SwitchRoot: RootType = React.forwardRef(
         aria-labelledby={ids}
         id={id}
         tabIndex={0}
-        onKeyDown={(e) => callAll(props.keyDown, () => handleKeyEvent(e))}
+        onKeyDown={callAll(props.keyDown, handleKeyEvent)}
         {...propsHandled}
         ref={ref}
         value={value}
