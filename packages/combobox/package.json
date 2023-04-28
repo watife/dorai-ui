@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/combobox",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Combobox from dorai-ui",
   "keywords": [
     "react",
@@ -27,8 +27,8 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/portal": "^2.2.0",
-    "@dorai-ui/utils": "^2.2.0"
+    "@dorai-ui/portal": "^2.2.1",
+    "@dorai-ui/utils": "^2.2.1"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
