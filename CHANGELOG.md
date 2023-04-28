@@ -1,3 +1,20 @@
+# (Fri Apr 28 2023)
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/accordion@3.2.1`, `@dorai-ui/alert-dialog@1.2.1`, `@dorai-ui/combobox@1.1.6`, `@dorai-ui/modal@2.2.1`, `@dorai-ui/switch@4.2.1`, `@dorai-ui/utils@2.2.1`
+  - fix: stop triggers propagating and callall functions [#122](https://github.com/watife/dorai-ui/pull/122) ([@watife](https://github.com/watife))
+
+#### ⚠️ Pushed to `main`
+
+- Update release.yml ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Fri Apr 07 2023)
 
 #### 🐛 Bug Fix
