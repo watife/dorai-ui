@@ -12,6 +12,10 @@ const focuableTags = [
   "[contentEditable=true]:not([tabIndex='-1'])"
 ].join(',')
 
+/**
+ * @deprecated This component is deprecated in favour of react-focus-lock and will be removed in the next major release.
+ */
+
 function useFocusLock(
   wrapper: React.MutableRefObject<HTMLElement | null>,
   initialFocus?: React.MutableRefObject<HTMLElement | null>
