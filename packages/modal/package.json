@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/modal",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "@dorai-ui accessible modal",
   "keywords": [
     "react",
@@ -28,9 +28,9 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/description": "^2.2.1",
-    "@dorai-ui/portal": "^2.2.1",
-    "@dorai-ui/utils": "^2.2.1",
+    "@dorai-ui/description": "^2.2.2",
+    "@dorai-ui/portal": "^2.2.2",
+    "@dorai-ui/utils": "^2.2.2",
     "react-focus-lock": "^2.9.4"
   },
   "peerDependencies": {

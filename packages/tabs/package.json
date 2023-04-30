@@ -1,6 +1,6 @@
 {
   "name": "@dorai-ui/tabs",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "dorai-ui tabs",
   "keywords": [
     "react",
@@ -27,7 +27,7 @@
     "url": "git+https://github.com/watife/dorai-ui.git"
   },
   "dependencies": {
-    "@dorai-ui/utils": "^2.2.1"
+    "@dorai-ui/utils": "^2.2.2"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
