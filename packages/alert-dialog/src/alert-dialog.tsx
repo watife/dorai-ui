@@ -1,8 +1,8 @@
-import React from 'react'
 import { Modal, useModalContext } from '@dorai-ui/modal'
-import * as Polymorphic from '@dorai-ui/utils/polymorphic'
-import { mergeRefs } from '@dorai-ui/utils/merge-refs'
 import { callAll } from '@dorai-ui/utils/call-all'
+import { mergeRefs } from '@dorai-ui/utils/merge-refs'
+import * as Polymorphic from '@dorai-ui/utils/polymorphic'
+import React from 'react'
 
 /**
  * Alert Dialog Context
@@ -63,25 +63,27 @@ const Root = ({ children, ...props }: ModalType) => {
  *
  *
  */
-type GroupOwnProps = {
+type ModalGroupOwnProps = {
   children: React.ReactNode
 }
 
-type GroupProps<C extends React.ElementType> =
-  Polymorphic.ComponentPropsWithRef<C, GroupOwnProps>
+type ModalProps<C extends React.ElementType> =
+  Polymorphic.ComponentPropsWithRef<C, ModalGroupOwnProps>
 
-const __DEFAULT_GROUP_TAG__ = 'div'
+const __DEFAULT_MODAL_GROUP_TAG__ = 'div'
 
-type GroupType = <C extends React.ElementType = typeof __DEFAULT_GROUP_TAG__>(
-  props: GroupProps<C>
+type ModalGroupType = <
+  C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__
+>(
+  props: ModalProps<C>
 ) => React.ReactElement | null
 
-const Group: GroupType = React.forwardRef(
-  <C extends React.ElementType = typeof __DEFAULT_GROUP_TAG__>(
-    { as, children, ...props }: GroupProps<C>,
+const Group: ModalGroupType = React.forwardRef(
+  <C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__>(
+    { as, children, ...props }: ModalProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
-    const TagName = as || __DEFAULT_GROUP_TAG__
+    const TagName = as || __DEFAULT_MODAL_GROUP_TAG__
 
     return (
       <Modal.Group as={TagName} role='alertdialog' {...props} ref={ref}>
@@ -116,11 +118,11 @@ const Cancel: CancelType = React.forwardRef(
     { as, children, ...props }: CancelProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
+    const TagName = as || __DEFAULT_CANCEL_TAG__
+
     const { cancelRef } = useAlertDialogContext('Cancel')
 
     const mergedRef = mergeRefs([cancelRef, ref])
-
-    const TagName = as || __DEFAULT_CANCEL_TAG__
 
     return (
       <Modal.Close as={TagName} {...props} ref={mergedRef}>
@@ -159,7 +161,14 @@ const Action: ActionType = React.forwardRef(
 
     const { setIsOpen } = useModalContext('Action')
 
-    const handleClickEvent = callAll(props.onClick, () => setIsOpen(false))
+    function propsClick(e: React.MouseEvent<HTMLElement, MouseEvent>) {
+      e.stopPropagation()
+      if (props.onClick) {
+        props.onClick(e)
+      }
+    }
+
+    const handleClickEvent = callAll(propsClick, () => setIsOpen(false))
 
     const propsHandled = {
       ...props,

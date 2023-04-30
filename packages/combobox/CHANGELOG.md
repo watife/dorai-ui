@@ -1,3 +1,15 @@
+# v1.1.6 (Fri Apr 28 2023)
+
+#### 🐛 Bug Fix
+
+- fix: stop triggers propagating and callall functions [#122](https://github.com/watife/dorai-ui/pull/122) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.1.5 (Fri Apr 07 2023)
 
 #### 🐛 Bug Fix
