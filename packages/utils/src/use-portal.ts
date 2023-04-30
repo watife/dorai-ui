@@ -22,10 +22,15 @@ function usePortal(type?: string) {
   React.useEffect(function setupElement() {
     if (!rootElemRef.current) return
 
+    rootElemRef.current.addEventListener('onClick', (e) => e.stopPropagation())
     addRootElement(rootElemRef.current)
 
     return function removeElement() {
-      rootElemRef.current && rootElemRef.current.remove()
+      if (!rootElemRef.current) return
+      rootElemRef.current.removeEventListener('onClick', (e) =>
+        e.stopPropagation()
+      )
+      rootElemRef.current.remove()
     }
   }, [])
 

@@ -10,8 +10,8 @@ import { callAll } from '@dorai-ui/utils/call-all'
 import { KeyBoardKeys } from '@dorai-ui/utils/keyboard'
 import { mergeRefs } from '@dorai-ui/utils/merge-refs'
 import * as Polymorphic from '@dorai-ui/utils/polymorphic'
-import { useFocusLock } from '@dorai-ui/utils/use-focus-lock'
 import { useOutsideClick } from '@dorai-ui/utils/use-outside-click'
+import FocusLock from 'react-focus-lock'
 
 /**
  *
@@ -83,31 +83,6 @@ const useModalContext = (component: string) => {
   return context
 }
 
-/**
- *
- * Modal Group composes the other components
- *
- */
-// type ModalGroupOwnProps = {
-//   children: React.ReactNode
-// }
-// type ModalProps<C extends React.ElementType> =
-//   Polymorphic.ComponentPropsWithRef<C, ModalGroupOwnProps>
-
-// const __DEFAULT_MODAL_GROUP_TAG__ = 'div'
-
-// type ModalGroupType = <
-//   C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__
-// >(
-//   props: ModalProps<C>
-// ) => React.ReactElement | null
-
-// const Group: ModalGroupType = React.forwardRef(
-//   <C extends React.ElementType = typeof __DEFAULT_MODAL_GROUP_TAG__>(
-//     { as, children, ...props }: ModalProps<C>,
-//     ref: Polymorphic.Ref<C>
-//   )
-
 type ModalGroupOwnProps = {
   children: React.ReactNode
 }
@@ -145,8 +120,11 @@ const Group: ModalGroupType = React.forwardRef(
       }
     }
 
-    // lock focus within the modal
-    useFocusLock(internalRef, context.initialFocus)
+    const enableFocusLock = React.useCallback(() => {
+      if (context.initialFocus && context.initialFocus.current) {
+        context.initialFocus.current.focus()
+      }
+    }, [context.initialFocus])
 
     useOutsideClick(internalRef, () => {
       if (!context.persistOnOpen) {
@@ -173,18 +151,29 @@ const Group: ModalGroupType = React.forwardRef(
 
     return (
       <DoraiPortal id='modal-portal'>
-        <TagName
-          aria-modal
-          role='dialog'
-          tabIndex={-1}
-          aria-labelledby='dorai-ui-modal-title'
-          aria-describedby={descriptionContext?.ids}
-          ref={mergedRef}
-          onKeyDown={handleEvent}
-          {...props}
+        <FocusLock
+          autoFocus
+          returnFocus
+          onActivation={enableFocusLock}
+          disabled={!context.isOpen}
         >
-          {children}
-        </TagName>
+          <TagName
+            aria-modal
+            role='dialog'
+            tabIndex={-1}
+            aria-labelledby='dorai-ui-modal-title'
+            aria-describedby={descriptionContext?.ids}
+            ref={mergedRef}
+            onKeyDown={handleEvent}
+            {...props}
+            onClick={(event) => {
+              event.stopPropagation()
+              props.onClick && props.onClick(event)
+            }}
+          >
+            {children}
+          </TagName>
+        </FocusLock>
       </DoraiPortal>
     )
   }
@@ -235,7 +224,6 @@ const Trigger: TriggerType = React.forwardRef(
     )
   }
 )
-
 /**
  *
  * Modal Close component for opening and closing modal dialog

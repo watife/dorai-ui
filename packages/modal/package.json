@@ -30,7 +30,8 @@
   "dependencies": {
     "@dorai-ui/description": "^2.2.1",
     "@dorai-ui/portal": "^2.2.1",
-    "@dorai-ui/utils": "^2.2.1"
+    "@dorai-ui/utils": "^2.2.1",
+    "react-focus-lock": "^2.9.4"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
