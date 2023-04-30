@@ -1,3 +1,16 @@
+# (Sun Apr 30 2023)
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/modal@2.2.2`, `@dorai-ui/portal@2.2.2`, `@dorai-ui/utils@2.2.2`
+  - fix: modal focus trap [#123](https://github.com/watife/dorai-ui/pull/123) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Fri Apr 28 2023)
 
 #### 🐛 Bug Fix
