@@ -18,12 +18,11 @@ const Template: ComponentStory<typeof Combobox> = (args) => {
 
   return (
     <div>
-      <Combobox {...args}>
+      <Combobox {...args} defaultInputValue={query}>
         <Combobox.Input
           as='input'
           openOnFocus={true}
           onChange={(e) => setQuery(e.target.value)}
-          defaultValue={query}
         />
         <Combobox.Options>
           {filteredData(query).map((item) => (
@@ -33,8 +32,11 @@ const Template: ComponentStory<typeof Combobox> = (args) => {
               onClick={() => console.log(item.age)}
             >
               {({ active, selected }) => {
-                console.log(active, selected)
-                return <span>{item.name}</span>
+                return (
+                  <span style={{ color: selected ? 'red' : 'black' }}>
+                    {item.name}
+                  </span>
+                )
               }}
             </Combobox.Option>
           ))}
