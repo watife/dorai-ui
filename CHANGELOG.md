@@ -1,3 +1,16 @@
+# (Mon May 01 2023)
+
+#### 🐛 Bug Fix
+
+- `@dorai-ui/combobox@1.1.8`
+  - fix: combobox default value not selected [#124](https://github.com/watife/dorai-ui/pull/124) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # (Sun Apr 30 2023)
 
 #### 🐛 Bug Fix
