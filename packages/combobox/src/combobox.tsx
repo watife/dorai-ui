@@ -140,6 +140,7 @@ const ComboboxContext = React.createContext<{
   handleSelectOption: <T>(option: Omit<OptionRef<T>, 'optRef'>) => void
   handleNeutralNextFocusable: (nextValue: number) => void
   handleSetValue: (value: string) => void
+  defaultInputValue?: string
 } | null>(null)
 
 type RootOwnProps<T> = {
@@ -147,6 +148,7 @@ type RootOwnProps<T> = {
   value: T
   onSelect: React.Dispatch<React.SetStateAction<T>>
   autocomplete?: boolean
+  defaultInputValue?: string
 }
 
 type RootProps<
@@ -165,7 +167,7 @@ type RootType = <
 
 const Root: RootType = React.forwardRef(
   <T, C extends React.ElementType = typeof __DEFAULT_COMBOBOX_TAG__>(
-    { as, children, value, ...props }: RootProps<T, C>,
+    { as, children, value, defaultInputValue, ...props }: RootProps<T, C>,
     ref: Polymorphic.Ref<C>
   ) => {
     const [state, dispatch] = React.useReducer(reducer, {
@@ -274,6 +276,7 @@ const Root: RootType = React.forwardRef(
     const context = React.useMemo(
       () => ({
         value,
+        defaultInputValue,
         registerOption,
         unregisterOption,
         handleSetOptionsState,
@@ -287,6 +290,7 @@ const Root: RootType = React.forwardRef(
       }),
       [
         value,
+        defaultInputValue,
         registerOption,
         unregisterOption,
         handleSetOptionsState,
@@ -295,8 +299,7 @@ const Root: RootType = React.forwardRef(
         handleNeutralNextFocusable,
         handleSelectOption,
         handleSetValue,
-        state,
-        inputRef
+        state
       ]
     )
 
@@ -333,7 +336,6 @@ type InputOwnProps = {
   openOnFocus?: boolean
   beforeTrigger?: number
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  defaultValue?: string
 }
 
 type InputProps<C extends React.ElementType> =
@@ -347,7 +349,7 @@ type InputType = <C extends React.ElementType = typeof __DEFAULT_INPUT_TAG__>(
 
 const Input: InputType = React.forwardRef(
   <C extends React.ElementType = typeof __DEFAULT_INPUT_TAG__>(
-    { as, openOnFocus = true, defaultValue, ...props }: InputProps<C>,
+    { as, openOnFocus = true, ...props }: InputProps<C>,
     ref: Polymorphic.Ref<C>
   ) => {
     const {
@@ -355,6 +357,7 @@ const Input: InputType = React.forwardRef(
       handleNeutralNextFocusable,
       handleSelectOption,
       inputRef,
+      defaultInputValue,
       state
     } = useRootValue('Option')
 
@@ -369,7 +372,7 @@ const Input: InputType = React.forwardRef(
     }, [handleSetOptionsState, openOnFocus])
 
     React.useEffect(() => {
-      if (!defaultValue?.length) {
+      if (!defaultInputValue?.length) {
         defaultValueRef.current = true
         return
       }
@@ -379,7 +382,9 @@ const Input: InputType = React.forwardRef(
           [...state.optionRefs],
           (opt) => opt.optRef.current
         )
-        const index = nodes.findIndex((op) => op.textValue === defaultValue)
+        const index = nodes.findIndex(
+          (op) => op.textValue === defaultInputValue
+        )
 
         if (index === -1) return
 
@@ -391,7 +396,7 @@ const Input: InputType = React.forwardRef(
 
         defaultValueRef.current = true
       }
-    }, [defaultValue, handleSelectOption, state.optionRefs])
+    }, [defaultInputValue, handleSelectOption, state.optionRefs])
 
     const handleNextFocusable = React.useCallback(() => {
       let nextFocuableTab = state.nextFocusableIndex
@@ -549,7 +554,7 @@ const Input: InputType = React.forwardRef(
         onKeyDown={handleKeyPress}
         {...handledProps}
         onFocus={handleOnFocus}
-        defaultValue={defaultValue ?? ''}
+        defaultValue={defaultInputValue ?? ''}
         aria-activedescendant={activedescendant()}
         ref={mergedRef}
       />
@@ -644,6 +649,7 @@ const Option: OptionType = React.forwardRef(
       handleSetOptionsState,
       handleSetValue,
       handleSelectOption,
+      defaultInputValue,
       handleNextFocusable,
       handlePreviousFocusable
     } = useRootValue('Option')
@@ -706,7 +712,9 @@ const Option: OptionType = React.forwardRef(
 
     const TagName = as || __DEFAULT_OPTION_TAG__
 
-    const selectedOption = state.selectedOption?.id === id
+    const selectedOption =
+      defaultInputValue === internalRef.current?.textContent?.toLowerCase() ||
+      state.selectedOption?.id === id
 
     const render = () => {
       if (typeof children === 'function') {
