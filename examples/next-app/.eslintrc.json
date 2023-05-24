@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": ["next/core-web-vitals"],
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "parser": "espree",
+      "parserOptions": {
+        "ecmaVersion": 2020
+      }
+    }
+  ]
 }

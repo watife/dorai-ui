@@ -1,19 +1,19 @@
-import "./globals.css";
+import './globals.css'
 
 export const metadata = {
-  title: "DoraiUI NextJS TailwindCSS Typescript Starter",
+  title: 'DoraiUI NextJS TailwindCSS Typescript Starter',
   description:
-    "Example starter create next app with DoraiUI, TailwindCSS and Typescript",
-};
+    'Example starter create next app with DoraiUI, TailwindCSS and Typescript'
+}
 
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>{children}</body>
     </html>
-  );
+  )
 }
