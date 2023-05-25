@@ -1,3 +1,15 @@
+# v2.2.2 (Sun Apr 30 2023)
+
+#### 🐛 Bug Fix
+
+- fix: modal focus trap [#123](https://github.com/watife/dorai-ui/pull/123) ([@watife](https://github.com/watife))
+
+#### Authors: 1
+
+- Fakorede Boluwatife ([@watife](https://github.com/watife))
+
+---
+
 # v1.2.4 (Tue Apr 05 2022)
 
 #### 🐛 Bug Fix
