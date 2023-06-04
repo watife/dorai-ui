@@ -14,7 +14,7 @@
   "scripts": {
     "build": "yarn build:packages",
     "build:packages": "preconstruct build",
-    "lint": "eslint .",
+    "lint": "eslint ./packages",
     "test": "jest",
     "commit": "cz",
     "storybook": "start-storybook -p 6006",
